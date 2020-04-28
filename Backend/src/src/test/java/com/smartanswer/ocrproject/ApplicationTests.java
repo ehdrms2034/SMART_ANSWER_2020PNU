@@ -1,13 +1,13 @@
-package com.example.ocrproject;
+package com.smartanswer.ocrproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OcrprojectApplicationTests {
+class ApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
