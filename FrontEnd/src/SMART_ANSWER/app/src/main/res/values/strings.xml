@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SMART_ANSWER</string>
+    <string name="title_home">홈</string>
+    <string name="title_dashboard">채점결과</string>
+    <string name="title_notifications">공지</string>
+    <string name="title_chatting">채팅</string>
+</resources>
