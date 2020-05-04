@@ -6,22 +6,21 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.domain.Persistable;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document("Member")
 @Getter
 @Setter
-public class Member{
-    @Id
-    private ObjectId _id;
+@Document("Member")
+public class Member {
     @Indexed(unique = true)
     private String username;
     private String password;
     private String name;
+    @Id
+    private ObjectId _id;
     @CreatedDate
     private Date createdAt;
     @LastModifiedDate
@@ -32,4 +31,5 @@ public class Member{
         this.password = password;
         this.name = name;
     }
+
 }

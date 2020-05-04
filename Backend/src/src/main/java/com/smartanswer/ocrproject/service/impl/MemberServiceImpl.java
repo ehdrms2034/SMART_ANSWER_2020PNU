@@ -26,4 +26,9 @@ public class MemberServiceImpl implements MemberService {
     public void createMember(Member member) {
         memberRepository.save(member);
     }
+
+    @Override
+    public Member findOneByUsername(String username) {
+        return memberRepository.findOneByUsername(username);
+    }
 }

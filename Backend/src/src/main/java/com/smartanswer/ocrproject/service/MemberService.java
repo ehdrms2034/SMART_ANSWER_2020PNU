@@ -13,4 +13,6 @@ public interface MemberService {
     List<Member> findAllMembers();
 
     void createMember(Member member);
+
+    Member findOneByUsername(String username);
 }

@@ -17,7 +17,7 @@ class ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		memberService.createMember(new Member("hellos","username","hello"));
+		System.out.println(memberService.findOneByUsername("hellos").getPassword());
 	}
 
 }
