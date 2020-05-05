@@ -2,21 +2,30 @@ package com.smartanswer.ocrproject.controller;
 
 import com.smartanswer.ocrproject.model.CustomResponse;
 import com.smartanswer.ocrproject.model.Member;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.smartanswer.ocrproject.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/member")
 public class MemberController {
 
-    @GetMapping("/createMember")
+    @Autowired
+    MemberService memberService;
+
+    @PostMapping("/createMember")
     CustomResponse createMember(@RequestBody Member member){
-        System.out.println("하이");
+        try{
+            memberService.createMember(member);
+            return new CustomResponse("success","회원가입이 성공적으로 완료됐습니다.",member);
+        }catch(Exception e){
+            return new CustomResponse("error","회원가입중 문제가 발생했습니다.",e.getMessage());
+        }
+    }
 
-        return new CustomResponse("success","회원가입이 성공적으로 완료됐습니다.",member);
-
+    @PostMapping("/loginMember")
+    CustomResponse loginMember(@RequestBody Member member){
+        return new CustomResponse("","",null);
     }
 
 }
