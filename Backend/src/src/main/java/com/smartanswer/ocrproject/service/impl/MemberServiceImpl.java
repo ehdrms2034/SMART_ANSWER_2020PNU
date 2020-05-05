@@ -31,4 +31,12 @@ public class MemberServiceImpl implements MemberService {
     public Member findOneByUsername(String username) {
         return memberRepository.findOneByUsername(username);
     }
+
+    @Override
+    public Member login(String username, String password) throws Exception {
+        Member member = memberRepository.findOneByUsername(username);
+        if (member == null) throw new Exception("MemberServiceImpl : 선택한 유저를 찾을 수가 없습니다.");
+        if (!member.getPassword().equals(password)) throw new Exception("MemberServiceImpl : 유저의 비밀번호가 틀렸습니다.");
+        return member;
+    }
 }
