@@ -45,7 +45,7 @@ public class MemberController {
             response.addCookie(accessToken);
             return new CustomResponse("success","로그인을 성공적으로 수행했습니다.",null);
         } catch (Exception e) {
-            return new CustomResponse("error","로그인 중 오류가 발생했습니다.",null);
+            return new CustomResponse("error","로그인 중 오류가 발생했습니다.",e);
         }
     }
 
