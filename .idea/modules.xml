@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SMART_ANSWER_2020PNU.iml" filepath="$PROJECT_DIR$/.idea/SMART_ANSWER_2020PNU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FrontEnd/src/SMART_ANSWER/app/src/androidTest/androidTest.iml" filepath="$PROJECT_DIR$/FrontEnd/src/SMART_ANSWER/app/src/androidTest/androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FrontEnd/src/SMART_ANSWER/app/src/main/main.iml" filepath="$PROJECT_DIR$/FrontEnd/src/SMART_ANSWER/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FrontEnd/src/SMART_ANSWER/app/src/test/test.iml" filepath="$PROJECT_DIR$/FrontEnd/src/SMART_ANSWER/app/src/test/test.iml" />
     </modules>
   </component>
 </project>
