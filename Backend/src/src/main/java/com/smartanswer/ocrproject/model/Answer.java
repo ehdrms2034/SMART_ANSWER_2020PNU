@@ -29,5 +29,4 @@ public class Answer {
         this.photourl = photourl;
         this.point = point;
     }
-
 }

@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class AnswerServiceImpl implements AnswerService {
@@ -20,6 +19,6 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Answer getPoint(String id, Date date){
-        return answerRepository.findByIdAndDate(id,date);
+        return answerRepository.findByOwner(id);
     }
 }

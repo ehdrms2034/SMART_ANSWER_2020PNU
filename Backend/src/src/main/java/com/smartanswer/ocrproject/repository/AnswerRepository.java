@@ -9,6 +9,6 @@ import java.util.Date;
 
 @Repository
 public interface AnswerRepository extends MongoRepository<Answer,Long> {
-    Answer findByIdAndDate(String id, Date date);
+    Answer findByOwner(String owner);
 }
 
