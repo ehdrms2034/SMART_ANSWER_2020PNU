@@ -6,18 +6,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment" >
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <TextView
-        android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:gravity="center"
+        android:text="Quiz Supporter"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="@drawable/home_background"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="136dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#00ff0000"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/resultBtn"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:background="#00ff0000"
+                android:stateListAnimator="@null"
+                android:text="채점" />
+            <Button
+                android:id="@+id/scoreBtn"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="80dp"
+                android:background="#00ff0000"
+                android:stateListAnimator="@null"
+                android:text="점수 확인" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="#00ff0000"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/messageBtn"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:background="#00ff0000"
+                android:stateListAnimator="@null"
+                android:text="메세지" />
+            <Button
+                android:id="@+id/notificationBtn"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="80dp"
+                android:background="#00ff0000"
+                android:stateListAnimator="@null"
+                android:text="공지사항" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_background_2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="597dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
