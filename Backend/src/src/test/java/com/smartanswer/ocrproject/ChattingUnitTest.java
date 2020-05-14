@@ -1,5 +1,6 @@
 package com.smartanswer.ocrproject;
 
+import com.smartanswer.ocrproject.model.ChatMessage;
 import com.smartanswer.ocrproject.model.ChattingRoom;
 import com.smartanswer.ocrproject.model.Member;
 import com.smartanswer.ocrproject.service.ChattingService;
@@ -11,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class ChatRoomUnitTest {
+public class ChattingUnitTest {
 
     @Autowired
     private MemberService memberService;
@@ -42,6 +43,33 @@ public class ChatRoomUnitTest {
         try {
             chatRooms = chattingService.getChattingRoomList(member);
             System.out.println("와하우:" + chatRooms.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void createChatmessage(){
+        Member member = memberService.findOneByUsername("test1");
+        try {
+            List<ChattingRoom> chattingRooms = chattingService.getChattingRoomList(member);
+            ChattingRoom chatRoom = chattingRooms.get(0);
+            chattingService.makeChattingMessage(chatRoom,member,"만나서 반갑습니다");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void getChatMessages(){
+        Member member = memberService.findOneByUsername("test1");
+        try{
+            List<ChattingRoom> chattingRooms = chattingService.getChattingRoomList(member);
+            ChattingRoom chatRoom = chattingRooms.get(0);
+            List<ChatMessage> chatMessages = chattingService.getChattingMessages(chatRoom);
+            for(ChatMessage message : chatMessages){
+                System.out.println(message.getMember().getUsername()+ " : " + message.getMessage());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
