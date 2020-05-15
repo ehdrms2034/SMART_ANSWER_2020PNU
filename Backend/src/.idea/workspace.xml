@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3ead190-4467-4366-86f2-94fdc376dc4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/model/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/model/ChattingRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/repository/ChattingMessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/repository/ChattingRoomRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/ChattingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/impl/ChattingServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/smartanswer/ocrproject/ChattingUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/smartanswer/ocrproject/MemberUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FrontEnd/docs/~$스토리보드_3.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/model/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/MyUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/MyUserDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/smartanswer/ocrproject/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smartanswer/ocrproject/ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smartanswer/ocrproject/service/impl/MemberServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,13 +67,13 @@
       <recent name="com.smartanswer.ocrproject.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ChattingUnitTest.getChatMessages">
-    <configuration name="ChatRoomUnitTest.createChatRoom" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.MemberUnitTest.getFriendsList">
+    <configuration name="MemberUnitTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.ChatRoomUnitTest.createChatRoom&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.MemberUnitTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -92,12 +87,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChatRoomUnitTest.getChatRoomList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MemberUnitTest.addFriends" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.ChatRoomUnitTest.getChatRoomList&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.MemberUnitTest.addFriends&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -111,12 +106,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChatRoomUnitTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MemberUnitTest.createMember" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.ChatRoomUnitTest.test&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.MemberUnitTest.createMember&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -130,12 +125,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChattingUnitTest.createChatmessage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MemberUnitTest.getFriendsList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.ChattingUnitTest.createChatmessage&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.MemberUnitTest.getFriendsList&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -149,12 +144,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChattingUnitTest.getChatMessages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MemberUnitTest.scenario" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.ChattingUnitTest.getChatMessages&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.smartanswer.ocrproject.MemberUnitTest.scenario&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -170,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ChattingUnitTest.getChatMessages" />
-        <item itemvalue="Gradle.ChattingUnitTest.createChatmessage" />
-        <item itemvalue="Gradle.ChatRoomUnitTest.createChatRoom" />
-        <item itemvalue="Gradle.ChatRoomUnitTest.getChatRoomList" />
-        <item itemvalue="Gradle.ChatRoomUnitTest.test" />
+        <item itemvalue="Gradle.MemberUnitTest.getFriendsList" />
+        <item itemvalue="Gradle.MemberUnitTest.addFriends" />
+        <item itemvalue="Gradle.MemberUnitTest.scenario" />
+        <item itemvalue="Gradle.MemberUnitTest.createMember" />
+        <item itemvalue="Gradle.MemberUnitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -219,32 +214,32 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="862" y="0" width="818" height="1050" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1589453744542" />
-    <state width="1638" height="194" key="GridCell.Tab.0.bottom" timestamp="1589455093701">
+    <state width="1638" height="194" key="GridCell.Tab.0.bottom" timestamp="1589541283704">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1558" height="298" key="GridCell.Tab.0.bottom/0.0.1680.1050/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588334090540" />
-    <state width="1638" height="194" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1589455093701" />
+    <state width="1638" height="194" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1589541283704" />
     <state width="1558" height="160" key="GridCell.Tab.0.bottom/0.23.1680.1027/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588333915952" />
     <state width="1638" height="194" key="GridCell.Tab.0.bottom/1680.216.1194.834/0.0.1680.1050@0.0.1680.1050" timestamp="1588767869060" />
-    <state width="1638" height="194" key="GridCell.Tab.0.center" timestamp="1589455093700">
+    <state width="1638" height="194" key="GridCell.Tab.0.center" timestamp="1589541283703">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1558" height="298" key="GridCell.Tab.0.center/0.0.1680.1050/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588334090539" />
-    <state width="1638" height="194" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1589455093700" />
+    <state width="1638" height="194" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1589541283703" />
     <state width="1558" height="160" key="GridCell.Tab.0.center/0.23.1680.1027/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588333915951" />
     <state width="1638" height="194" key="GridCell.Tab.0.center/1680.216.1194.834/0.0.1680.1050@0.0.1680.1050" timestamp="1588767869059" />
-    <state width="1638" height="194" key="GridCell.Tab.0.left" timestamp="1589455093699">
+    <state width="1638" height="194" key="GridCell.Tab.0.left" timestamp="1589541283702">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1558" height="298" key="GridCell.Tab.0.left/0.0.1680.1050/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588334090538" />
-    <state width="1638" height="194" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1589455093699" />
+    <state width="1638" height="194" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1589541283702" />
     <state width="1558" height="160" key="GridCell.Tab.0.left/0.23.1680.1027/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588333915950" />
     <state width="1638" height="194" key="GridCell.Tab.0.left/1680.216.1194.834/0.0.1680.1050@0.0.1680.1050" timestamp="1588767869059" />
-    <state width="1638" height="194" key="GridCell.Tab.0.right" timestamp="1589455093701">
+    <state width="1638" height="194" key="GridCell.Tab.0.right" timestamp="1589541283704">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1558" height="298" key="GridCell.Tab.0.right/0.0.1680.1050/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588334090540" />
-    <state width="1638" height="194" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1589455093701" />
+    <state width="1638" height="194" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1589541283704" />
     <state width="1558" height="160" key="GridCell.Tab.0.right/0.23.1680.1027/-1600.150.1600.900@-1600.150.1600.900" timestamp="1588333915952" />
     <state width="1638" height="194" key="GridCell.Tab.0.right/1680.216.1194.834/0.0.1680.1050@0.0.1680.1050" timestamp="1588767869060" />
     <state width="1558" height="298" key="GridCell.Tab.1.bottom" timestamp="1588334090542">
@@ -289,9 +284,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="541" y="266" width="598" height="518" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1589450318639" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1589453828959">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1589538553743">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1589453828959" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1589538553743" />
   </component>
 </project>

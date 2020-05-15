@@ -8,9 +8,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,10 +30,14 @@ public class Member {
     @LastModifiedDate
     private Date modifiedAt;
 
+    @DBRef(lazy = true)
+    ArrayList<Member> friends;
+
     public Member(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.name = name;
+        this.friends = new ArrayList<Member>();
     }
 
 }
