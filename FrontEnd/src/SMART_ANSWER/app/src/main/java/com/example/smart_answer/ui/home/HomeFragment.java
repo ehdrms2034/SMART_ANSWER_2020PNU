@@ -16,22 +16,25 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
+import com.example.smart_answer.ui.chatting.ChattingFragment;
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
+import com.example.smart_answer.ui.notifications.NotificationsFragment;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentManager manager;
     private FragmentTransaction transaction;
+    private Button resultBtn, messageBtn, notificationBtn;
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        btnClick((Button)root.findViewById(R.id.resultBtn),1);
-        btnClick((Button)root.findViewById(R.id.scoreBtn),2);
-        btnClick((Button)root.findViewById(R.id.messageBtn),3);
-        btnClick((Button)root.findViewById(R.id.notificationBtn),4);
+
+        btnClick((Button)root.findViewById(R.id.resultBtn));
+        btnClick((Button)root.findViewById(R.id.messageBtn));
+        btnClick((Button)root.findViewById(R.id.notificationBtn));
         /*final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -40,25 +43,55 @@ public class HomeFragment extends Fragment {
             }
         });*/
         manager = getActivity().getSupportFragmentManager();
-        transaction = manager.beginTransaction();
+
+        //각 버튼 클릭 시 해당 fragment로 이동
+        resultBtn = (Button)root.findViewById(R.id.resultBtn);
+        resultBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DashboardFragment dashboardFragment = new DashboardFragment();
+                ((MainActivity)getActivity()).getNavView().getMenu().getItem(0).setChecked(false);
+                ((MainActivity)getActivity()).getNavView().getMenu().getItem(1).setChecked(true);
+                replaceFragment(dashboardFragment);
+            }
+        });
+        notificationBtn = (Button)root.findViewById(R.id.notificationBtn);
+        notificationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NotificationsFragment notificationsFragment = new NotificationsFragment();
+                ((MainActivity)getActivity()).getNavView().getMenu().getItem(0).setChecked(false);
+                ((MainActivity)getActivity()).getNavView().getMenu().getItem(2).setChecked(true);
+                replaceFragment(notificationsFragment);
+            }
+        });
+        messageBtn = (Button)root.findViewById(R.id.messageBtn);
+        messageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChattingFragment chattingFragment = new ChattingFragment();
+                ((MainActivity)getActivity()).getNavView().getMenu().getItem(0).setChecked(false);
+                ((MainActivity)getActivity()).getNavView().getMenu().getItem(3).setChecked(true);
+                replaceFragment(chattingFragment);
+            }
+        });
 
 
         return root;
     }
+    //fragment 이동
     private void replaceFragment(@NonNull Fragment fragment) {
         transaction = manager.beginTransaction();
         transaction.replace(R.id.nav_host_fragment, fragment);
         transaction.addToBackStack("fragment");
         transaction.commit();
     }
-    private void btnClick(Button btn,final int page){
+
+    private void btnClick(Button btn){
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DashboardFragment dashboardFragment = new DashboardFragment();
-                Bundle bundle = new Bundle();
-                bundle.putInt("page",page);
-                dashboardFragment.setArguments(bundle);
                 ((MainActivity)getActivity()).getNavView().getMenu().getItem(0).setChecked(false);
                 ((MainActivity)getActivity()).getNavView().getMenu().getItem(1).setChecked(true);
                 replaceFragment(dashboardFragment);

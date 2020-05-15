@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
     BottomNavigationView navView;
-    Button dashboardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,4 +61,14 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.nav_host_fragment, fragment);
         transaction.commit();
     }*/
+
+    @Override
+    public void onBackPressed() {
+        // 뒤로가기버튼 누를 시 네비바 홈으로 초기화
+        for(int i=0;i<4;i++){
+            navView.getMenu().getItem(i).setChecked(false);
+        }
+        navView.getMenu().getItem(0).setChecked(true);
+        super.onBackPressed();
+    }
 }

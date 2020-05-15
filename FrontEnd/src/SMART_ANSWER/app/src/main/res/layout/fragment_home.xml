@@ -5,48 +5,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".ui.home.HomeFragment" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#ffffff"
         android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
         android:gravity="center"
         android:text="Quiz Supporter"
-        android:textSize="20dp"
+        android:textSize="30sp"
+        android:fontFamily="@font/segoeui"
+        android:textColor="#707070"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/home_background"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="136dp">
+        tools:ignore="MissingConstraints">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="27dp"
             android:background="#00ff0000"
             android:orientation="horizontal">
             <Button
-                android:id="@+id/resultBtn"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
+                android:id="@+id/photoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:background="#00ff0000"
                 android:stateListAnimator="@null"
-                android:text="채점" />
+                android:text="채점"
+                android:textSize="30sp"
+                android:fontFamily="@font/segoeui"
+                android:textColor="#707070"/>
             <Button
-                android:id="@+id/scoreBtn"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="80dp"
+                android:id="@+id/resultBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="51dp"
                 android:background="#00ff0000"
                 android:stateListAnimator="@null"
-                android:text="점수 확인" />
+                android:text="점수확인"
+                android:textSize="30sp"
+                android:fontFamily="@font/segoeui"
+                android:textColor="#707070"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,27 +68,33 @@
             android:orientation="horizontal">
             <Button
                 android:id="@+id/messageBtn"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:background="#00ff0000"
                 android:stateListAnimator="@null"
-                android:text="메세지" />
+                android:text="메세지"
+                android:textSize="30sp"
+                android:fontFamily="@font/segoeui"
+                android:textColor="#707070"/>
             <Button
                 android:id="@+id/notificationBtn"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:background="#00ff0000"
                 android:stateListAnimator="@null"
-                android:text="공지사항" />
+                android:text="공지사항"
+                android:textSize="30sp"
+                android:fontFamily="@font/segoeui"
+                android:textColor="#707070"/>
         </LinearLayout>
     </LinearLayout>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/home_background_2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="597dp" />
+        android:background="#ffffff"
+        tools:ignore="MissingConstraints" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
