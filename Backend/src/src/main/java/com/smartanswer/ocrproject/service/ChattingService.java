@@ -15,4 +15,5 @@ public interface ChattingService {
     public List<ChattingRoom> getChattingRoomList(Member member) throws Exception;
 
     List<ChatMessage> getChattingMessages(ChattingRoom chattingRoom) throws  Exception;
+
 }
