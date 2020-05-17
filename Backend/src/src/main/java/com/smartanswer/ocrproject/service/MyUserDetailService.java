@@ -20,7 +20,8 @@ public class MyUserDetailService implements UserDetailsService {
 
         Member member = memberRepository.findOneByUsername(username);
         if(member==null){
-            throw new UsernameNotFoundException( username+ " : 사용자 존재하지 않음");
+            System.out.println("하이하이");
+            throw new UsernameNotFoundException(username+ " : 사용자 존재하지 않음");
         }
         return new SecurityMember(member);
     }

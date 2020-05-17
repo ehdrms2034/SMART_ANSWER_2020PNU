@@ -1,6 +1,6 @@
 package com.smartanswer.ocrproject;
 
-import com.smartanswer.ocrproject.model.Member;
+
 import com.smartanswer.ocrproject.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -15,26 +15,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = {"spring.config.location=classpath:application-test.properties"})
-@AutoConfigureMockMvc
+@SpringBootTest
 class ApplicationTests {
-
-	@Autowired
-	MockMvc mockMvc;
 
 	@Autowired
 	private MemberService memberService;
 
-	@Test
-	void contextLoads() {
-		System.out.println(memberService.findOneByUsername("hellos").getPassword());
-	}
 
 	@Test
-	void createUser() throws Exception {
-		mockMvc.perform(get("/api/member/createMember"))
-				.andExpect(status().isOk())
-				.andDo(print());
+	void contextLoads() {
+
+	}
+
+
+	@Test
+	void createChattingRoom(){
+		System.out.println("헬로우");
 	}
 
 }
