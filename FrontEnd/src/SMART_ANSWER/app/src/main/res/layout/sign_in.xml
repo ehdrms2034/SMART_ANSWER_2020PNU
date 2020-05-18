@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_in"
+        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        tools:ignore="MissingConstraints"
+        android:background="#ebebeb">
+
+
+        <TextView
+            android:id="@+id/sign_ID"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="104dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:text="ID"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.089" />
+
+        <TextView
+            android:id="@+id/sign_password"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="104dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:text="Password"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_ID"
+            app:layout_constraintVertical_bias="0.001" />
+
+        <EditText
+            android:id="@+id/ID"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border_layout"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layout_constraintLeft_toRightOf="@id/sign_ID"
+            tools:layout_editor_absoluteY="82dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:background="@drawable/border_layout"
+            app:layout_constraintLeft_toRightOf="@id/sign_password"
+            app:layout_constraintTop_toBottomOf="@id/ID"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="#707070"
+            android:text="sign in"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="231dp"></com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="register"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="320dp"></com.google.android.material.button.MaterialButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

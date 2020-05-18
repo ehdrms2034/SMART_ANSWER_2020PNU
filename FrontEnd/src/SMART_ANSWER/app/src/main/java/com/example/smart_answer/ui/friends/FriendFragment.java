@@ -1,0 +1,49 @@
+package com.example.smart_answer.ui.friends;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.smart_answer.R;
+import com.example.smart_answer.recycler.RecyclerFriend;
+import com.example.smart_answer.recycler.RecyclerDashboardAdapter;
+import com.example.smart_answer.recycler.RecyclerFriendAdapter;
+
+import java.util.ArrayList;
+
+public class FriendFragment extends Fragment {
+    private ArrayList<RecyclerFriend> arrayList;
+    private RecyclerFriendAdapter adapter;
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_friends, container, false);
+
+        recyclerView = (RecyclerView)root.findViewById(R.id.recycler_friends) ;
+        adapter = new RecyclerFriendAdapter();
+
+
+        RecyclerFriend data1 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
+        RecyclerFriend data2 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
+        RecyclerFriend data3 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
+        RecyclerFriend data4 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
+
+
+        adapter.addItem(data1);
+        adapter.addItem(data2);
+        adapter.addItem(data3);
+        adapter.addItem(data4);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+
+        return root;
+    }
+}

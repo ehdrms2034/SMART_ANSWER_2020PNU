@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
+
+import com.example.smart_answer.ui.chatting.ChattingView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
     BottomNavigationView navView;
+    ChattingView chattingFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_friends)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

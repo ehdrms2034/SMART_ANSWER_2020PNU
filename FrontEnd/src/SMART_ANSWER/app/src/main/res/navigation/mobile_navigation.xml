@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/navigation_chatting"
-        android:name="com.example.smart_answer.ui.chatting.ChattingFragment"
+        android:id="@+id/navigation_friends"
+        android:name="com.example.smart_answer.ui.friends.FriendFragment"
         android:label="@string/title_chatting"
-        tools:layout="@layout/fragment_chatting" />
+        tools:layout="@layout/activity_chat" />
 </navigation>
