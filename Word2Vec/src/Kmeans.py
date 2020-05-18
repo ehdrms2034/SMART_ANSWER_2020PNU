@@ -5,19 +5,27 @@ X = model[model.vocab]
 
 from nltk.cluster import KMeansClusterer
 import nltk
-NUM_CLUSTERS=10
-kclusterer = KMeansClusterer(NUM_CLUSTERS, distance=nltk.cluster.util.cosine_distance, repeats=25)
-assigned_clusters = kclusterer.cluster(X, assign_clusters=True)
+NUM_CLUSTERS=4
 
-# 단어와 클러스터 출력
-words = list(model.vocab)
-for i, word in enumerate(words):
-    print (word + ":" + str(assigned_clusters[i]))
+
+def elbow(X):
+    sse = []
+    for i in range(1, 11):
+        km = KMeans(n_clusters=i, init='k-means++', random_state=0)
+        km.fit(X)
+        sse.append(km.inertia_)
+
+    plt.plot(range(1, 11), sse, marker='o')
+    plt.xlabel('Num of Cluster')
+    plt.ylabel('SSE')
+    plt.show()
+
+elbow(X)
+# 결과에 따라 4개의 Cluster로 분류
 
 from sklearn import cluster
 from sklearn import metrics
 
-#중심 좌표 출력
 kmeans = cluster.KMeans(n_clusters=NUM_CLUSTERS)
 kmeans.fit(X)
 
@@ -37,3 +45,34 @@ silhouette_score = metrics.silhouette_score(X, labels, metric='euclidean')
 
 print("Silhouette_score: ")
 print(silhouette_score)
+
+from sklearn.manifold import TSNE
+import matplotlib.font_manager as fm
+import matplotlib.pyplot as plt
+import matplotlib
+
+path_gothic = "C:\\Users\\user\\Downloads\\Gaegu\\Gaegu-Regular.ttf"
+prop = fm.FontProperties(fname=path_gothic)
+matplotlib.rcParams["axes.unicode_minus"] = False
+
+vocab = list(model.wv.vocab)
+
+tsne = TSNE(n_components=2)
+X_tsne = tsne.fit_transform(X)
+
+import pandas as pd
+
+df = pd.DataFrame(X_tsne, index=vocab, columns=["x", "y"])
+'''
+%matplotlib inline
+
+fig = plt.figure()
+fig.set_size_inches(40, 20)
+ax = fig.add_subplot(1, 1, 1)
+ax.scatter(df["x"], df["y"])
+
+for word, pos in list(df.iterrows()):
+    ax.annotate(word, pos, fontsize=12, fontproperties=prop)
+plt.show()
+
+'''
