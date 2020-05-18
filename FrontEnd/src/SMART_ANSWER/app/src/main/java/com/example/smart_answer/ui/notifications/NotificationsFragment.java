@@ -36,19 +36,19 @@ public class NotificationsFragment extends Fragment {
 ////        });
 ////        return root;
 ////    }
-    private RecyclerView betweenClassRecycler;
-    private RecyclerVerticalAdapter betweenClassAdapter;
+    private RecyclerView notificationRecycler;
+    private RecyclerVerticalAdapter notificationAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-        betweenClassRecycler = (RecyclerView)root.findViewById(R.id.betweenClassRecycler);
-        betweenClassRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        notificationRecycler = (RecyclerView)root.findViewById(R.id.NotificationRecycler);
+        notificationRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        betweenClassRecycler.setLayoutManager(linearLayoutManager);
+        notificationRecycler.setLayoutManager(linearLayoutManager);
 
-        betweenClassAdapter = new RecyclerVerticalAdapter();
-        betweenClassRecycler.setAdapter(betweenClassAdapter);
+        notificationAdapter = new RecyclerVerticalAdapter();
+        notificationRecycler.setAdapter(notificationAdapter);
 
         ItemRecyclerVertical data1 = new ItemRecyclerVertical("공지1","20200428 운영자");
         ItemRecyclerVertical data2 = new ItemRecyclerVertical("공지2","20200427 운영자");
@@ -59,14 +59,14 @@ public class NotificationsFragment extends Fragment {
         ItemRecyclerVertical data7 = new ItemRecyclerVertical("공지7","20200423 운영자");
         ItemRecyclerVertical data8 = new ItemRecyclerVertical("공지8","20200423 운영자");
 
-        betweenClassAdapter.addItem(data1);
-        betweenClassAdapter.addItem(data2);
-        betweenClassAdapter.addItem(data3);
-        betweenClassAdapter.addItem(data4);
-        betweenClassAdapter.addItem(data5);
-        betweenClassAdapter.addItem(data6);
-        betweenClassAdapter.addItem(data7);
-        betweenClassAdapter.addItem(data8);
+        notificationAdapter.addItem(data1);
+        notificationAdapter.addItem(data2);
+        notificationAdapter.addItem(data3);
+        notificationAdapter.addItem(data4);
+        notificationAdapter.addItem(data5);
+        notificationAdapter.addItem(data6);
+        notificationAdapter.addItem(data7);
+        notificationAdapter.addItem(data8);
         return root;
     }
 }

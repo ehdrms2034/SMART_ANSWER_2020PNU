@@ -3,12 +3,15 @@ package com.example.smart_answer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,10 +24,17 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction transaction;
     BottomNavigationView navView;
+    ActionBar actionBar;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /* //액션바 숨기기
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();*/
+
         //fragment manage 설정
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
@@ -54,12 +64,20 @@ public class MainActivity extends AppCompatActivity {
     public BottomNavigationView getNavView(){
         return navView;
     }
+
     /*public void replaceFragment(@NonNull Fragment fragment) {
         //fragment stack에 기존에 있던 fragment 제거
         manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         transaction = manager.beginTransaction();
         transaction.replace(R.id.nav_host_fragment, fragment);
         transaction.commit();
+    }*/
+
+    /*public void setActiobarTitle(String title,boolean backTrue)
+    {
+        //fragment마다 actionbar제목 다르게 하기.
+        TextView titleTxtView = (TextView) toolbar.findViewById(R.id.titleMain);
+        titleTxtView.setText(title);
     }*/
 
     @Override

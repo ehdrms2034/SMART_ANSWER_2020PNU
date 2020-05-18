@@ -5,12 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="56dp"
     android:background="#ffffff">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/betweenClassRecycler"
+        android:id="@+id/NotificationRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"

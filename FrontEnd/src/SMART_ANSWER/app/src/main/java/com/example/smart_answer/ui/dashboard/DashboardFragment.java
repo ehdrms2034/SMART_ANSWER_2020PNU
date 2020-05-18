@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 
 public class DashboardFragment extends Fragment {
@@ -28,6 +30,7 @@ public class DashboardFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        //((MainActivity)getActivity()).setActiobarTitle("채점결과",true);
         return root;
     }
 }
