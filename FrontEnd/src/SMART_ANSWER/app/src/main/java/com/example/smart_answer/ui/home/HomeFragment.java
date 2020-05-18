@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
-import com.example.smart_answer.ui.chatting.ChattingFragment;
+import com.example.smart_answer.ui.friends.FriendFragment;
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
 import com.example.smart_answer.ui.notifications.NotificationsFragment;
 
@@ -69,10 +69,10 @@ public class HomeFragment extends Fragment {
         messageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChattingFragment chattingFragment = new ChattingFragment();
+                FriendFragment friendFragment = new FriendFragment();
                 ((MainActivity)getActivity()).getNavView().getMenu().getItem(0).setChecked(false);
                 ((MainActivity)getActivity()).getNavView().getMenu().getItem(3).setChecked(true);
-                replaceFragment(chattingFragment);
+                replaceFragment(friendFragment);
             }
         });
 
