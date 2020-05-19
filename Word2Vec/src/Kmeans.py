@@ -4,10 +4,13 @@ model = KeyedVectors.load_word2vec_format("word2vec.txt") # 모델 로드
 X = model[model.vocab]
 
 from nltk.cluster import KMeansClusterer
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 import nltk
+
 NUM_CLUSTERS=4
 
-
+'''
 def elbow(X):
     sse = []
     for i in range(1, 11):
@@ -22,6 +25,7 @@ def elbow(X):
 
 elbow(X)
 # 결과에 따라 4개의 Cluster로 분류
+'''
 
 from sklearn import cluster
 from sklearn import metrics
@@ -63,6 +67,7 @@ X_tsne = tsne.fit_transform(X)
 import pandas as pd
 
 df = pd.DataFrame(X_tsne, index=vocab, columns=["x", "y"])
+
 '''
 %matplotlib inline
 
@@ -74,5 +79,9 @@ ax.scatter(df["x"], df["y"])
 for word, pos in list(df.iterrows()):
     ax.annotate(word, pos, fontsize=12, fontproperties=prop)
 plt.show()
-
 '''
+
+print (centroids[0])
+print (centroids[1])
+print (centroids[2])
+print (centroids[3])
