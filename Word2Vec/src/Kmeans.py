@@ -1,87 +1,107 @@
 from gensim.models import KeyedVectors
 model = KeyedVectors.load_word2vec_format("word2vec.txt") # 모델 로드
 
-X = model[model.vocab]
-
 from nltk.cluster import KMeansClusterer
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import nltk
-
-NUM_CLUSTERS=4
-
-'''
-def elbow(X):
-    sse = []
-    for i in range(1, 11):
-        km = KMeans(n_clusters=i, init='k-means++', random_state=0)
-        km.fit(X)
-        sse.append(km.inertia_)
-
-    plt.plot(range(1, 11), sse, marker='o')
-    plt.xlabel('Num of Cluster')
-    plt.ylabel('SSE')
-    plt.show()
-
-elbow(X)
-# 결과에 따라 4개의 Cluster로 분류
-'''
-
 from sklearn import cluster
 from sklearn import metrics
+
+X = model[model.vocab]
+
+NUM_CLUSTERS = 4
 
 kmeans = cluster.KMeans(n_clusters=NUM_CLUSTERS)
 kmeans.fit(X)
 
 labels = kmeans.labels_
 centroids = kmeans.cluster_centers_
-
-print("Cluster id labels for inputted data")
-print(labels)
-print("Centroids data")
-print(centroids)
-
-print(
-    "Score (Opposite of the value of X on the K-means objective which is Sum of distances of samples to their closest cluster center):")
-print(kmeans.score(X))
-
-silhouette_score = metrics.silhouette_score(X, labels, metric='euclidean')
-
-print("Silhouette_score: ")
-print(silhouette_score)
-
-from sklearn.manifold import TSNE
-import matplotlib.font_manager as fm
-import matplotlib.pyplot as plt
-import matplotlib
-
-path_gothic = "C:\\Users\\user\\Downloads\\Gaegu\\Gaegu-Regular.ttf"
-prop = fm.FontProperties(fname=path_gothic)
-matplotlib.rcParams["axes.unicode_minus"] = False
-
-vocab = list(model.wv.vocab)
-
-tsne = TSNE(n_components=2)
-X_tsne = tsne.fit_transform(X)
-
-import pandas as pd
-
-df = pd.DataFrame(X_tsne, index=vocab, columns=["x", "y"])
-
 '''
-%matplotlib inline
-
-fig = plt.figure()
-fig.set_size_inches(40, 20)
-ax = fig.add_subplot(1, 1, 1)
-ax.scatter(df["x"], df["y"])
-
-for word, pos in list(df.iterrows()):
-    ax.annotate(word, pos, fontsize=12, fontproperties=prop)
-plt.show()
-'''
-
+print ("Cluster id labels for inputted data")
+print (labels)
+print ("Centroids data")
 print (centroids[0])
 print (centroids[1])
 print (centroids[2])
 print (centroids[3])
+
+
+print ("Score (Opposite of the value of X on the K-means objective which is Sum of distances of samples to their closest cluster center):")
+print (kmeans.score(X))
+'''
+
+# silhouette_score = metrics.silhouette_score(X, labels, metric='euclidean')
+
+# print ("Silhouette_score: ")
+# print (silhouette_score)
+
+from numpy import dot
+from numpy.linalg import norm
+import numpy as np
+
+
+def cos_sim(A, B):
+    return dot(A, B) / (norm(A) * norm(B))
+
+
+def nearest(C, X):
+    near = X[0]
+    for x in X:
+        if cos_sim(C, x) > cos_sim(C, near):
+            near = x
+    return near
+
+
+# 21613 총 단어 수
+def word_match(V, Key_list):
+    for i in range(21613):
+        if all(model[Key_list[i]] == V):
+            return Key_list[i]
+            break
+
+'''
+cos_sim(centroids[0], X[4])
+print(nearest(centroids[0], X))
+print(centroids[0])
+print(nearest(centroids[1], X))
+print(centroids[1])
+print(nearest(centroids[2], X))
+print(centroids[2])
+print(nearest(centroids[3], X))
+print(centroids[3])
+print(cos_sim(centroids[0], nearest(centroids[0], X)))
+print(cos_sim(centroids[1], nearest(centroids[1], X)))
+print(cos_sim(centroids[2], nearest(centroids[2], X)))
+print(cos_sim(centroids[3], nearest(centroids[3], X)))
+'''
+
+key_list = list(model.wv.vocab.keys())
+
+word_list = []
+word_list.append(word_match(nearest(centroids[0], X), key_list))
+word_list.append(word_match(nearest(centroids[1], X), key_list))
+word_list.append(word_match(nearest(centroids[2], X), key_list))
+word_list.append(word_match(nearest(centroids[3], X), key_list))
+
+print(word_list)
+
+f = open("초기단어test.txt", 'w')
+recommend_list = []  # 추천단어 list
+
+for i in (word_list):
+    recommend_list.append(i.lower())
+    model_result = model.most_similar(i.lower(), topn=50)
+    for j, k in model_result:
+        recommend_list.append(j)
+
+recommend_set = set(recommend_list)
+recommend_list = list(recommend_set)
+
+for i in (recommend_list):
+    f.write(i)
+    f.write(' ')
+
+print(len(recommend_list))
+
+f.close()
