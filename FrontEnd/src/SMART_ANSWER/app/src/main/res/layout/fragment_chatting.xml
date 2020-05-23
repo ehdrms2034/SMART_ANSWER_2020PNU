@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".ui.chatting.ChattingFragment" >
+    tools:context=".ui.chatting.ChattingView" >
     <TextView
         android:id="@+id/text_chatting"
         android:layout_width="match_parent"

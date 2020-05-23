@@ -79,6 +79,13 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
+    /*@Override
+    public void onStart() {
+        ((MainActivity)getActivity()).setActiobarTitle("홈"); // 타이틀 변경
+        super.onStart();
+    }*/
+
     //fragment 이동
     private void replaceFragment(@NonNull Fragment fragment) {
         transaction = manager.beginTransaction();

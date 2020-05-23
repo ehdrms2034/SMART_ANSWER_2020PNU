@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 import com.example.smart_answer.recycler.RecyclerDashboard;
 import com.example.smart_answer.recycler.RecyclerDashboardAdapter;
@@ -27,7 +28,7 @@ public class DashboardFragment extends Fragment {
 
         recyclerView = (RecyclerView)root.findViewById(R.id.recycler_dashboard) ;
         adapter = new RecyclerDashboardAdapter();
-
+        ((MainActivity)getActivity()).setActiobarTitle("채점결과");
 
         RecyclerDashboard data1 = new RecyclerDashboard(R.drawable.lion1, "2020 05 17", "1","2","3");
         RecyclerDashboard data2 = new RecyclerDashboard(R.drawable.lion1, "2020 05 17", "1","2","3");

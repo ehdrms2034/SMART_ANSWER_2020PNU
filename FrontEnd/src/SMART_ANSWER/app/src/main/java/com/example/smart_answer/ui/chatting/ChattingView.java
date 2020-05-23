@@ -12,6 +12,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 
 public class ChattingView extends AppCompatActivity {

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 import com.example.smart_answer.recycler.RecyclerFriend;
 import com.example.smart_answer.recycler.RecyclerDashboardAdapter;
@@ -25,6 +26,8 @@ public class FriendFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_friends, container, false);
+
+        ((MainActivity)getActivity()).setActiobarTitle("메세지");
 
         recyclerView = (RecyclerView)root.findViewById(R.id.recycler_friends) ;
         adapter = new RecyclerFriendAdapter();

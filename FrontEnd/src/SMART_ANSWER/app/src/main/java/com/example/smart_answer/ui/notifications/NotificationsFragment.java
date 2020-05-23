@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 import com.example.smart_answer.recycler.ItemRecyclerVertical;
 import com.example.smart_answer.recycler.RecyclerVerticalAdapter;
@@ -42,6 +43,9 @@ public class NotificationsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+
+        ((MainActivity)getActivity()).setActiobarTitle("공지사항");
+
         notificationRecycler = (RecyclerView)root.findViewById(R.id.NotificationRecycler);
         notificationRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
