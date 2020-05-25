@@ -1,5 +1,6 @@
 import io
 import os
+from PIL import Image
 
 
 # Imports the Google Cloud client library
@@ -11,7 +12,7 @@ client = vision.ImageAnnotatorClient()
 
 # The name of the image file to annotate
 file_name = os.path.abspath('img1.jpeg')
-file_name2 = os.path.abspath('img2.jpeg')
+file_name2 = os.path.abspath('img7.jpeg')
 
 # # Loads the image into memory
 # with io.open(file_name, 'rb') as image_file:
@@ -69,7 +70,7 @@ def detect_document(path):
 
     image = vision.types.Image(content=content)
 
-    response = client.document_text_detection(image=image)
+    response = client.document_text_detection(image=image, image_context={"language_hints": ["ko, en"]})
 
     for page in response.full_text_annotation.pages:
         for block in page.blocks:
@@ -98,3 +99,9 @@ def detect_document(path):
 
 # detect_text(file_name)
 detect_document(file_name2)
+
+# image = Image.open('./img5.jpeg')
+#
+# resize_image = image.resize((1024,768))
+#
+# resize_image.save('./img5.jpeg')
