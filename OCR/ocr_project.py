@@ -105,3 +105,4 @@ detect_document(file_name2)
 # resize_image = image.resize((1024,768))
 #
 # resize_image.save('./img5.jpeg')
+# test test test
