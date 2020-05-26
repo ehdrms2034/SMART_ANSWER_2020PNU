@@ -45,7 +45,7 @@ public class MemberUnitTest {
     public void getFriendsList(){
         Member member = memberService.findOneByUsername("test");
         for(Member friend : member.getFriends())
-            System.out.println(friend.getUsername());
+            System.out.println("친구목록 : " +friend.getUsername());
     }
 
 
