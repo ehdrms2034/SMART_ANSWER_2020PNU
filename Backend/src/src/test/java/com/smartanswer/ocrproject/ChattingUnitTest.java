@@ -50,7 +50,7 @@ public class ChattingUnitTest {
 
     @Test
     void createChatmessage(){
-        Member member = memberService.findOneByUsername("test1");
+        Member member = memberService.findOneByUsername("test");
         try {
             List<ChattingRoom> chattingRooms = chattingService.getChattingRoomList(member);
             ChattingRoom chatRoom = chattingRooms.get(0);
