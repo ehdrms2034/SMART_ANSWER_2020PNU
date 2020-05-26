@@ -1,12 +1,7 @@
 from gensim.models import KeyedVectors
-model = KeyedVectors.load_word2vec_format("word2vec.txt") # 모델 로드
+model = KeyedVectors.load_word2vec_format("word2vec.txt")
 
-from nltk.cluster import KMeansClusterer
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-import nltk
 from sklearn import cluster
-from sklearn import metrics
 
 X = model[model.vocab]
 
@@ -17,24 +12,6 @@ kmeans.fit(X)
 
 labels = kmeans.labels_
 centroids = kmeans.cluster_centers_
-'''
-print ("Cluster id labels for inputted data")
-print (labels)
-print ("Centroids data")
-print (centroids[0])
-print (centroids[1])
-print (centroids[2])
-print (centroids[3])
-
-
-print ("Score (Opposite of the value of X on the K-means objective which is Sum of distances of samples to their closest cluster center):")
-print (kmeans.score(X))
-'''
-
-# silhouette_score = metrics.silhouette_score(X, labels, metric='euclidean')
-
-# print ("Silhouette_score: ")
-# print (silhouette_score)
 
 from numpy import dot
 from numpy.linalg import norm
@@ -53,28 +30,12 @@ def nearest(C, X):
     return near
 
 
-# 21613 총 단어 수
+# 21613 total words
 def word_match(V, Key_list):
     for i in range(21613):
         if all(model[Key_list[i]] == V):
             return Key_list[i]
             break
-
-'''
-cos_sim(centroids[0], X[4])
-print(nearest(centroids[0], X))
-print(centroids[0])
-print(nearest(centroids[1], X))
-print(centroids[1])
-print(nearest(centroids[2], X))
-print(centroids[2])
-print(nearest(centroids[3], X))
-print(centroids[3])
-print(cos_sim(centroids[0], nearest(centroids[0], X)))
-print(cos_sim(centroids[1], nearest(centroids[1], X)))
-print(cos_sim(centroids[2], nearest(centroids[2], X)))
-print(cos_sim(centroids[3], nearest(centroids[3], X)))
-'''
 
 key_list = list(model.wv.vocab.keys())
 
@@ -86,7 +47,13 @@ word_list.append(word_match(nearest(centroids[3], X), key_list))
 
 print(word_list)
 
-f = open("초기단어test.txt", 'w')
+f = open("initialTest.txt", 'w')
+g = open("centroids.txt", 'w')
+
+for i in word_list:
+    g.write(i)
+    g.write(' ')
+
 recommend_list = []  # 추천단어 list
 
 for i in (word_list):
@@ -105,3 +72,4 @@ for i in (recommend_list):
 print(len(recommend_list))
 
 f.close()
+g.close()
