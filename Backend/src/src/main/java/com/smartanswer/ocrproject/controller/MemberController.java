@@ -25,6 +25,7 @@ public class MemberController {
     @Autowired
     JwtUtil jwtUtil;
 
+    //회원가입
     @PostMapping("/createMember")
     CustomResponse createMember(@RequestBody Member member) {
         try {
@@ -79,5 +80,7 @@ public class MemberController {
             return new CustomResponse("error","친구를 저장하는데 실패했습니다.",e.getMessage());
         }
     }
+
+
 
 }

@@ -4,21 +4,26 @@ import com.smartanswer.ocrproject.model.Answer;
 import com.smartanswer.ocrproject.repository.AnswerRepository;
 import com.smartanswer.ocrproject.service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
 
 @Service
 public class AnswerServiceImpl implements AnswerService {
-
-    private MongoOperations mongoOperations;
 
     @Autowired
     private AnswerRepository answerRepository;
 
     @Override
-    public Answer getPoint(String id, Date date){
-        return answerRepository.findByOwner(id);
+    public Answer getAnswer(String id, String searchDate){
+        return answerRepository.findOneByOwnerAndDate(id,searchDate);
     }
+
+    @Override
+    public void inputAnswer(Answer answer) {
+        try {
+            answerRepository.save(answer);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
