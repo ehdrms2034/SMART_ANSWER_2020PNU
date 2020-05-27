@@ -1,15 +1,11 @@
 package com.smartanswer.ocrproject.model;
 
-import jdk.jfr.Unsigned;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.lang.reflect.Constructor;
 
 @Getter
 @Setter
