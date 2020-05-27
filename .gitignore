@@ -152,3 +152,5 @@ hs_err_pid*
 
 # End of https://www.gitignore.io/api/java
 Backend/src/src/main/resources/application.properties
+
+Backend/src/.idea/
