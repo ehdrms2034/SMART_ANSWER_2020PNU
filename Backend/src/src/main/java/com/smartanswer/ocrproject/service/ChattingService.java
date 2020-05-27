@@ -12,6 +12,8 @@ public interface ChattingService {
 
     public void makeChattingMessage(ChattingRoom chatRoom, Member member, String message) throws Exception;
 
+    public ChattingRoom getChattingRoomById(String chatRoomId) throws Exception;
+
     public List<ChattingRoom> getChattingRoomList(Member member) throws Exception;
 
     List<ChatMessage> getChattingMessages(ChattingRoom chattingRoom) throws  Exception;
