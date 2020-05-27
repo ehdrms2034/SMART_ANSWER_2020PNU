@@ -13,4 +13,5 @@ public interface ChattingRoomRepository extends MongoRepository<ChattingRoom,Lon
 
     List<ChattingRoom> findByMembers(Member member);
 
+    ChattingRoom findBy_id(ObjectId objectId);
 }

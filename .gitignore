@@ -154,3 +154,5 @@ hs_err_pid*
 Backend/src/src/main/resources/application.properties
 
 Backend/src/.idea/
+
+Backend/src/src/main/resources/application.yaml
