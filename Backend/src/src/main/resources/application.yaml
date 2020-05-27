@@ -1,0 +1,19 @@
+  spring:
+    data:
+      mongodb:
+        uri: mongodb://smartanswer:smartanswer@localhost:27017/smartanswer
+
+  spring.jwt.secret: kimdonggeun12345kimdonggeun12345kimdonggeun12345kimdonggeun12345
+
+  cloud:
+    aws:
+      credentials:
+        accessKey: accessKey
+        secretKey: secretKey
+      s3:
+        bucket: pnuprojects
+        folderName : static
+      region:
+        static: ap-northeast-2
+      stack:
+        auto: false
