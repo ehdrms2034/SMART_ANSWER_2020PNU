@@ -8,8 +8,8 @@
   cloud:
     aws:
       credentials:
-        accessKey: accessKey
-        secretKey: secretKey
+        accessKey: AKIAX64BLXE7TDSZXPGY
+        secretKey: 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
       s3:
         bucket: pnuprojects
         folderName : static
