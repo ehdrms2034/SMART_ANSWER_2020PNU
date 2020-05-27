@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.chatting.ChattingView"/>
+        <activity android:name=".ui.login.LoginSignIn"/>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

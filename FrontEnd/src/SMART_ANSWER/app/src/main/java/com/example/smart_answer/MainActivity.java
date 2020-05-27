@@ -1,5 +1,6 @@
 package com.example.smart_answer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
 
 import com.example.smart_answer.ui.chatting.ChattingView;
+import com.example.smart_answer.ui.login.LoginSignIn;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //login 하기
+        Intent intent = new Intent(this, LoginSignIn.class);
+        startActivity(intent);
 
         //fragment manage 설정
         manager = getSupportFragmentManager();

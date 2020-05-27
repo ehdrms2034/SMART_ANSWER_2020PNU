@@ -13,15 +13,15 @@
         android:background="#ffffff"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-73dp"
-        tools:layout_editor_absoluteY="78dp">
+        tools:layout_editor_absoluteX="-126dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <TextView
             android:id="@+id/register_ID"
             android:layout_width="70dp"
             android:layout_height="50dp"
-            android:layout_marginStart="104dp"
+            android:layout_marginStart="32dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:scrollbars="horizontal"
@@ -29,13 +29,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.089" />
+            app:layout_constraintVertical_bias="0.11" />
 
         <TextView
             android:id="@+id/register_password"
             android:layout_width="70dp"
             android:layout_height="50dp"
-            android:layout_marginStart="104dp"
+            android:layout_marginStart="32dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:scrollbars="horizontal"
@@ -43,7 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register_ID"
-            app:layout_constraintVertical_bias="0.001" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/ID"
@@ -69,20 +69,20 @@
             android:id="@+id/button_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
             android:background="#707070"
             android:text="check"
-            tools:layout_editor_absoluteX="465dp"
+            android:textColor="#ffffff"
+            tools:layout_editor_absoluteX="378dp"
             tools:layout_editor_absoluteY="84dp"></com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
             android:background="#707070"
             android:text="sign in"
-            tools:layout_editor_absoluteX="256dp"
-            tools:layout_editor_absoluteY="231dp"></com.google.android.material.button.MaterialButton>
+            android:textColor="#ffffff"
+            tools:layout_editor_absoluteX="172dp"
+            tools:layout_editor_absoluteY="229dp"></com.google.android.material.button.MaterialButton>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
