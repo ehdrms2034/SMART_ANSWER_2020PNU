@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2475CF93247E624F0007408B /* TodayVocaTb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475CF92247E624F0007408B /* TodayVocaTb.swift */; };
 		24963BA1247BEE3A00138002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA0247BEE3A00138002 /* AppDelegate.swift */; };
 		24963BA3247BEE3A00138002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA2247BEE3A00138002 /* SceneDelegate.swift */; };
 		24963BA5247BEE3A00138002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA4247BEE3A00138002 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2475CF92247E624F0007408B /* TodayVocaTb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayVocaTb.swift; sourceTree = "<group>"; };
 		24963B9D247BEE3A00138002 /* HelpENG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpENG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24963BA0247BEE3A00138002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24963BA2247BEE3A00138002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				24963BE0247DFB0800138002 /* TodayVocaAPI.swift */,
 				24963BE2247DFB4800138002 /* TodayVocaTbData.swift */,
 				24963BE4247DFF8000138002 /* TodayVocaTbCell.swift */,
+				2475CF92247E624F0007408B /* TodayVocaTb.swift */,
 			);
 			path = TodayVocabulary;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2475CF93247E624F0007408B /* TodayVocaTb.swift in Sources */,
 				24963BE5247DFF8000138002 /* TodayVocaTbCell.swift in Sources */,
 				24963BDF247DF43500138002 /* TodayVocaVC.swift in Sources */,
 				24963BA5247BEE3A00138002 /* ViewController.swift in Sources */,

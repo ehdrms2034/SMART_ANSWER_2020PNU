@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="width" secondItem="Jbq-Kw-5Sm" secondAttribute="height" multiplier="207:25" id="TpW-Kw-fx1"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6YQ-aI-M7c">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6YQ-aI-M7c" customClass="TodayVocaTb" customModule="HelpENG" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="85.5" width="375" height="532.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Cjc-ny-gwc">
@@ -282,7 +282,7 @@
                     <connections>
                         <outlet property="hideAllEngBtn" destination="6Gf-q5-UAG" id="wf1-bg-8Li"/>
                         <outlet property="hideAllKorBtn" destination="VFY-VP-dlb" id="kmh-Oq-oXG"/>
-                        <outlet property="todayVocaTableView" destination="6YQ-aI-M7c" id="8xM-0e-D9f"/>
+                        <outlet property="todayVocaTb" destination="6YQ-aI-M7c" id="8xM-0e-D9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmM-YD-Zg7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

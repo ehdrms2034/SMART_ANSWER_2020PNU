@@ -20,9 +20,21 @@ struct TodayVocaTbData {
     var vocasData: [(eng: String, kor: String)]
     
     init() {
-        vocasData = [("choi","최"),("you","유"),("wan","완")]
+        vocasData = [("choi","최"),("you","유"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완")]
         
         self.engVocasHidden = Array(repeating: false, count: vocasData.count)
         self.korVocasHidden = Array(repeating: false, count: vocasData.count)
     }
+}
+
+//MARK: - Data Controll
+
+extension TodayVocaTbData {
+    
+
+}
+
+enum language {
+    case kor
+    case eng
 }
