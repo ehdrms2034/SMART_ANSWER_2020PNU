@@ -4,6 +4,8 @@ import com.smartanswer.ocrproject.model.ChatMessage;
 import com.smartanswer.ocrproject.model.ChattingRoom;
 import com.smartanswer.ocrproject.model.CustomResponse;
 import com.smartanswer.ocrproject.model.Member;
+import com.smartanswer.ocrproject.model.Request.RequestCreateChatMessage;
+import com.smartanswer.ocrproject.model.Request.RequestCreateChatRoom;
 import com.smartanswer.ocrproject.service.ChattingService;
 import com.smartanswer.ocrproject.service.MemberService;
 import org.bson.types.ObjectId;
@@ -23,10 +25,10 @@ public class ChattingController {
     private ChattingService chattingService;
 
     @PostMapping("/room")
-    public CustomResponse createChatRoom(@RequestBody String username1, @RequestBody String username2) {
+    public CustomResponse createChatRoom(@RequestBody RequestCreateChatRoom members) {
         try {
-            Member member = memberService.findOneByUsername(username1);
-            Member member2 = memberService.findOneByUsername(username2);
+            Member member = memberService.findOneByUsername(members.getUsername1());
+            Member member2 = memberService.findOneByUsername(members.getUsername2());
             chattingService.makeChattingRoom(member,member2);
             return new CustomResponse("success","성공적으로 채팅방을 생성했습니다.",null);
         } catch (Exception e) {
@@ -45,11 +47,11 @@ public class ChattingController {
     }
 
     @PostMapping("/message")
-    public CustomResponse createChatMessage(@RequestBody String chatRoomId, @RequestBody String username,@RequestBody String message){
+    public CustomResponse createChatMessage(@RequestBody RequestCreateChatMessage requestBody){
         try{
-            ChattingRoom chattingRoom = chattingService.getChattingRoomById(chatRoomId);
-            Member member = memberService.findOneByUsername(username);
-            chattingService.makeChattingMessage(chattingRoom,member,message);
+            ChattingRoom chattingRoom = chattingService.getChattingRoomById(requestBody.chatRoomId);
+            Member member = memberService.findOneByUsername(requestBody.username);
+            chattingService.makeChattingMessage(chattingRoom,member,requestBody.message);
             return new CustomResponse("success","성공적으로 채팅방 메시지를 저장했습니다.",null);
         }catch(Exception e){
             return new CustomResponse("error","채팅방 메시지를 생성하는데 실패했습니다.",null);
