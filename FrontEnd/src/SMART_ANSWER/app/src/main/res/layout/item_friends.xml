@@ -32,10 +32,12 @@
         app:layout_constraintLeft_toRightOf="@id/friend_image"
         app:layout_constraintRight_toLeftOf="@id/friend_talks"
         android:padding="5dp"
+        android:textSize="20dp"
         android:layout_margin="5dp"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:text="John Do"
+        android:textColor="#000000"
         android:textStyle="bold"/>
 
 
@@ -53,6 +55,7 @@
         android:textAlignment="center"
         android:layout_gravity="center"
         android:text="It's a beautiful day"
+        android:background="@drawable/border_layout"
         android:textStyle="bold" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

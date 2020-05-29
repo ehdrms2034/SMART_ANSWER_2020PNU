@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,13 +31,14 @@ public class FriendFragment extends Fragment {
         ((MainActivity)getActivity()).setActiobarTitle("메세지");
 
         recyclerView = (RecyclerView)root.findViewById(R.id.recycler_friends) ;
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         adapter = new RecyclerFriendAdapter();
 
 
-        RecyclerFriend data1 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
-        RecyclerFriend data2 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
-        RecyclerFriend data3 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
-        RecyclerFriend data4 = new RecyclerFriend(R.drawable.lion1, "Hi", "Beatiful Day");
+        RecyclerFriend data1 = new RecyclerFriend(R.drawable.lion1, "Kim", "Beautiful Day");
+        RecyclerFriend data2 = new RecyclerFriend(R.drawable.lion1, "Lee", "Bad Day");
+        RecyclerFriend data3 = new RecyclerFriend(R.drawable.lion1, "Park", "Nice Day");
+        RecyclerFriend data4 = new RecyclerFriend(R.drawable.lion1, "Choi", "Sad Day");
 
 
         adapter.addItem(data1);
