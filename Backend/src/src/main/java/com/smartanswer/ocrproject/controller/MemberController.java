@@ -2,6 +2,7 @@ package com.smartanswer.ocrproject.controller;
 
 import com.smartanswer.ocrproject.model.CustomResponse;
 import com.smartanswer.ocrproject.model.Member;
+import com.smartanswer.ocrproject.model.Request.RequestAddFriends;
 import com.smartanswer.ocrproject.model.Request.RequestLogin;
 import com.smartanswer.ocrproject.model.Request.RequestSignUp;
 import com.smartanswer.ocrproject.service.CookieUtil;
@@ -72,10 +73,10 @@ public class MemberController {
     }
 
     @PostMapping("/addFriend")
-    CustomResponse addFriends(@RequestBody String username1, @RequestBody String username2) {
+    CustomResponse addFriends(@RequestBody RequestAddFriends members) {
         try {
-            Member member1 = memberService.findOneByUsername(username1);
-            Member member2 = memberService.findOneByUsername(username2);
+            Member member1 = memberService.findOneByUsername(members.getMember1());
+            Member member2 = memberService.findOneByUsername(members.getMember2());
             memberService.addFriend(member1, member2);
             return new CustomResponse("success", "성공적으로 친구를 저장했습니다.", null);
         } catch (Exception e) {
