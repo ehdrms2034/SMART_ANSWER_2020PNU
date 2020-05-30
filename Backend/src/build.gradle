@@ -49,8 +49,8 @@ dependencies {
 }
 
 bootJar{
-	archiveBaseName = '-'
-	archiveFileName = '-.jar'
+	archiveBaseName = 'deploy'
+	archiveFileName = 'deploy.jar'
 	archiveVersion = "0.0.1"
 }
 
