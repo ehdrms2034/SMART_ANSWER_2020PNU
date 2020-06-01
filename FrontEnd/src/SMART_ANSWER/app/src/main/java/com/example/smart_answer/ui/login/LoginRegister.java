@@ -21,17 +21,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginRegister extends AppCompatActivity {
     // Retrofit Connection
-    /*
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-     */
+    /*
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("3.34.124.52:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
+
+     */
     public static String userID = "";
     public static String userPWD = "";
 
@@ -39,9 +40,9 @@ public class LoginRegister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_in);
+        setContentView(R.layout.sign_rester);
 
-        Button check = (Button)findViewById(R.id.button_sign_in);
+        Button check = (Button)findViewById(R.id.button_ID_check);
         Button register = (Button)findViewById(R.id.button_register);
         final EditText ID = (EditText)findViewById(R.id.ID);
         final EditText PWD = (EditText)findViewById(R.id.password);
@@ -85,8 +86,8 @@ public class LoginRegister extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginRegister.class);
-                startActivity(intent);
+                // retrofit register!!!
+                ;
             }
         });
     }

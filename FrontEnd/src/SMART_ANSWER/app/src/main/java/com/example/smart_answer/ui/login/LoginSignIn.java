@@ -22,17 +22,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginSignIn extends AppCompatActivity {
     // Retrofit Connection
-    /*
+
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-     */
+    /*
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("3.34.124.52:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
+     */
     public static String userID = "";
     public static String userPWD = "";
 
