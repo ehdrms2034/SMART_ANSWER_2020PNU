@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginSignIn extends AppCompatActivity {
+public class LoginRegister extends AppCompatActivity {
     // Retrofit Connection
     /*
     Retrofit retrofit = new Retrofit.Builder()
@@ -42,13 +41,13 @@ public class LoginSignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
 
-        Button loginButton = (Button)findViewById(R.id.button_sign_in);
-        Button registerButton = (Button)findViewById(R.id.button_register);
+        Button check = (Button)findViewById(R.id.button_sign_in);
+        Button register = (Button)findViewById(R.id.button_register);
         final EditText ID = (EditText)findViewById(R.id.ID);
         final EditText PWD = (EditText)findViewById(R.id.password);
 
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //String ID.getText().toString();
@@ -67,23 +66,23 @@ public class LoginSignIn extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<JsonObject> call, Throwable t) {
-                        loginFailed();
+                        registerFailed();
 //                Log.e(TAG, "onFailure(): " + t.getMessage());
                     }
                 });
 
                 if(userID.equals(ID.getText().toString()) && userPWD.equals(PWD.getText().toString())) {
-                    //로그인 성공!!
-                    loginSuccess();
+                    //회원가입 성공!!
+                    registerSuccess();
                     finish();
                 }
                 else{
-                    //로그인 실패!!
-                    loginFailed();
+                    //회원가입 실패!!
+                    registerFailed();
                 }
             }
         });
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginRegister.class);
@@ -95,15 +94,15 @@ public class LoginSignIn extends AppCompatActivity {
     public boolean isLoginSuccess() {
 
     }
-    
+
      */
 
-    public void loginSuccess() {
+    public void registerSuccess() {
         Toast.makeText(getApplicationContext(), "로그인 성공!",
                 Toast.LENGTH_SHORT).show();
     }
 
-    public void loginFailed() {
+    public void registerFailed() {
         Toast.makeText(getApplicationContext(), "아이디 패스워드 확인바람",
                 Toast.LENGTH_SHORT).show();
     }
