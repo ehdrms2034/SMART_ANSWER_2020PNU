@@ -99,17 +99,19 @@ public class ChattingAdapter extends BaseAdapter {
         text.setText(m_List.get(position).msg);
 
         if( m_List.get(position).type == 0 ) {
-            text.setBackgroundResource(R.drawable.inbox2);
+            text.setBackgroundResource(R.drawable.inbox);
             layout.setGravity(Gravity.LEFT);
+            layout.setPadding(5,0,5,0);
             viewRight.setVisibility(View.GONE);
             viewLeft.setVisibility(View.GONE);
         }else if(m_List.get(position).type == 1){
-            text.setBackgroundResource(R.drawable.outbox2);
+            text.setBackgroundResource(R.drawable.outbox);
             layout.setGravity(Gravity.RIGHT);
+            layout.setPadding(5,0,5,0);
             viewRight.setVisibility(View.GONE);
             viewLeft.setVisibility(View.GONE);
         }else if(m_List.get(position).type == 2){
-            text.setBackgroundResource(R.drawable.datebg);
+            text.setBackgroundResource(R.drawable.datebackground);
             layout.setGravity(Gravity.CENTER);
             viewRight.setVisibility(View.VISIBLE);
             viewLeft.setVisibility(View.VISIBLE);

@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text ="text"
+        android:gravity="center"
         tools:ignore="MissingConstraints" />
 
     <View

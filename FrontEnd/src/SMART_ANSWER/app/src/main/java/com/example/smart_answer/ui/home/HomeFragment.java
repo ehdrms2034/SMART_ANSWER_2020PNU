@@ -1,21 +1,23 @@
 package com.example.smart_answer.ui.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
+import com.example.smart_answer.ui.camera.CameraView;
 import com.example.smart_answer.ui.friends.FriendFragment;
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
 import com.example.smart_answer.ui.notifications.NotificationsFragment;
@@ -25,13 +27,18 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentManager manager;
     private FragmentTransaction transaction;
-    private Button resultBtn, messageBtn, notificationBtn;
+    private Button photoBtn, resultBtn, messageBtn, notificationBtn;
+    private ImageView imageView;
+    private static final int REQUEST_IMAGE_CAPTURE = 672;
+    private String imageFilePath;
+    private Uri photoUri;
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        btnClick((Button)root.findViewById(R.id.photoBtn));
         btnClick((Button)root.findViewById(R.id.resultBtn));
         btnClick((Button)root.findViewById(R.id.messageBtn));
         btnClick((Button)root.findViewById(R.id.notificationBtn));
@@ -42,7 +49,18 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+
         manager = getActivity().getSupportFragmentManager();
+        //imageView = (ImageView)root.findViewById(R.id.camera_view);
+
+        photoBtn = (Button)root.findViewById(R.id.photoBtn);
+        photoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getActivity(), CameraView.class);
+                startActivity(intent1);
+            }
+        });
 
         //각 버튼 클릭 시 해당 fragment로 이동
         resultBtn = (Button)root.findViewById(R.id.resultBtn);
@@ -75,8 +93,6 @@ public class HomeFragment extends Fragment {
                 replaceFragment(friendFragment);
             }
         });
-
-
         return root;
     }
 
