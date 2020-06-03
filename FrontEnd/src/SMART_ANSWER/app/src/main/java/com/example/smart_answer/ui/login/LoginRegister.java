@@ -2,6 +2,7 @@ package com.example.smart_answer.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,14 +26,7 @@ public class LoginRegister extends AppCompatActivity {
             .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-    /*
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("3.34.124.52:8080")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
 
-
-     */
     public static String userID = "";
     public static String userPWD = "";
 
@@ -41,71 +35,89 @@ public class LoginRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_rester);
-
-        Button check = (Button)findViewById(R.id.button_ID_check);
-        Button register = (Button)findViewById(R.id.button_register);
         final EditText ID = (EditText)findViewById(R.id.ID);
         final EditText PWD = (EditText)findViewById(R.id.password);
+        Button check = (Button)findViewById(R.id.button_ID_check);
+        Button register = (Button)findViewById(R.id.button_register);
 
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String ID.getText().toString();
-                Call<JsonObject> responseID = service.getUserID(ID.getText().toString());
-                responseID.enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        if (response.isSuccessful()) {
-//                    Log.i(TAG, "onResponse(): " + response.body().toString());
-                            userID = response.body().get("login").getAsString() ;
-                            userPWD = response.body().get("id").getAsString() ;
-
-                        }
-                        // JsonArray로 받을때 이렇게 했었다.
-                        // textView.setText(response.body().get(0).getAsJsonObject().get("id").getAsString());
-                    }
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        registerFailed();
-//                Log.e(TAG, "onFailure(): " + t.getMessage());
-                    }
-                });
-
-                if(userID.equals(ID.getText().toString()) && userPWD.equals(PWD.getText().toString())) {
-                    //회원가입 성공!!
-                    registerSuccess();
-                    finish();
-                }
-                else{
-                    //회원가입 실패!!
-                    registerFailed();
-                }
+                String inputID = ID.getText().toString();
+                if(!inputID.equals(""))
+                    buttonCheckClick(inputID);
+                else
+                    ;
             }
         });
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // retrofit register!!!
-                ;
+                String inputID = ID.getText().toString();
+                String inputPWD = PWD.getText().toString();
+                buttonRegisterClick(inputID, inputPWD);
             }
         });
     }
-    /*
-    public boolean isLoginSuccess() {
 
+    public void buttonCheckClick(String inputID) {
+        Call<LoginData> responseID = service.getLoginData(inputID);
+        responseID.enqueue(new Callback<LoginData>() {
+            @Override
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                if (response.isSuccessful()) {
+                    LoginData body = response.body();
+                    if (body != null) {
+                        userID = body.getData().getPassword();
+                        userPWD = body.getData().getPassword();
+                        registerSuccess();
+                    }
+                    else
+                        registerFailed();
+                }
+                else
+                    responseFailed();
+            }
+            @Override
+            public void onFailure(Call<LoginData> call, Throwable t) {
+                responseFailed();
+//                Log.e(TAG, "onFailure(): " + t.getMessage());
+            }
+        });
     }
 
-     */
+    public void buttonRegisterClick(String inputID, String inputPWD) {
+        Call<LoginData> responseID = service.postUser(inputID, inputID, inputPWD);
+        responseID.enqueue(new Callback<LoginData>() {
+            @Override
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                if (response.isSuccessful()) {
+
+                }
+                else
+                    responseFailed();
+            }
+            @Override
+            public void onFailure(Call<LoginData> call, Throwable t) {
+                responseFailed();
+//                Log.e(TAG, "onFailure(): " + t.getMessage());
+            }
+        });
+    }
 
     public void registerSuccess() {
-        Toast.makeText(getApplicationContext(), "로그인 성공!",
+        Toast.makeText(getApplicationContext(), userID + " " + userPWD,
                 Toast.LENGTH_SHORT).show();
     }
 
     public void registerFailed() {
-        Toast.makeText(getApplicationContext(), "아이디 패스워드 확인바람",
+        Toast.makeText(getApplicationContext(), "아이디 확인바람",
                 Toast.LENGTH_SHORT).show();
     }
 
+    public void responseFailed() {
+        Toast.makeText(getApplicationContext(), "연결 실패",
+                Toast.LENGTH_SHORT).show();
+    }
 }

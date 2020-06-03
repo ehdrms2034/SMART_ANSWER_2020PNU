@@ -1,6 +1,7 @@
 package com.example.smart_answer.ui.chatting;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,19 +99,21 @@ public class ChattingAdapter extends BaseAdapter {
         // Text 등록
         text.setText(m_List.get(position).msg);
 
-        if( m_List.get(position).type == 0 ) {
+        if( m_List.get(position).type == 0 ) { // 받을 때
             text.setBackgroundResource(R.drawable.inbox);
             layout.setGravity(Gravity.LEFT);
             layout.setPadding(5,0,5,0);
             viewRight.setVisibility(View.GONE);
             viewLeft.setVisibility(View.GONE);
-        }else if(m_List.get(position).type == 1){
+        }else if(m_List.get(position).type == 1){ // 보낼 때
+            String strColor = "#ffffff";
             text.setBackgroundResource(R.drawable.outbox);
+            text.setTextColor(Color.parseColor(strColor));
             layout.setGravity(Gravity.RIGHT);
             layout.setPadding(5,0,5,0);
             viewRight.setVisibility(View.GONE);
             viewLeft.setVisibility(View.GONE);
-        }else if(m_List.get(position).type == 2){
+        }else if(m_List.get(position).type == 2){ // 날짜
             text.setBackgroundResource(R.drawable.datebackground);
             layout.setGravity(Gravity.CENTER);
             viewRight.setVisibility(View.VISIBLE);

@@ -1,38 +1,37 @@
-package com.example.smart_answer.ui.login;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+        package com.example.smart_answer.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import com.example.smart_answer.R;
-import com.example.smart_answer.retrofit.RetrofitInterface;
-import com.google.gson.JsonObject;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+        import com.example.smart_answer.R;
+        import com.example.smart_answer.retrofit.RetrofitInterface;
+        import com.google.gson.JsonObject;
+
+        import retrofit2.Call;
+        import retrofit2.Callback;
+        import retrofit2.Response;
+        import retrofit2.Retrofit;
+        import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginSignIn extends AppCompatActivity {
     // Retrofit Connection
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl("http://15.164.212.98:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     /*
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("3.34.124.52:8080")
+            .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
      */
     public static String userID = "";
     public static String userPWD = "";
@@ -44,7 +43,7 @@ public class LoginSignIn extends AppCompatActivity {
         setContentView(R.layout.sign_in);
 
         Button loginButton = (Button)findViewById(R.id.button_sign_in);
-        Button registerButton = (Button)findViewById(R.id.button_register);
+
         final EditText ID = (EditText)findViewById(R.id.ID);
         final EditText PWD = (EditText)findViewById(R.id.password);
 
@@ -53,21 +52,30 @@ public class LoginSignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //String ID.getText().toString();
-                Call<JsonObject> responseID = service.getUserID(ID.getText().toString());
-                responseID.enqueue(new Callback<JsonObject>() {
+                Call<LoginData> responseData = service.getUserData(ID.getText().toString());
+                responseData.enqueue(new Callback<LoginData>() {
                     @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    public void onResponse(Call<LoginData> call, Response<LoginData> response) {
                         if (response.isSuccessful()) {
 //                    Log.i(TAG, "onResponse(): " + response.body().toString());
+
+                            userID = response.body().getData().getUsername();
+                            userPWD = response.body().getData().getPassword();
+                            /* RestApi recieve as JsonObject
+                            userID = response.body().getAsJsonObject("data")
+                                .get("username").getAsString();
+                            userPWD = response.body().getAsJsonObject("data")
+                                    .get("password").getAsString();
+                            // Git Api
                             userID = response.body().get("login").getAsString() ;
                             userPWD = response.body().get("id").getAsString() ;
-
+                             */
                         }
                         // JsonArray로 받을때 이렇게 했었다.
                         // textView.setText(response.body().get(0).getAsJsonObject().get("id").getAsString());
                     }
                     @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                    public void onFailure(Call<LoginData> call, Throwable t) {
                         loginFailed();
 //                Log.e(TAG, "onFailure(): " + t.getMessage());
                     }
@@ -82,13 +90,6 @@ public class LoginSignIn extends AppCompatActivity {
                     //로그인 실패!!
                     loginFailed();
                 }
-            }
-        });
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginRegister.class);
-                startActivity(intent);
             }
         });
     }
