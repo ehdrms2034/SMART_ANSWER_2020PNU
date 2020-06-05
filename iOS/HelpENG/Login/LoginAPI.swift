@@ -8,31 +8,43 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 struct LoginAPI {
     
-    func login(userId id: String, userPassword: String) -> String {
+    func login(userId id: String, userPassword password: String) -> LoginMessage {
         
         do {
-            let num = try tryLogin()
+            let param:Parameters = ["username": id, "password": password]
+            let _ = try tryLogin(param: param, url: self.ipAddress + self.ipData)
             
         } catch LoginError.noValidId {
-            return "no valid id"
+            return .noValidId
         } catch LoginError.noValidPassword {
-            return "no valid password"
+            return .noValidPassword
         } catch {
-            return "error"
+            return .error
         }
         
-        return "sucess"
+        return .success
     }
     
-    func tryLogin() throws -> Int {
-        let num = 1
-        switch num {
-        case 0:
+    func tryLogin(param: Parameters, url: String) throws -> Int {
+        var loginResult = ""
+        print("tryLogin")
+        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
+            print(response)
+            guard let result = response.result.value as? Dictionary<String, String> else {
+                return
+            }
+            print("result : \(result)")
+//            loginResult = result["response"]
+            
+        }
+        switch loginResult {
+        case "success":
             return 0
-        case 1:
+        case "fail":
             throw LoginError.noValidId
         default:
             throw LoginError.noValidPassword
@@ -41,8 +53,26 @@ struct LoginAPI {
     }
 }
 
+extension LoginAPI: NetWorkProtocol {
+    var ipData: String {
+        return "/api/member/loginMember"
+    }
+}
+
 enum LoginError: Error {
     
     case noValidId
     case noValidPassword
+}
+
+enum LoginMessage {
+    case success
+    case noValidId
+    case noValidPassword
+    case error
+}
+
+struct Login: Decodable {
+    let username: String
+    let password: String
 }

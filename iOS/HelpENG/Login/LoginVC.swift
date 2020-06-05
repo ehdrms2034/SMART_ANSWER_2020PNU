@@ -17,23 +17,39 @@ class LoginVC: UIViewController {
     
    
     @IBAction func touchLoginBtn(_ sender: Any) {
-        guard let id = idTextField.text, let password = passwordTextField.text else {
+        
+        guard let id = idTextField.text, !id.isEmpty else {
             return
         }
-        let num = loginAPI.login(userId: id, userPassword: password)
-        print(num)
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            return
+        }
+        
+        handleLoginAPIResult(loginResult: loginAPI.login(userId: id, userPassword: password))
     }
     
     @IBAction func touchRegisterBtn(_ sender: Any) {
-        
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "JoinVC")
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         setDelegate()
     }
     
-    func handleLoginAPIResult() {
-        
+    func handleLoginAPIResult(loginResult result: LoginMessage) {
+        switch result {
+        case .success:
+//            prsentMainVC()
+            print("sucess")
+        case .noValidId:
+            print("noValidId")
+        case .noValidPassword:
+            print("noValidPassword")
+        case .error:
+            print("error")
+        }
     }
     
     func setDelegate() {
@@ -46,9 +62,43 @@ class LoginVC: UIViewController {
     }
 }
 
+//MARK: - Present MainVC
+extension LoginVC {
+    func prsentMainVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
+            //vc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+//            if let tbItems = vc.tabBar.items {
+//
+//                tbItems[0].image = UIImage(named: "chase")
+//                tbItems[1].image = UIImage(named: "ticket")
+//                tbItems[2].image = UIImage(named: "planetIcon")
+//                tbItems[3].image = UIImage(named: "showmore")
+//
+//                tbItems[0].image?.accessibilityFrame.size = CGSize(width: 20, height: 20)
+//
+//                tbItems[0].setTitleTextAttributes([NSAttributedString.Key.font : UIFont.init(name: "NotoSansCJKkr-Bold", size: 10)!], for: .normal)
+//                tbItems[1].setTitleTextAttributes([NSAttributedString.Key.font : UIFont.init(name: "NotoSansCJKkr-Bold", size: 10)!], for: .normal)
+//                tbItems[2].setTitleTextAttributes([NSAttributedString.Key.font : UIFont.init(name: "NotoSansCJKkr-Bold", size: 10)!], for: .normal)
+//                tbItems[3].setTitleTextAttributes([NSAttributedString.Key.font : UIFont.init(name: "NotoSansCJKkr-Bold", size: 10)!], for: .normal)
+//            }
+             
+//        vc.selectedIndex = 1
+//        vc.tabBar.barStyle = UIBarStyle.black
+//        vc.tabBar.barTintColor = #colorLiteral(red: 0.1018124148, green: 0.1057564691, blue: 0.114060916, alpha: 1)
+//        vc.tabBar.isTranslucent = false
+//        vc.tabBar.tintColor = #colorLiteral(red: 1, green: 0.3254901961, blue: 0.3254901961, alpha: 1)
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.present(vc, animated: true)
+    }
+}
+
 extension LoginVC: UITextFieldDelegate {
     
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //
 //    }
 }
+
+

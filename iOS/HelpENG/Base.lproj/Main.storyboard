@@ -303,12 +303,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5d-ID-1c1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="-332"/>
+            <point key="canvasLocation" x="-702" y="-129"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cBC-6t-tRA">
             <objects>
-                <tabBarController id="YOK-yK-wUd" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YOK-yK-wUd" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cuE-Wl-ei2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -339,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OE-Eg-HOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="1795"/>
+            <point key="canvasLocation" x="-702" y="1582"/>
         </scene>
     </scenes>
 </document>
