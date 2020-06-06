@@ -1,7 +1,12 @@
 package com.smartanswer.ocrproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -24,6 +29,7 @@ public class Member {
     private String password;
     private String name;
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId _id;
     @CreatedDate
     private Date createdAt;
@@ -31,6 +37,7 @@ public class Member {
     private Date modifiedAt;
 
     @DBRef(lazy = true)
+    @JsonIgnore
     ArrayList<Member> friends;
 
     public Member(String username, String password, String name) {

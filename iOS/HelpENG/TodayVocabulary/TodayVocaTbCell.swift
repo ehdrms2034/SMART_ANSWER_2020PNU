@@ -69,21 +69,13 @@ class TodayVocaTbCell: UITableViewCell {
 //MARK: - control hide Function
 extension TodayVocaTbCell {
     
-    func hideKorVocaLabel() {
-        korBtnIsHidden = true
-    }
+    func hideKorVocaLabel() { korBtnIsHidden = true }
     
-    func displayKorVocaLabel() {
-        korBtnIsHidden = false
-    }
+    func displayKorVocaLabel() { korBtnIsHidden = false }
     
-    func hideEngVocaLabel() {
-        engBtnIsHidden = true
-    }
+    func hideEngVocaLabel() { engBtnIsHidden = true }
     
-    func displayEngVocaLabel() {
-        engBtnIsHidden = false
-    }
+    func displayEngVocaLabel() { engBtnIsHidden = false }
 }
 
 

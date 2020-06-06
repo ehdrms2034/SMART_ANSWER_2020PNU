@@ -37,7 +37,6 @@ public class AnswerController {
         } catch (Exception e){
             return new CustomResponse("fail","오류가 발생했습니다",e);
         }
-
     }
 
 
