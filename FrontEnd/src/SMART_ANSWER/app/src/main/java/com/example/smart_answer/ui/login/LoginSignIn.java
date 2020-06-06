@@ -1,7 +1,10 @@
 
         package com.example.smart_answer.ui.login;
 
+        import android.content.Context;
+        import android.content.Intent;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
@@ -14,100 +17,98 @@
         import com.example.smart_answer.retrofit.RetrofitInterface;
         import com.google.gson.JsonObject;
 
+        import java.io.IOException;
+
         import retrofit2.Call;
         import retrofit2.Callback;
         import retrofit2.Response;
         import retrofit2.Retrofit;
         import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginSignIn extends AppCompatActivity {
+public class LoginSignIn extends AppCompatActivity implements Runnable {
     // Retrofit Connection
-
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://15.164.212.98:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-    /*
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-     */
-    public static String userID = "";
-    public static String userPWD = "";
 
+    private static String userID = "";
+    private static String userPWD = "";
+    public static String messageDebug = "";
+    public static String inputID = "";
+    public static String inputPWD = "";
     RetrofitInterface service = retrofit.create(RetrofitInterface.class);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
 
         Button loginButton = (Button)findViewById(R.id.button_sign_in);
-
+        Button registerButton= (Button)findViewById(R.id.button_register);
         final EditText ID = (EditText)findViewById(R.id.ID);
         final EditText PWD = (EditText)findViewById(R.id.password);
-
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String ID.getText().toString();
-                Call<LoginData> responseData = service.getUserData(ID.getText().toString());
+                inputID = ID.getText().toString();
+                inputPWD = PWD.getText().toString();
+                Call<LoginData> responseData = service.getLoginData(inputID);
                 responseData.enqueue(new Callback<LoginData>() {
                     @Override
                     public void onResponse(Call<LoginData> call, Response<LoginData> response) {
-                        if (response.isSuccessful()) {
-//                    Log.i(TAG, "onResponse(): " + response.body().toString());
-
-                            userID = response.body().getData().getUsername();
-                            userPWD = response.body().getData().getPassword();
-                            /* RestApi recieve as JsonObject
-                            userID = response.body().getAsJsonObject("data")
-                                .get("username").getAsString();
-                            userPWD = response.body().getAsJsonObject("data")
-                                    .get("password").getAsString();
-                            // Git Api
-                            userID = response.body().get("login").getAsString() ;
-                            userPWD = response.body().get("id").getAsString() ;
-                             */
+                        try{
+                            if (response.isSuccessful()) {
+                                messageDebug = "ID, password를 확인 해 주세요";
+                                userID = response.body().getData().getUsername();
+                                userPWD = response.body().getData().getPassword();
+                                loginSuccess(inputID, inputPWD);
+                            } else {
+                                messageDebug = "response failed";
+                                loginFailed();
+                            }
                         }
-                        // JsonArray로 받을때 이렇게 했었다.
-                        // textView.setText(response.body().get(0).getAsJsonObject().get("id").getAsString());
+                        catch(Exception e) {
+                            Log.d("My Tag", response.body().toString());
+                        }
                     }
                     @Override
                     public void onFailure(Call<LoginData> call, Throwable t) {
+                        messageDebug = t.toString();
                         loginFailed();
-//                Log.e(TAG, "onFailure(): " + t.getMessage());
                     }
                 });
+            }
+        });
 
-                if(userID.equals(ID.getText().toString()) && userPWD.equals(PWD.getText().toString())) {
-                    //로그인 성공!!
-                    loginSuccess();
-                    finish();
-                }
-                else{
-                    //로그인 실패!!
-                    loginFailed();
-                }
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginRegister.class);
+                startActivity(intent);
             }
         });
     }
-    /*
-    public boolean isLoginSuccess() {
 
-    }
-    
-     */
-
-    public void loginSuccess() {
-        Toast.makeText(getApplicationContext(), "로그인 성공!",
-                Toast.LENGTH_SHORT).show();
+    public void loginSuccess(String inputID, String inputPWD) {
+        if (userID.equals(inputID) && userPWD.equals(inputPWD)) {
+            messageDebug = userID +"님 로그인 하였습니다.";
+            Toast.makeText(getApplicationContext(), messageDebug,
+                    Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else
+            loginFailed();
     }
 
     public void loginFailed() {
-        Toast.makeText(getApplicationContext(), "아이디 패스워드 확인바람",
+        Toast.makeText(getApplicationContext(), messageDebug,
                 Toast.LENGTH_SHORT).show();
     }
 
+    public void run() {
+
+
+    }
 }

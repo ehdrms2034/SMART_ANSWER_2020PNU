@@ -23,12 +23,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginRegister extends AppCompatActivity {
     // Retrofit Connection
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl("http://15.164.212.98:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    public static String userID = "";
-    public static String userPWD = "";
+    private static String userID = "";
+    private static String userPWD = "";
+    public static String messageDebug = "";
+    public static String inputID = "";
+    public static String inputPWD = "";
 
     RetrofitInterface service = retrofit.create(RetrofitInterface.class);
     @Override
@@ -37,87 +40,50 @@ public class LoginRegister extends AppCompatActivity {
         setContentView(R.layout.sign_rester);
         final EditText ID = (EditText)findViewById(R.id.ID);
         final EditText PWD = (EditText)findViewById(R.id.password);
-        Button check = (Button)findViewById(R.id.button_ID_check);
         Button register = (Button)findViewById(R.id.button_register);
 
-
-        check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String inputID = ID.getText().toString();
-                if(!inputID.equals(""))
-                    buttonCheckClick(inputID);
-                else
-                    ;
-            }
-        });
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputID = ID.getText().toString();
-                String inputPWD = PWD.getText().toString();
+                inputID = ID.getText().toString();
+                inputPWD = PWD.getText().toString();
                 buttonRegisterClick(inputID, inputPWD);
             }
         });
     }
 
-    public void buttonCheckClick(String inputID) {
-        Call<LoginData> responseID = service.getLoginData(inputID);
-        responseID.enqueue(new Callback<LoginData>() {
-            @Override
-            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
-                if (response.isSuccessful()) {
-                    LoginData body = response.body();
-                    if (body != null) {
-                        userID = body.getData().getPassword();
-                        userPWD = body.getData().getPassword();
-                        registerSuccess();
-                    }
-                    else
-                        registerFailed();
-                }
-                else
-                    responseFailed();
-            }
-            @Override
-            public void onFailure(Call<LoginData> call, Throwable t) {
-                responseFailed();
-//                Log.e(TAG, "onFailure(): " + t.getMessage());
-            }
-        });
-    }
-
     public void buttonRegisterClick(String inputID, String inputPWD) {
-        Call<LoginData> responseID = service.postUser(inputID, inputID, inputPWD);
-        responseID.enqueue(new Callback<LoginData>() {
+        PostData postData = new PostData(inputID, inputID, inputPWD);
+        Call<JsonObject> responseID = service.postUser(postData);
+        responseID.enqueue(new Callback<JsonObject>() {
             @Override
-            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
-
+                    messageDebug = response.body().toString();
+                    registerSuccess();
                 }
-                else
-                    responseFailed();
+                else {
+                    messageDebug = "Response failed\nError code: " + Integer.toString(response.code());
+                    registerFailed();
+                }
             }
             @Override
-            public void onFailure(Call<LoginData> call, Throwable t) {
-                responseFailed();
-//                Log.e(TAG, "onFailure(): " + t.getMessage());
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                messageDebug = t.toString();
+                registerFailed();
             }
         });
     }
 
     public void registerSuccess() {
-        Toast.makeText(getApplicationContext(), userID + " " + userPWD,
+        Toast.makeText(getApplicationContext(), messageDebug,
                 Toast.LENGTH_SHORT).show();
+        //finish();
     }
 
     public void registerFailed() {
-        Toast.makeText(getApplicationContext(), "아이디 확인바람",
+        Toast.makeText(getApplicationContext(), messageDebug,
                 Toast.LENGTH_SHORT).show();
     }
 
-    public void responseFailed() {
-        Toast.makeText(getApplicationContext(), "연결 실패",
-                Toast.LENGTH_SHORT).show();
-    }
 }
