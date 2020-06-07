@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
-import com.example.smart_answer.ui.dashboard.DashboardView;
+import com.example.smart_answer.ui.result.ResultView;
 
 import java.util.ArrayList;
 
@@ -47,7 +47,7 @@ public class RecyclerDashboardAdapter extends RecyclerView.Adapter<RecyclerDashb
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
-                    Intent intent = new Intent(v.getContext(), DashboardView.class);
+                    Intent intent = new Intent(v.getContext(), ResultView.class);
                     if(pos != RecyclerView.NO_POSITION) {
                         v.getContext().startActivity(intent);
                     }

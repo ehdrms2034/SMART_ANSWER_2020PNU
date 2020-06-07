@@ -16,7 +16,7 @@ public class DashboardView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_result);
 
         DashboardAdapter m_Adapter = new DashboardAdapter();
         // Xml에서 추가한 ListView 연결

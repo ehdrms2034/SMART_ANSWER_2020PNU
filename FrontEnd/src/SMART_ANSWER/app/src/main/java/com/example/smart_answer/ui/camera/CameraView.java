@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
@@ -66,7 +67,7 @@ public class CameraView extends AppCompatActivity {
             try {
                 photoFile = createImageFile();
             } catch (IOException e) {
-                //Toast.makeText(getActivity().getApplicationContext(), "이미지생성실패", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_SHORT).show();
             }
             if (photoFile != null) {
                 photoUri = FileProvider.getUriForFile(getApplicationContext(),
@@ -74,6 +75,12 @@ public class CameraView extends AppCompatActivity {
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
             }
+            else {
+                Toast.makeText(getApplicationContext(), "2", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "3", Toast.LENGTH_SHORT).show();
         }
     }
 
