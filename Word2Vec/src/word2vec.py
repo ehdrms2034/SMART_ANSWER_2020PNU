@@ -12,7 +12,7 @@ recommend_list = []  # 틀린 단어로 만든 추천 단어 list
 # 틀린단어로 만든 추천단어
 for i in (word_list):
     recommend_list.append(i.lower())
-    model_result = embedding_model.most_similar(i.lower(), topn=40)
+    model_result = model.most_similar(i.lower(), topn=40)
     for j, k in model_result:
         recommend_list.append(j)
 
