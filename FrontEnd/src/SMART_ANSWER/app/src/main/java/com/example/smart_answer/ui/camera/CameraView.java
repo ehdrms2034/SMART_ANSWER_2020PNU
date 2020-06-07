@@ -2,6 +2,7 @@ package com.example.smart_answer.ui.camera;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -26,6 +27,8 @@ import java.util.Date;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 public class CameraView extends AppCompatActivity {
@@ -51,6 +54,13 @@ public class CameraView extends AppCompatActivity {
 
         //카메라 실행
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        int permissionCheck = ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA);
+        if(permissionCheck == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
+        }
+        else {
+
+        }
         if(intent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
