@@ -34,3 +34,35 @@ key_list20_50 = [x for x in key_list20 if x not in key_list50]
 print(len(key_list20_50))   #level 2
 key_list50_500 = [x for x in key_list50 if x not in key_list500]
 print(len(key_list50_500))  #level 1
+
+f = open("level5.txt", 'w')
+g = open("level4.txt", 'w')
+h = open("level3.txt", 'w')
+j = open("level2.txt", 'w')
+k = open("level1.txt", 'w')
+
+for i in key_list5_7:
+    f.write(i)
+    f.write(' ')
+
+for i in key_list7_11:
+    g.write(i)
+    g.write(' ')
+
+for i in key_list11_20:
+    h.write(i)
+    h.write(' ')
+
+for i in key_list20_50:
+    j.write(i)
+    j.write(' ')
+
+for i in key_list50_500:
+    k.write(i)
+    k.write(' ')
+
+f.close()
+g.close()
+h.close()
+j.close()
+k.close()
