@@ -60,7 +60,8 @@ for i in (word_list):
     recommend_list.append(i.lower())
     model_result = model.most_similar(i.lower(), topn=50)
     for j, k in model_result:
-        recommend_list.append(j)
+        if len(i) > 4:
+            recommend_list.append(j)
 
 recommend_set = set(recommend_list)
 recommend_list = list(recommend_set)
