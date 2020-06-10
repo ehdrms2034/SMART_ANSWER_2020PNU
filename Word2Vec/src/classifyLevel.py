@@ -42,24 +42,29 @@ j = open("level2.txt", 'w')
 k = open("level1.txt", 'w')
 
 for i in key_list5_7:
-    f.write(i)
-    f.write(' ')
+    if len(i) > 4:
+        f.write(i)
+        f.write(' ')
 
 for i in key_list7_11:
-    g.write(i)
-    g.write(' ')
+    if len(i) > 4:
+        g.write(i)
+        g.write(' ')
 
 for i in key_list11_20:
-    h.write(i)
-    h.write(' ')
+    if len(i) > 4:
+        h.write(i)
+        h.write(' ')
 
 for i in key_list20_50:
-    j.write(i)
-    j.write(' ')
+    if len(i) > 4:
+        j.write(i)
+        j.write(' ')
 
 for i in key_list50_500:
-    k.write(i)
-    k.write(' ')
+    if len(i) > 4:
+        k.write(i)
+        k.write(' ')
 
 f.close()
 g.close()
