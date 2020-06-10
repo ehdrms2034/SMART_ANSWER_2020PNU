@@ -29,8 +29,10 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member findOneByUsername(String username) {
-        return memberRepository.findOneByUsername(username);
+    public Member findOneByUsername(String username) throws Exception{
+        Member member = memberRepository.findOneByUsername(username);
+        if(member== null) throw new Exception("MemberServiceImpl : 선택한 유저를 찾을 수가 없습니다.");
+        return member;
     }
 
     @Override

@@ -11,7 +11,7 @@ public interface MemberService {
 
     void createMember(Member member);
 
-    Member findOneByUsername(String username);
+    Member findOneByUsername(String username) throws Exception;
 
     Member login(String username, String password) throws Exception;
 
