@@ -262,6 +262,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qpE-3N-rRx"/>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="Rlh-hO-zr4" id="e8v-cb-7Mn"/>
+                        <outlet property="nameTextField" destination="zQc-aH-wbi" id="i9y-6f-aNz"/>
+                        <outlet property="passwordTextField" destination="GNi-gz-oss" id="A9e-PU-ys7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZg-79-JhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1Ka-Ph-CHs">

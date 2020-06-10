@@ -16,7 +16,7 @@ protocol NetWorkProtocol {
 extension NetWorkProtocol {
     
     var ipAddress: String {
-        return "http://15.164.212.98:8080"
+        return "http://54.180.175.238:8080"
         
     }
 }

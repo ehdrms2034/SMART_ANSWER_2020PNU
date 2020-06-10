@@ -25,14 +25,20 @@ class LoginVC: UIViewController {
             return
         }
         
-        handleLoginAPIResult(loginResult: loginAPI.login(userId: id, userPassword: password))
+        loginAPI.login(userId: id, userPassword: password, completion: { result in
+            print("call handleLoginAPIResult func")
+            self.handleLoginAPIResult(loginResult: result)
+        })
+        
     }
     
     @IBAction func touchRegisterBtn(_ sender: Any) {
         let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "JoinVC")
-        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .formSheet
         present(vc, animated: true, completion: nil)
     }
+    
+    
     
     override func viewDidLoad() {
         setDelegate()
@@ -41,14 +47,12 @@ class LoginVC: UIViewController {
     func handleLoginAPIResult(loginResult result: LoginMessage) {
         switch result {
         case .success:
-//            prsentMainVC()
-            print("sucess")
-        case .noValidId:
-            print("noValidId")
-        case .noValidPassword:
-            print("noValidPassword")
-        case .error:
-            print("error")
+            self.presentMainVC()
+//            print("sucess in handleLoginAPIResult")
+        case .noValid:
+            print("noValid in handleLoginAPIResult")
+        case .commuicationError:
+            print("error in handleLoginAPIResult")
         }
     }
     
@@ -64,7 +68,8 @@ class LoginVC: UIViewController {
 
 //MARK: - Present MainVC
 extension LoginVC {
-    func prsentMainVC() {
+    
+    func presentMainVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
             //vc.modalTransitionStyle = UIModalTransitionStyle.coverVertical

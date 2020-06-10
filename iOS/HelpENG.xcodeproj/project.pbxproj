@@ -10,6 +10,7 @@
 		23D43CFEB2F88BB1C0D358D0 /* Pods_HelpENGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F498BBF45EEF7D20E1E358D /* Pods_HelpENGTests.framework */; };
 		2409FAC52489E5750036EDF0 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409FAC42489E5750036EDF0 /* JoinVC.swift */; };
 		2409FAC72489E6C40036EDF0 /* JoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409FAC62489E6C40036EDF0 /* JoinAPI.swift */; };
+		2409FAC92490ACC00036EDF0 /* AlertCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409FAC82490ACC00036EDF0 /* AlertCustom.swift */; };
 		2434AC322486A07D00CE6D0A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2434AC312486A07D00CE6D0A /* Login.storyboard */; };
 		2434AC342486A2F300CE6D0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2434AC332486A2F300CE6D0A /* LoginVC.swift */; };
 		2434AC362486A4FF00CE6D0A /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2434AC352486A4FF00CE6D0A /* LoginAPI.swift */; };
@@ -55,6 +56,7 @@
 		121A11C2050855144F002EEA /* Pods_HelpENG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelpENG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2409FAC42489E5750036EDF0 /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
 		2409FAC62489E6C40036EDF0 /* JoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinAPI.swift; sourceTree = "<group>"; };
+		2409FAC82490ACC00036EDF0 /* AlertCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustom.swift; sourceTree = "<group>"; };
 		2434AC312486A07D00CE6D0A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2434AC332486A2F300CE6D0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2434AC352486A4FF00CE6D0A /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
@@ -122,8 +124,8 @@
 			children = (
 				2434AC312486A07D00CE6D0A /* Login.storyboard */,
 				2434AC332486A2F300CE6D0A /* LoginVC.swift */,
-				2434AC352486A4FF00CE6D0A /* LoginAPI.swift */,
 				2409FAC42489E5750036EDF0 /* JoinVC.swift */,
+				2434AC352486A4FF00CE6D0A /* LoginAPI.swift */,
 				2409FAC62489E6C40036EDF0 /* JoinAPI.swift */,
 			);
 			path = Login;
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				24963BE8247E0E9D00138002 /* Layer.swift */,
+				2409FAC82490ACC00036EDF0 /* AlertCustom.swift */,
 			);
 			path = Utile;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				246ED5DE24876C2E00A022FD /* NetworkProtocol.swift in Sources */,
 				24963BE3247DFB4800138002 /* TodayVocaTbData.swift in Sources */,
 				24963BE1247DFB0800138002 /* TodayVocaAPI.swift in Sources */,
+				2409FAC92490ACC00036EDF0 /* AlertCustom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
