@@ -37,7 +37,11 @@ public class ResultView extends AppCompatActivity {
         resultRecyclerAdapter = new RecyclerResultAdapter();
         resultRecycler.setAdapter(resultRecyclerAdapter);
 
-        RecyclerResult data1 = new RecyclerResult("정답단어1","내단어1");
+        for(int i=0; i<8; i++) {
+            RecyclerResult data = new RecyclerResult("정답단어"+i, "내단어"+i);
+            resultRecyclerAdapter.addItem(data);
+        }
+        /*RecyclerResult data1 = new RecyclerResult("정답단어1","내단어1");
         RecyclerResult data2 = new RecyclerResult("정답단어2","내단어2");
         RecyclerResult data3 = new RecyclerResult("정답단어3","내단어3");
         RecyclerResult data4 = new RecyclerResult("정답단어4","내단어4");
@@ -53,7 +57,7 @@ public class ResultView extends AppCompatActivity {
         resultRecyclerAdapter.addItem(data5);
         resultRecyclerAdapter.addItem(data6);
         resultRecyclerAdapter.addItem(data7);
-        resultRecyclerAdapter.addItem(data8);
+        resultRecyclerAdapter.addItem(data8);*/
 
         //추천
         recommandRecycler = findViewById(R.id.ResultRecommand);
@@ -64,7 +68,11 @@ public class ResultView extends AppCompatActivity {
         recommandRecyclerAdapter = new RecyclerRecommandAdapter();
         recommandRecycler.setAdapter(recommandRecyclerAdapter);
 
-        RecyclerRecommand data11 = new RecyclerRecommand("추천단어1");
+        for(int i=0; i<8; i++) {
+            RecyclerRecommand data = new RecyclerRecommand("추천단어"+i);
+            recommandRecyclerAdapter.addItem(data);
+        }
+        /*RecyclerRecommand data11 = new RecyclerRecommand("추천단어1");
         RecyclerRecommand data22 = new RecyclerRecommand("추천단어2");
         RecyclerRecommand data33 = new RecyclerRecommand("추천단어3");
         RecyclerRecommand data44 = new RecyclerRecommand("추천단어4");
@@ -81,6 +89,6 @@ public class ResultView extends AppCompatActivity {
         recommandRecyclerAdapter.addItem(data66);
         recommandRecyclerAdapter.addItem(data77);
         recommandRecyclerAdapter.addItem(data88);
-
+*/
     }
 }
