@@ -1,100 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#ebebeb"
     tools:context=".ui.home.HomeFragment" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="#ebebeb"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="#ffffff"
-        android:gravity="center"
-        android:text="Quiz Supporter"
-        android:textSize="30sp"
-        android:fontFamily="@font/segoeui"
-        android:textColor="#707070"
-        tools:ignore="MissingConstraints" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/home_background"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="27dp"
-            android:background="#00ff0000"
-            android:orientation="horizontal">
-            <Button
+            android:background="@drawable/border_home_userinfo">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="Name"
+                android:textSize="23sp"
+                android:fontFamily="@font/segoeui"
+                android:textColor="#707070"
+                android:id="@+id/usernameInHome"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="3dp"
+                android:layout_below="@+id/usernameInHome"
+                android:id="@+id/userinfo"
+                android:text="UserInfo"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ebebeb"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
                 android:id="@+id/photoBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:background="#00ff0000"
-                android:stateListAnimator="@null"
-                android:text="채점"
-                android:textSize="30sp"
-                android:fontFamily="@font/segoeui"
-                android:textColor="#707070"/>
-            <Button
-                android:id="@+id/resultBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="51dp"
-                android:background="#00ff0000"
-                android:stateListAnimator="@null"
-                android:text="점수확인"
-                android:textSize="30sp"
-                android:fontFamily="@font/segoeui"
-                android:textColor="#707070"/>
-        </LinearLayout>
+                android:src="@drawable/photobtn"/>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="#00ff0000"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/messageBtn"
+            android:layout_height="match_parent"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginRight="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:background="#00ff0000"
-                android:stateListAnimator="@null"
-                android:text="메세지"
-                android:textSize="30sp"
-                android:fontFamily="@font/segoeui"
-                android:textColor="#707070"/>
-            <Button
-                android:id="@+id/notificationBtn"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="5dp"
+                android:text="최근 틀린 단어"
+                android:textSize="21sp"
+                tools:ignore="MissingConstraints" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recentWrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/rounded_white"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:background="#00ff0000"
-                android:stateListAnimator="@null"
-                android:text="공지사항"
-                android:textSize="30sp"
-                android:fontFamily="@font/segoeui"
-                android:textColor="#707070"/>
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="Today Voca"
+                android:textSize="21sp"
+                tools:ignore="MissingConstraints"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_today_voca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/rounded_white"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
-    </LinearLayout>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/home_background_2"
-        android:background="#ffffff"
-        tools:ignore="MissingConstraints" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
