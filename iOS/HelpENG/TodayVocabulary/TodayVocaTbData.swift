@@ -30,7 +30,11 @@ struct TodayVocaTbData {
 //MARK: - Data Controll
 
 extension TodayVocaTbData {
-    
+    func getTbDataForCellInt(indexPath: IndexPath) -> (Bool, Bool, String, String) {
+        
+        return (korVocasHidden[indexPath.row], engVocasHidden[indexPath.row],
+        vocasData[indexPath.row].kor, vocasData[indexPath.row].eng)
+    }
 
 }
 

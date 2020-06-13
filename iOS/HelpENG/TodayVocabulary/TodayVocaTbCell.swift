@@ -41,16 +41,30 @@ class TodayVocaTbCell: UITableViewCell {
         }
     }
     
+    var korVocaLabelText: String = "" {
+        willSet(newValue) {
+            korVocaLabel.text = newValue
+        }
+    }
+    
+    var engVocaLabelText:String = "" {
+        willSet(newValue) {
+            engVocaLabel.text = newValue
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func initCellView(korIsHidden: Bool, engIsHidden: Bool, indexPath: IndexPath) {
+    func initCellView(korIsHidden: Bool, engIsHidden: Bool, korText: String, engText: String, indexPath: IndexPath) {
         hideEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
         hideKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
                 
         self.korBtnIsHidden = korIsHidden
         self.engBtnIsHidden = engIsHidden
+        self.korVocaLabelText = korText
+        self.engVocaLabelText = engText
         self.indexPath = indexPath
     }
 

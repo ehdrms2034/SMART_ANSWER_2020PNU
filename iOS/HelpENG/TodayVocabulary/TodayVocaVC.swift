@@ -14,6 +14,7 @@ class TodayVocaVC: UIViewController {
     
     @IBOutlet weak var hideAllEngBtn: UIButton!
     @IBOutlet weak var hideAllKorBtn: UIButton!
+    @IBOutlet weak var shuffleBtn: UIButton!
     
     @IBAction func selectHideAllEngBtn(_ sender: Any) {
         todayVocaTb.controlAllLabel(isHidden: hideAllEngBtn.isSelected, language: .eng)
@@ -26,6 +27,11 @@ class TodayVocaVC: UIViewController {
         hideAllKorBtn.isSelected == true ? (hideAllKorBtn.isSelected = false) :(hideAllKorBtn.isSelected = true)
         todayVocaTb.reloadData()
 
+    }
+    
+    @IBAction func touchShuffleBtn(_ sender: Any) {
+        todayVocaTb.todayVocaTbData.vocasData.shuffle()
+        todayVocaTb.reloadData()
     }
     
     override func viewDidLoad() {
@@ -63,8 +69,9 @@ extension TodayVocaVC: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell.delegate = tableView
-        let (korIsHidden, engIsHidden) = (tableView.todayVocaTbData.korVocasHidden[indexPath.row], tableView.todayVocaTbData.engVocasHidden[indexPath.row])
-        cell.initCellView(korIsHidden: korIsHidden, engIsHidden: engIsHidden, indexPath: indexPath)
+        let (korIsHidden, engIsHidden, korText, engText) = tableView.todayVocaTbData.getTbDataForCellInt(indexPath: indexPath)
+        
+        cell.initCellView(korIsHidden: korIsHidden, engIsHidden: engIsHidden, korText: korText, engText: engText ,indexPath: indexPath)
         
         return cell
     }
