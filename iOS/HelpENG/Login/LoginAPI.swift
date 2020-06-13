@@ -62,17 +62,5 @@ extension LoginAPI: NetWorkProtocol {
 enum LoginMessage: String {
     case success = "로그인을 성공적으로 수행했습니다."
     case noValid = "로그인 중 오류가 발생했습니다."
-    case commuicationError = ""
+    case commuicationError
 }
-
-
-/* result : ["response": "error", "message": "로그인 중 오류가 발생했습니다.", "data": "MemberServiceImpl : 유저의 비밀번호가 틀렸습니다."] */
-
-/* ["response": "error", "message": "로그인 중 오류가 발생했습니다.", "data": "MemberServiceImpl : 선택한 유저를 찾을 수가 없습니다."] */
-
-
-/* SUCCESS: {
-    data = "<null>";
-    message = "\Ub85c\Uadf8\Uc778\Uc744 \Uc131\Uacf5\Uc801\Uc73c\Ub85c \Uc218\Ud589\Ud588\Uc2b5\Ub2c8\Ub2e4.";
-    response = success;
-} */
