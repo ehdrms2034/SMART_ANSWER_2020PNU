@@ -22,12 +22,24 @@ public class NotificationController {
 
     //notification들을 list로 반환해주는 함수
     @PostMapping("/getNotification")
-    CustomResponse getNotification(@RequestBody RequestGetAnswer request){
+    CustomResponse getNotification(){
         List<_Notification> notification = notificationService.getAllNotification();
         if(notification.isEmpty()) {
             return new CustomResponse("fail", "공지사항이 존재하지 않습니다", "공지사항이 존재하지 않습니다");
         } else {
             return new CustomResponse("success","공지사항 조회 결과 입니다",notification);
         }
+    }
+
+    @PostMapping("/inputNotification")
+    CustomResponse inputNotification(@RequestBody _Notification notification){
+        if(notificationService.inputNotification(notification)){
+            return new CustomResponse("success","notification input success",null);
+        } else {
+            return new CustomResponse("success","notification input failed",null);
+        }
+
+
+
     }
 }

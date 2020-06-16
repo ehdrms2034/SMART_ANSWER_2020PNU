@@ -16,7 +16,6 @@ public class AnswerController {
     @Autowired
     private AnswerService answerService;
 
-
     @PostMapping("/getAnswerInfo")
     CustomResponse getAnswerByDate(@RequestBody RequestGetAnswer request){
        Answer answer = answerService.getAnswer(request.getId(),request.getDate());
@@ -37,7 +36,6 @@ public class AnswerController {
         } catch (Exception e){
             return new CustomResponse("fail","오류가 발생했습니다",e);
         }
-
     }
 
 
