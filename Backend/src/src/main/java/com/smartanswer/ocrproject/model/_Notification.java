@@ -3,9 +3,12 @@ package com.smartanswer.ocrproject.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.lang.reflect.Constructor;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,9 +17,9 @@ public class _Notification {
     @Id
     private ObjectId _id;
 
-    @Indexed(unique = true)
-    private int count;
-
+    @CreatedDate
+    private Date date;
+    // TODO: 2020-06-15 count Auto increasing Modify Issue
     private String title;
     private String context;
 

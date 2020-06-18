@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface NotificationService {
     List<_Notification> getAllNotification();
+    boolean inputNotification(_Notification notification);
 }

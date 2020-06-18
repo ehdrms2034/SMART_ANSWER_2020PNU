@@ -19,4 +19,15 @@ public class NotificationServiceImpl implements NotificationService {
     public List<_Notification> getAllNotification() {
         return notificationRepository.findAll();
     }
+
+    @Override
+    public boolean inputNotification(_Notification notification) {
+        try{
+            notificationRepository.save(notification);
+            return true;
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

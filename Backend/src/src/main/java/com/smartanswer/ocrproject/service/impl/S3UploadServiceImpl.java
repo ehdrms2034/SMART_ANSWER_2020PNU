@@ -68,6 +68,7 @@ public class S3UploadServiceImpl implements S3UploadService {
     public String upload(File uploadFile, String dirName) {
 
         String fileName = dirName + "/" + UUID.randomUUID() + '-' + uploadFile.getName();
+//      Issue : Image Uploading에서 static/ 경로 이후 UserID를 url에 포함시켜서 사용자에 맞는 Image를 가져오는 방법
         String uploadImageUrl = putS3(uploadFile, fileName);
         removeNewFile(uploadFile);
         return uploadImageUrl;
