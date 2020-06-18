@@ -12,16 +12,20 @@ class VocaTestVC: UIViewController {
     
     @IBOutlet weak var testResultUIView: UIView!
     @IBOutlet weak var scoringBtn: UIView!
+    @IBOutlet var mainOutsideView: UIView!
     
-    
+    let picker = UIImagePickerController()
+
     let testResultTbView: ExpandingTableView = {
         let tableView = ExpandingTableView()
         tableView.initUI()
         return tableView
     }()
     
+    let imageApi = VocaTestImageAPI()
+    
     @IBAction func touchScoringBtn(_ sender: Any) {
-        
+        showSelectionAlert()
     }
 
     override func viewDidLoad() {
@@ -30,14 +34,24 @@ class VocaTestVC: UIViewController {
         initDelegateAndDataSource()
     }
     
-    func initUIView() {
-        scoringBtn.backgroundColor = #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1)
-        scoringBtn.layer.cornerRadius = 10
     
+}
+
+//MARK: - VocaTestVC Setup View And Delegate
+extension VocaTestVC: MyColor {
+    
+    func initUIView() {
+        scoringBtn.backgroundColor = mainColor
+        scoringBtn.layer.cornerRadius = 10
+        mainOutsideView.backgroundColor = backgroundColor
+        testResultUIView.layer.setBorderColorAndWidth(color: subColor, borderWidth: 1.0)
+        testResultUIView.backgroundColor = subColor
     }
     
     func initTbView() {
         testResultUIView.addSubview(testResultTbView)
+        testResultTbView.backgroundColor = clearColor
+        testResultTbView.separatorStyle = .none
         
         testResultTbView.translatesAutoresizingMaskIntoConstraints = false
         testResultTbView.leftAnchor.constraint(equalTo: testResultUIView.leftAnchor).isActive = true
@@ -49,9 +63,54 @@ class VocaTestVC: UIViewController {
     func initDelegateAndDataSource() {
         testResultTbView.delegate = self
         testResultTbView.dataSource = self
+        picker.delegate = self
     }
 }
 
+//MARK: - VocatTestVC Camera, Album Function
+
+extension VocaTestVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func showCamera() {
+        picker.sourceType = .camera
+        present(picker, animated: false, completion: nil)
+    }
+    
+    func showAlbum() {
+        picker.sourceType = .photoLibrary
+        present(picker, animated: false, completion: nil)
+    }
+    
+    func showSelectionAlert() {
+        let alert = UIAlertController(title: "", message: "채점 방식", preferredStyle: .actionSheet)
+        let album = UIAlertAction(title: "앨범", style: .default, handler: { (action) in
+            self.showAlbum()
+        })
+        let camera = UIAlertAction(title: "카메라", style: .default, handler: { (action) in
+            self.showCamera()
+        })
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(album)
+        alert.addAction(camera)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            // image를 이제 서버로 보내면 됨.
+            print(info)
+            imageApi.imageUpload(image: image, completion: {
+            })
+
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - VocaTestVC TableView Func
 extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +128,12 @@ extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = ExpandingTbViewSectionCell()
-            cell.takeTextAndPutItOnLabel(text: testResultTbView.getSectionTitle(indexPath: indexPath))
+            let cellData = testResultTbView.getSectionData(indexPath: indexPath)
+            
+            cell.takeTextAndPutItOnLabel(date: cellData.date)
+            cell.takeTextAndPutItInStackView(level: cellData.level, correct: cellData.rightScore, wrong: cellData.wrongScore)
+            
+            
             return cell
         default:
             let cell = ExpandingTbViewRowCell()
@@ -83,6 +147,5 @@ extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
     
         testResultTbView.expanding(selectedIndexPath: indexPath)
     }
-    
     
 }

@@ -10,24 +10,25 @@ import Foundation
 import UIKit
 
 protocol ExpandingTableViewUI {
-    var myBackgroundColor: UIColor { get }
+    
 }
 
 protocol ExpandingTableViewDataSource {
-    var myData: ExpandingTableViewData { get }
+    var myData: ExpandingTbViewData { get }
 }
 
 class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewDataSource {
     
-    var myData: ExpandingTableViewData = ExpandingTableViewData()
-    var myBackgroundColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var myData: ExpandingTbViewData = ExpandingTbViewData()
+    
     
     func initUI() {
-        self.backgroundColor = myBackgroundColor
+//        self.backgroundColor = myBackgroundColor
         self.separatorStyle = .none
         self.tableFooterView = UIView()
         self.estimatedRowHeight = 50
         self.rowHeight = UITableView.automaticDimension
+        
 //        self.isEditing = true
     }
 }
@@ -54,8 +55,8 @@ extension ExpandingTableView {
         return myData.sectionsData[indexPath.section].rowsTitles[indexPath.row - 1]
     }
     
-    func getSectionTitle(indexPath: IndexPath) -> String {
-        return myData.sectionsData[indexPath.section].sectionTitle
+    func getSectionData(indexPath: IndexPath) -> MyData {
+        return myData.sectionsData[indexPath.section]
     }
 }
 

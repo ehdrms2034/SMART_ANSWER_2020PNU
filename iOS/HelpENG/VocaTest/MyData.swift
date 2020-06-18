@@ -10,7 +10,10 @@ import UIKit
 
 protocol MyDataProtocol {
     
-    var sectionTitle: String { get }
+    var date: String { get }
+    var wrongScore: Int { get }
+    var rightScore : Int { get }
+    var level: Int { get }
     var rowsTitles: [String] { get }
     var rowsNumber: Int { get }
     var isOpened:Bool { get set }
@@ -18,11 +21,19 @@ protocol MyDataProtocol {
 }
 
 struct MyData: MyDataProtocol {
+
+    // Section Data
+    var date: String
     
+    var wrongScore: Int
+    
+    var rightScore: Int
+    
+    var level: Int
+
     var isOpened: Bool = false
     
-    var sectionTitle: String
-    
+    // Row Data
     var rowsTitles: [String]
     
     var rowsNumber: Int {

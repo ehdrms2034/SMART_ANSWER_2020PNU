@@ -64,9 +64,9 @@ extension ExpandingTbViewRowCell {
         titleLabelView.leftAnchor.constraint(equalTo: containerView.leftAnchor,
                                              constant: 10).isActive = true
         titleLabelView.rightAnchor.constraint(equalTo: containerView.rightAnchor,
-                                              constant: -100).isActive = true
+                                              constant: -200).isActive = true
         titleLabelView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        titleLabelView.widthAnchor.constraint(equalTo: titleLabelView.heightAnchor, multiplier: 10.0/1.0).isActive = true
+        titleLabelView.heightAnchor.constraint(equalTo: titleLabelView.widthAnchor, multiplier: 1.0/3.0).isActive = true
     }
 }
 
