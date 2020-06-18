@@ -21,8 +21,14 @@ public class ImageUploadController {
     private S3UploadService s3UploadService;
 
     @PostMapping("/")
-    public String UploadImg(@RequestParam("imgFile")MultipartFile multipartFile) throws IOException{
-        return s3UploadService.upload(multipartFile,folderName);
+    public CustomResponse UploadImg(@RequestParam("imgFile")MultipartFile multipartFile) throws IOException{
+        try {
+            String fileUrl = s3UploadService.upload(multipartFile,folderName);
+            return new CustomResponse("success","성공적으로 파일을 업로드했습니다.",fileUrl);
+        }
+        catch(Exception e){
+            return new CustomResponse("error","파일을 업로드하는데 실패했습니다.",e.getMessage());
+        }
     }
 
     @GetMapping("/files")

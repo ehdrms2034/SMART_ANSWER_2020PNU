@@ -4,6 +4,7 @@ import com.smartanswer.ocrproject.service.CookieUtil;
 //import com.smartanswer.ocrproject.service.JwtUtil;
 import com.smartanswer.ocrproject.service.JwtUtil;
 import com.smartanswer.ocrproject.service.MyUserDetailService;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,24 +34,29 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        Cookie jwtToken = cookieUtil.getCookie(request,"accessToken");
+        Cookie jwtToken = cookieUtil.getCookie(request, "accessToken");
         String username = null;
         String jwt = null;
 
-        if(jwtToken!=null){
-            jwt = jwtToken.getValue();
-            username = jwtUtil.getUsername(jwt);
-        }
-
-        if(username!=null){
-            UserDetails userDetails = userDetailService.loadUserByUsername(username);
-            if(jwtUtil.validateToken(jwt,userDetails)){
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
-                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+        try {
+            if (jwtToken != null) {
+                jwt = jwtToken.getValue();
+                username = jwtUtil.getUsername(jwt);
             }
+
+            if (username != null) {
+                UserDetails userDetails = userDetailService.loadUserByUsername(username);
+                if (jwtUtil.validateToken(jwt, userDetails)) {
+                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                }
+            }
+        } catch (ExpiredJwtException e) {
+            
         }
 
-        filterChain.doFilter(request,response);
+
+        filterChain.doFilter(request, response);
     }
 }

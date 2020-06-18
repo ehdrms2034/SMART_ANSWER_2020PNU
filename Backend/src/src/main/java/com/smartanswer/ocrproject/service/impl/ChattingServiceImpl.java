@@ -6,6 +6,7 @@ import com.smartanswer.ocrproject.model.Member;
 import com.smartanswer.ocrproject.repository.ChattingMessageRepository;
 import com.smartanswer.ocrproject.repository.ChattingRoomRepository;
 import com.smartanswer.ocrproject.service.ChattingService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,14 @@ public class ChattingServiceImpl implements ChattingService {
 
         ChatMessage newMessage = new ChatMessage(chatRoom,member,message);
         chattingMessageRepository.save(newMessage);
+    }
+
+    @Override
+    public ChattingRoom getChattingRoomById(String chatRoomId) throws Exception{
+        if(chatRoomId==null) throw new Exception("ChattingRoomServiceImpl, makeChattingMessage : chatRoom이 조회되지 않음.");
+        ChattingRoom chatRoom = chattingRoomRepository.findBy_id(new ObjectId(chatRoomId));
+        if(chatRoom==null) throw new Exception("ChattingRoomServiceImpl, makeChattingMessage : chatRoom이 조회되지 않음.");
+        return chatRoom;
     }
 
     @Override
