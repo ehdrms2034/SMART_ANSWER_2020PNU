@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="J20-AQ-9bI" firstAttribute="leading" secondItem="HnZ-oQ-bN4" secondAttribute="leading" constant="112" id="Bdi-jp-asT"/>
@@ -41,17 +41,17 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbz-Qx-DWw">
-                                <rect key="frame" x="0.0" y="110" width="375" height="508"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gbz-Qx-DWw" firstAttribute="leading" secondItem="hue-Oe-1E6" secondAttribute="leading" id="6at-52-CaX"/>
                             <constraint firstItem="HnZ-oQ-bN4" firstAttribute="top" secondItem="hue-Oe-1E6" secondAttribute="top" constant="20" id="Q2C-3V-JcM"/>
                             <constraint firstAttribute="trailing" secondItem="Gbz-Qx-DWw" secondAttribute="trailing" id="iGN-Cj-uY4"/>
                             <constraint firstItem="hue-Oe-1E6" firstAttribute="trailing" secondItem="HnZ-oQ-bN4" secondAttribute="trailing" constant="40" id="kRH-yP-0T4"/>
-                            <constraint firstItem="Gbz-Qx-DWw" firstAttribute="top" secondItem="HnZ-oQ-bN4" secondAttribute="bottom" constant="30" id="lYb-fL-hM0"/>
+                            <constraint firstItem="Gbz-Qx-DWw" firstAttribute="top" secondItem="HnZ-oQ-bN4" secondAttribute="bottom" constant="20" id="lYb-fL-hM0"/>
                             <constraint firstItem="Gbz-Qx-DWw" firstAttribute="bottom" secondItem="hue-Oe-1E6" secondAttribute="bottom" id="tCX-Ak-t4T"/>
                             <constraint firstItem="HnZ-oQ-bN4" firstAttribute="leading" secondItem="hue-Oe-1E6" secondAttribute="leading" constant="40" id="wLy-sQ-SHM"/>
                         </constraints>
@@ -59,6 +59,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="단어시험" id="U4e-4c-vwV"/>
                     <connections>
+                        <outlet property="mainOutsideView" destination="TYC-7P-gP5" id="btV-eE-QCW"/>
                         <outlet property="scoringBtn" destination="HnZ-oQ-bN4" id="ADZ-4j-aSC"/>
                         <outlet property="testResultUIView" destination="Gbz-Qx-DWw" id="Uow-8a-S4a"/>
                     </connections>
@@ -115,7 +116,7 @@
                                     <constraint firstItem="wB2-9f-i0j" firstAttribute="centerY" secondItem="Jbq-Kw-5Sm" secondAttribute="centerY" id="z2h-FD-dff"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6YQ-aI-M7c" customClass="TodayVocaTb" customModule="HelpENG" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6YQ-aI-M7c" customClass="TodayVocaTb" customModule="HelpENG" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="85.5" width="375" height="532.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Cjc-ny-gwc">
@@ -222,9 +223,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="engVocaLabel" destination="MON-ps-1Sf" id="IHt-im-FXe"/>
+                                            <outlet property="engVocaView" destination="r53-hT-rHY" id="PPo-CV-vAB"/>
                                             <outlet property="hideEngBtn" destination="jtf-We-WDi" id="EfW-GQ-6Re"/>
                                             <outlet property="hideKorBtn" destination="v6R-0V-zkc" id="SXb-t8-Ps2"/>
                                             <outlet property="korVocaLabel" destination="FoX-5I-9KL" id="q56-QA-iaA"/>
+                                            <outlet property="korVocaView" destination="Wmf-ol-jsy" id="8BB-Ez-uBO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -343,6 +346,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="오늘의단어" id="CYv-3a-1LN"/>
                     <connections>
+                        <outlet property="categoryOutsideView" destination="Wb2-Ss-vQq" id="8gJ-Di-BT3"/>
                         <outlet property="hideAllEngBtn" destination="6Gf-q5-UAG" id="wf1-bg-8Li"/>
                         <outlet property="hideAllKorBtn" destination="VFY-VP-dlb" id="kmh-Oq-oXG"/>
                         <outlet property="shuffleBtn" destination="wB2-9f-i0j" id="Uib-gC-vrA"/>

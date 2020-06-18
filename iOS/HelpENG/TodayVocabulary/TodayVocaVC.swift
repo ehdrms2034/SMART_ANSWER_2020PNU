@@ -15,6 +15,7 @@ class TodayVocaVC: UIViewController {
     @IBOutlet weak var hideAllEngBtn: UIButton!
     @IBOutlet weak var hideAllKorBtn: UIButton!
     @IBOutlet weak var shuffleBtn: UIButton!
+    @IBOutlet weak var categoryOutsideView: UIView!
     
     @IBAction func selectHideAllEngBtn(_ sender: Any) {
         todayVocaTb.controlAllLabel(isHidden: hideAllEngBtn.isSelected, language: .eng)
@@ -40,13 +41,14 @@ class TodayVocaVC: UIViewController {
 }
 
 //MARK: - init View
-extension TodayVocaVC {
+extension TodayVocaVC:MyColor {
     
     func initView() {
         hideAllEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
         hideAllKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
-        hideAllKorBtn.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        hideAllEngBtn.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        hideAllKorBtn.tintColor = clearColor
+        hideAllEngBtn.tintColor = clearColor
+        categoryOutsideView.layer.addBorder([.bottom], color: mainColor, width: 3.0)
     }
 }
 

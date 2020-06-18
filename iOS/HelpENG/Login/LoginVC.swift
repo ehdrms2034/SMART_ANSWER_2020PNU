@@ -14,21 +14,27 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginBtn: UIView!
+    @IBOutlet weak var joinBtn: UIView!
+    @IBOutlet var mainOutsideView: UIView!
+    @IBOutlet weak var appTitleLabel: UILabel!
     
    
     @IBAction func touchLoginBtn(_ sender: Any) {
         
-        guard let id = idTextField.text, !id.isEmpty else {
-            return
-        }
-        guard let password = passwordTextField.text, !password.isEmpty else {
-            return
-        }
+        presentMainVC()
         
-        loginAPI.login(userId: id, userPassword: password, completion: { result in
-            print("call handleLoginAPIResult func")
-            self.handleLoginAPIResult(loginResult: result)
-        })
+//        guard let id = idTextField.text, !id.isEmpty else {
+//            return
+//        }
+//        guard let password = passwordTextField.text, !password.isEmpty else {
+//            return
+//        }
+//
+//        loginAPI.login(userId: id, userPassword: password, completion: { result in
+//            print("call handleLoginAPIResult func")
+//            self.handleLoginAPIResult(loginResult: result)
+//        })
         
     }
     
@@ -42,6 +48,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         setDelegate()
+        initView()
+        
     }
     
     func handleLoginAPIResult(loginResult result: LoginMessage) {
@@ -61,8 +69,21 @@ class LoginVC: UIViewController {
         self.passwordTextField.delegate = self
     }
     
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+}
+
+extension LoginVC: MyColor {
+    func initView() {
+        loginBtn.backgroundColor = mainColor
+        joinBtn.backgroundColor = mainColor
+        joinBtn.layer.cornerRadius = 10
+        loginBtn.layer.cornerRadius = 10
+        mainOutsideView.backgroundColor = backgroundColor
+        appTitleLabel.textColor = subColor
     }
 }
 

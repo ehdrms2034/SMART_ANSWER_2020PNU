@@ -24,11 +24,11 @@
                                             <constraint firstAttribute="width" secondItem="S6J-TP-Gxj" secondAttribute="height" multiplier="37:12" id="BWM-JX-DSs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="S6J-TP-Gxj" firstAttribute="centerY" secondItem="Dbz-4e-kR1" secondAttribute="centerY" id="1uc-FX-AZm"/>
                                     <constraint firstItem="S6J-TP-Gxj" firstAttribute="leading" secondItem="Dbz-4e-kR1" secondAttribute="leading" constant="132" id="I7b-PH-lUZ"/>
@@ -41,6 +41,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-1H-PsL">
                                         <rect key="frame" x="35" y="32" width="288" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fpR-1H-PsL" secondAttribute="height" multiplier="144:17" id="fUN-io-iyV"/>
                                         </constraints>
@@ -49,6 +50,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NpZ-k2-ffo">
                                         <rect key="frame" x="35" y="86" width="288" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NpZ-k2-ffo" secondAttribute="height" multiplier="144:17" id="KMX-LI-yMZ"/>
                                         </constraints>
@@ -64,7 +66,7 @@
                                                     <constraint firstAttribute="width" secondItem="kk3-Eh-Pk9" secondAttribute="height" multiplier="49:24" id="wW2-pb-3Xa"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -89,7 +91,7 @@
                                                     <constraint firstAttribute="width" secondItem="y0u-0z-Uae" secondAttribute="height" multiplier="37:24" id="iPv-X3-B2E"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -106,7 +108,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="NpZ-k2-ffo" firstAttribute="top" secondItem="fpR-1H-PsL" secondAttribute="bottom" constant="20" id="1Lk-65-gOb"/>
                                     <constraint firstItem="a8y-Jy-7Ra" firstAttribute="leading" secondItem="3FU-qX-xGt" secondAttribute="leading" constant="112" id="2O3-Sy-7Vw"/>
@@ -124,7 +126,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Dbz-4e-kR1" firstAttribute="top" secondItem="Ki6-I5-eVd" secondAttribute="top" id="GiK-yF-epT"/>
                             <constraint firstItem="Dbz-4e-kR1" firstAttribute="leading" secondItem="Ki6-I5-eVd" secondAttribute="leading" id="KPr-HO-OYL"/>
@@ -136,7 +138,11 @@
                         <viewLayoutGuide key="safeArea" id="Ki6-I5-eVd"/>
                     </view>
                     <connections>
+                        <outlet property="appTitleLabel" destination="S6J-TP-Gxj" id="sSD-N0-PRY"/>
                         <outlet property="idTextField" destination="fpR-1H-PsL" id="X5U-Jv-Gdg"/>
+                        <outlet property="joinBtn" destination="a8y-Jy-7Ra" id="i4q-Ds-37Z"/>
+                        <outlet property="loginBtn" destination="gD4-PD-zzS" id="ivK-ur-vCv"/>
+                        <outlet property="mainOutsideView" destination="eNX-td-kS2" id="wfp-Jk-KVc"/>
                         <outlet property="passwordTextField" destination="NpZ-k2-ffo" id="Z5T-SA-iHg"/>
                     </connections>
                 </viewController>
@@ -152,7 +158,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1039.2" y="-154.27286356821591"/>
+            <point key="canvasLocation" x="-958" y="-159"/>
         </scene>
         <!--JoinVC-->
         <scene sceneID="jB2-wQ-Kje">
