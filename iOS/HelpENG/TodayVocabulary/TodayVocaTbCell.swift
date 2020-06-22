@@ -22,6 +22,8 @@ class TodayVocaTbCell: UITableViewCell {
     @IBOutlet weak var hideKorBtn: UIButton!
     @IBOutlet weak var korVocaLabel: UILabel!
     
+    @IBOutlet weak var engVocaView: UIView!
+    @IBOutlet weak var korVocaView: UIView!
     // TodayVocaTb <---> TodayVocaTbCell간의 연결고리(Data 수정할때)
     var delegate: TodayVocaTbDataControll?
 
@@ -41,18 +43,23 @@ class TodayVocaTbCell: UITableViewCell {
         }
     }
     
+    var korVocaLabelText: String = "" {
+        willSet(newValue) {
+            korVocaLabel.text = newValue
+        }
+    }
+    
+    var engVocaLabelText:String = "" {
+        willSet(newValue) {
+            engVocaLabel.text = newValue
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func initCellView(korIsHidden: Bool, engIsHidden: Bool, indexPath: IndexPath) {
-        hideEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
-        hideKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
-                
-        self.korBtnIsHidden = korIsHidden
-        self.engBtnIsHidden = engIsHidden
-        self.indexPath = indexPath
-    }
+    
 
     @IBAction func selectEngHiddenBtn(_ sender: Any) {
         engBtnIsHidden ? displayEngVocaLabel() : hideEngVocaLabel()
@@ -62,6 +69,25 @@ class TodayVocaTbCell: UITableViewCell {
     @IBAction func selectKorHiddenBtn(_ sender: Any) {
         korBtnIsHidden ? displayKorVocaLabel() : hideKorVocaLabel()
         delegate?.controlKorHidden(indexPath: indexPath!, isHidden: korBtnIsHidden)
+    }
+}
+
+extension TodayVocaTbCell: MyColor {
+    
+    func initCellView(korIsHidden: Bool, engIsHidden: Bool, korText: String, engText: String, indexPath: IndexPath) {
+        hideEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
+        hideKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
+        engVocaView.layer.setBorderColorAndWidth(color: mainColor, borderWidth: 2.0)
+        korVocaView.layer.setBorderColorAndWidth(color: mainColor, borderWidth: 2.0)
+        
+//        engVocaView.layer.addBorder([.bottom], color: mainColor, width: 2.0)
+//        korVocaView.layer.addBorder([.bottom], color: mainColor, width: 2.0)
+
+        self.korBtnIsHidden = korIsHidden
+        self.engBtnIsHidden = engIsHidden
+        self.korVocaLabelText = korText
+        self.engVocaLabelText = engText
+        self.indexPath = indexPath
     }
 }
 

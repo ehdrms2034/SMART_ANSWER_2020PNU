@@ -5,7 +5,7 @@ import com.smartanswer.ocrproject.model.WrongAnswer;
 import java.util.List;
 
 public interface WrongAnswerService {
-    List<WrongAnswer> getWrongAnswer(String id);
+    WrongAnswer getWrongAnswer(String owner, String date);
 
 //    boolean updateWrongAnswer(WrongAnswer wrongAnswer);
 

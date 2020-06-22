@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface WrongAnswerRepository extends MongoRepository<WrongAnswer,Long> {
-    List<WrongAnswer> findAllByOwner(String owner);
+    WrongAnswer findByOwnerAndDate(String owner, String date);
 
 }

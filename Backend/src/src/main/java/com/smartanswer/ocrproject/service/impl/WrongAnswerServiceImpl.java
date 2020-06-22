@@ -15,8 +15,8 @@ public class WrongAnswerServiceImpl implements WrongAnswerService {
     private WrongAnswerRepository wrongAnswerRepository;
 
     @Override
-    public List<WrongAnswer> getWrongAnswer(String id) {
-        return wrongAnswerRepository.findAllByOwner(id);
+    public WrongAnswer getWrongAnswer(String owner, String date) {
+        return wrongAnswerRepository.findByOwnerAndDate(owner,date);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class WrongAnswerServiceImpl implements WrongAnswerService {
         }
     }
 
-    // TODO: 2020-05-26
+    // TODO: 2020-05-26 wrongAnswer 누적 구현
 //    @Override
 //    public boolean updateWrongAnswer(WrongAnswer wrongAnswer) {
 //        try {
