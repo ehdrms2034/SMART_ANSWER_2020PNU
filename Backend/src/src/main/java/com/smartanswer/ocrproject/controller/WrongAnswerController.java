@@ -2,7 +2,7 @@ package com.smartanswer.ocrproject.controller;
 
 import com.smartanswer.ocrproject.model.CustomResponse;
 import com.smartanswer.ocrproject.model.WrongAnswer;
-import com.smartanswer.ocrproject.model.userIDAndDate;
+import com.smartanswer.ocrproject.model.UserAndDate;
 import com.smartanswer.ocrproject.service.WrongAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +19,7 @@ public class WrongAnswerController {
 
     //해당 유저의 누적 틀린 정답을 출력해줌
     @PostMapping("/getbyidanddate")
-    CustomResponse wrongAnswer(@RequestBody userIDAndDate id){
+    CustomResponse wrongAnswer(@RequestBody UserAndDate id){
         WrongAnswer wrong = wrongAnswerService.getWrongAnswer(id.getId(), id.getDate());
         return new CustomResponse("success","조회 결과를 불러옵니다.",wrong);
     }
