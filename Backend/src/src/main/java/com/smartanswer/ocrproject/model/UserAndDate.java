@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class userIDAndDate {
+public class UserAndDate {
     private String id;
     private String date;
 }
