@@ -24,7 +24,9 @@ public class UserImageServiceImpl implements UserImageService {
     }
 
     @Override
-    public UserImageURL getURL(String owner, String date) {
-        return userImageRepository.findByOwnerAndDate(owner,date);
+    public String getURL(String owner, String date) {
+        UserImageURL userImageURL = userImageRepository.findByOwnerAndDate(owner,date);
+        return userImageURL.getImageUrl();
+//        return userImageRepository.findByOwnerAndDate(owner,date);
     }
 }

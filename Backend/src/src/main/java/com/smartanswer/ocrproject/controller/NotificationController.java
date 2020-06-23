@@ -7,10 +7,7 @@ import com.smartanswer.ocrproject.model._Notification;
 import com.smartanswer.ocrproject.service.AnswerService;
 import com.smartanswer.ocrproject.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class NotificationController {
     private NotificationService notificationService;
 
     //notification들을 list로 반환해주는 함수
-    @PostMapping("/getNotification")
+    @GetMapping("/getNotification")
     CustomResponse getNotification(){
         List<_Notification> notification = notificationService.getAllNotification();
         if(notification.isEmpty()) {
