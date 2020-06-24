@@ -45,7 +45,7 @@ extension VocaTestVC: MyColor {
         scoringBtn.layer.cornerRadius = 10
         mainOutsideView.backgroundColor = backgroundColor
         testResultUIView.layer.setBorderColorAndWidth(color: subColor, borderWidth: 1.0)
-        testResultUIView.backgroundColor = subColor
+        testResultUIView.backgroundColor = .white
     }
     
     func initTbView() {
@@ -129,9 +129,11 @@ extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = ExpandingTbViewSectionCell()
             let cellData = testResultTbView.getSectionData(indexPath: indexPath)
-            
+            cell.delegate = testResultTbView
+            cell.indexPath = indexPath
             cell.takeTextAndPutItOnLabel(date: cellData.date)
             cell.takeTextAndPutItInStackView(level: cellData.level, correct: cellData.rightScore, wrong: cellData.wrongScore)
+            cell.sectionIsOpened = cellData.isOpened
             
             
             return cell
@@ -145,7 +147,7 @@ extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-        testResultTbView.expanding(selectedIndexPath: indexPath)
+//        testResultTbView.expanding(selectedIndexPath: indexPath)
     }
     
 }

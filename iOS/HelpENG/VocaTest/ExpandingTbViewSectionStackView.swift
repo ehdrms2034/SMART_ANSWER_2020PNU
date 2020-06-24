@@ -20,28 +20,28 @@ class ExpandingTbViewSectionStackView: UIStackView {
 extension ExpandingTbViewSectionStackView: MyColor {
     
     func setupStackView() {
-            self.axis = .horizontal
-            self.alignment = .fill
-            self.distribution = .equalSpacing
-            self.spacing = 0
-            self.backgroundColor = clearColor
-            setupStackViewInside()
-        }
+        self.axis = .horizontal
+        self.alignment = .fill
+        self.distribution = .equalSpacing
+        self.spacing = 0
+        self.backgroundColor = clearColor
+        setupStackViewInside()
+    }
         
-        func setupStackViewInside() {
-    //        self.addSubview(levelLabel)
-    //        self.addSubview(wrongAnswerLabel)
-    //        self.addSubview(correctAnswerLabel)
-            levelLabel.backgroundColor = clearColor
-            correctAnswerLabel.backgroundColor = clearColor
-            wrongAnswerLabel.backgroundColor = clearColor
-            
-            levelLabel.textColor = textColor
-            correctAnswerLabel.textColor = textColor
-            wrongAnswerLabel.textColor = textColor
-            
-            self.addArrangedSubview(levelLabel)
-            self.addArrangedSubview(correctAnswerLabel)
-            self.addArrangedSubview(wrongAnswerLabel)
-        }
+    func setupStackViewInside() {
+//        self.addSubview(levelLabel)
+//        self.addSubview(wrongAnswerLabel)
+//        self.addSubview(correctAnswerLabel)
+        levelLabel.backgroundColor = clearColor
+        correctAnswerLabel.backgroundColor = clearColor
+        wrongAnswerLabel.backgroundColor = clearColor
+        
+        levelLabel.textColor = mainColor
+        correctAnswerLabel.textColor = mainColor
+        wrongAnswerLabel.textColor = mainColor
+        
+        self.addArrangedSubview(levelLabel)
+        self.addArrangedSubview(correctAnswerLabel)
+        self.addArrangedSubview(wrongAnswerLabel)
+    }
 }

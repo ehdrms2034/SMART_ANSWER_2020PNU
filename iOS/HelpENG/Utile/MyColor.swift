@@ -19,7 +19,7 @@ extension MyColor {
     }
     
     var subColor: UIColor {
-        return #colorLiteral(red: 0.4156862745, green: 0.3764705882, blue: 0.662745098, alpha: 1)
+        return .white
     }
     
     var backgroundColor: UIColor {
@@ -32,5 +32,9 @@ extension MyColor {
     
     var textColor: UIColor {
         return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    var cellBackground: UIColor {
+        return #colorLiteral(red: 0.9656682611, green: 0.96549505, blue: 0.9593854547, alpha: 1)
     }
 }

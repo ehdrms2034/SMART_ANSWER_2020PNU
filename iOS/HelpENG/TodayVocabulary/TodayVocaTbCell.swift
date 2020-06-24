@@ -32,14 +32,14 @@ class TodayVocaTbCell: UITableViewCell {
     var engBtnIsHidden: Bool = false {
         willSet(newValue) {
             engVocaLabel.isHidden = newValue
-            hideEngBtn.backgroundColor = newValue ? #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            hideEngBtn.backgroundColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         }
     }
     
     var korBtnIsHidden: Bool = false {
         willSet(newValue) {
             korVocaLabel.isHidden = newValue
-            hideKorBtn.backgroundColor = newValue ? #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            hideKorBtn.backgroundColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         }
     }
     
@@ -75,10 +75,12 @@ class TodayVocaTbCell: UITableViewCell {
 extension TodayVocaTbCell: MyColor {
     
     func initCellView(korIsHidden: Bool, engIsHidden: Bool, korText: String, engText: String, indexPath: IndexPath) {
-        hideEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
-        hideKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
-        engVocaView.layer.setBorderColorAndWidth(color: mainColor, borderWidth: 2.0)
-        korVocaView.layer.setBorderColorAndWidth(color: mainColor, borderWidth: 2.0)
+        hideEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.3725490196, green: 0.3764705882, blue: 0.3803921569, alpha: 1), borderWidth: 1)
+        hideKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.3725490196, green: 0.3764705882, blue: 0.3803921569, alpha: 1), borderWidth: 1)
+        hideEngBtn.layer.cornerRadius = 4
+        hideKorBtn.layer.cornerRadius = 4
+//        engVocaView.layer.setBorderColorAndWidth(color: mainColor, borderWidth: 2.0)
+//        korVocaView.layer.setBorderColorAndWidth(color: mainColor, borderWidth: 2.0)
         
 //        engVocaView.layer.addBorder([.bottom], color: mainColor, width: 2.0)
 //        korVocaView.layer.addBorder([.bottom], color: mainColor, width: 2.0)
