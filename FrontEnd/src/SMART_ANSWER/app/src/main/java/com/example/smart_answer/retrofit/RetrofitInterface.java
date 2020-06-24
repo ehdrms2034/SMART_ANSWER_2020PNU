@@ -3,6 +3,7 @@ package com.example.smart_answer.retrofit;
 
 import com.example.smart_answer.ui.login.LoginData;
 import com.example.smart_answer.ui.login.PostData;
+import com.example.smart_answer.ui.notifications.NotificationData;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -24,4 +25,6 @@ public interface RetrofitInterface {
     @POST("api/member/createMember")
     Call<JsonObject> postUser(@Body PostData postData);
 
+    @GET("api/notify/getNotification")
+    Call<NotificationData> getNotification();
 }
