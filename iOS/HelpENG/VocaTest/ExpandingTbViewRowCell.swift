@@ -20,6 +20,8 @@ class ExpandingTbViewRowCell: UITableViewCell {
     
     let containerView = UIView()
     let titleLabelView = UILabel()
+    let testPaperImageView = UIImageView()
+    let stackView = ExpandingTbViewRowStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,7 +29,8 @@ class ExpandingTbViewRowCell: UITableViewCell {
         self.selectionStyle = .none
         
         initContainerView()
-        initTitleLabelView()
+        initTestPaperImageView()
+        initStackView()
     }
     
     override func awakeFromNib() {
@@ -43,7 +46,7 @@ class ExpandingTbViewRowCell: UITableViewCell {
 
 // If you want to customize the cell's UI, edit it here.
 
-extension ExpandingTbViewRowCell {
+extension ExpandingTbViewRowCell: MyColor {
     
     func initContainerView() {
         self.contentView.addSubview(containerView)
@@ -55,18 +58,30 @@ extension ExpandingTbViewRowCell {
         
         // If you want to customize the height of the cell, edit it here.
         // Just change the value of equalToConstant.
-        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    func initTitleLabelView() {
-        self.containerView.addSubview(titleLabelView)
-        titleLabelView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabelView.leftAnchor.constraint(equalTo: containerView.leftAnchor,
-                                             constant: 10).isActive = true
-        titleLabelView.rightAnchor.constraint(equalTo: containerView.rightAnchor,
-                                              constant: -200).isActive = true
-        titleLabelView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        titleLabelView.heightAnchor.constraint(equalTo: titleLabelView.widthAnchor, multiplier: 1.0/3.0).isActive = true
+    func initTestPaperImageView() {
+        self.containerView.addSubview(testPaperImageView)
+        testPaperImageView.translatesAutoresizingMaskIntoConstraints = false
+        testPaperImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20).isActive = true
+        testPaperImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 3).isActive = true
+        testPaperImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -3).isActive = true
+        testPaperImageView.widthAnchor.constraint(equalTo: testPaperImageView.heightAnchor, multiplier: 1.0/1.8).isActive = true
+        testPaperImageView.backgroundColor = clearColor
+        testPaperImageView.layer.borderWidth = 1
+        testPaperImageView.layer.borderColor = mainColor.cgColor
+        testPaperImageView.layer.cornerRadius = 10
+    }
+    
+    func initStackView() {
+        self.containerView.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leftAnchor.constraint(equalTo: testPaperImageView.rightAnchor, constant: 5).isActive = true
+        stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -20).isActive = true
+        stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 3).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -3).isActive = true
+        stackView.initSubView()
     }
 }
 

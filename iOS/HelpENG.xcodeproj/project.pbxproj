@@ -33,6 +33,7 @@
 		249633E024A3644000B83307 /* MyVocaListTbViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633DF24A3644000B83307 /* MyVocaListTbViewSectionCell.swift */; };
 		249633E224A3655900B83307 /* TbViewVocaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E124A3655900B83307 /* TbViewVocaCell.swift */; };
 		249633E424A390FE00B83307 /* TbViewVocaCellStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E324A390FE00B83307 /* TbViewVocaCellStackView.swift */; };
+		249633E624A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E524A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift */; };
 		24963BA1247BEE3A00138002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA0247BEE3A00138002 /* AppDelegate.swift */; };
 		24963BA3247BEE3A00138002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA2247BEE3A00138002 /* SceneDelegate.swift */; };
 		24963BA5247BEE3A00138002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA4247BEE3A00138002 /* ViewController.swift */; };
@@ -96,6 +97,7 @@
 		249633DF24A3644000B83307 /* MyVocaListTbViewSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocaListTbViewSectionCell.swift; sourceTree = "<group>"; };
 		249633E124A3655900B83307 /* TbViewVocaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbViewVocaCell.swift; sourceTree = "<group>"; };
 		249633E324A390FE00B83307 /* TbViewVocaCellStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbViewVocaCellStackView.swift; sourceTree = "<group>"; };
+		249633E524A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTbViewRowStackView.swift; sourceTree = "<group>"; };
 		24963B9D247BEE3A00138002 /* HelpENG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpENG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24963BA0247BEE3A00138002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24963BA2247BEE3A00138002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				2409FACD2494C2F60036EDF0 /* ExpandingTbViewSectionCell.swift */,
 				249633CC249B433200B83307 /* ExpandingTbViewSectionStackView.swift */,
 				249633C82494CB8300B83307 /* ExpandingTbViewRowCell.swift */,
+				249633E524A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift */,
 				2409FACE2494C2F60036EDF0 /* MyData.swift */,
 				2409FACB2494BD980036EDF0 /* VocaTestVC.swift */,
 				249633CA2498B6BD00B83307 /* VocaTestImageAPI.swift */,
@@ -589,6 +592,7 @@
 				24963BE1247DFB0800138002 /* TodayVocaAPI.swift in Sources */,
 				249633E424A390FE00B83307 /* TbViewVocaCellStackView.swift in Sources */,
 				249633E224A3655900B83307 /* TbViewVocaCell.swift in Sources */,
+				249633E624A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift in Sources */,
 				2409FAC92490ACC00036EDF0 /* AlertCustom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
