@@ -30,9 +30,9 @@ public class RecommendAnswerController {
     }
 
     @PostMapping("/inputRecommendWord")
-    CustomResponse inputRecommendWord(@RequestBody UserID userID, RecommendWord recommendWord){
+    CustomResponse inputRecommendWord(@RequestBody RecommendWord recommendWord){
         try{
-            recommendService.inputRecommendWord(userID.getID(), recommendWord);
+            recommendService.inputRecommendWord(recommendWord);
             return new CustomResponse("success","결과를 입력하였습니다.",null);
         } catch (Exception e){
             return new CustomResponse("fail","오류가 발생했습니다",e);

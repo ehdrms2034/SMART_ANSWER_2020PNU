@@ -14,7 +14,7 @@ public class RecommendServiceImpl implements RecommendService {
 
     // TODO: 2020-06-15 (recommend word updating function) modifying issue
     @Override
-    public boolean inputRecommendWord(String owner, RecommendWord recommendWord) {
+    public boolean inputRecommendWord(RecommendWord recommendWord) {
 
         try {
             recommendWordRepository.save(recommendWord);
