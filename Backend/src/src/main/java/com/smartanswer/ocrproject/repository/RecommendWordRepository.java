@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RecommendWordRepository extends MongoRepository<RecommendWord, Long> {
     RecommendWord findByOwner(String owner);
-
 }

@@ -1,6 +1,8 @@
 package com.smartanswer.ocrproject.service.impl;
 
+import com.smartanswer.ocrproject.model.Member;
 import com.smartanswer.ocrproject.model.WrongAnswer;
+import com.smartanswer.ocrproject.repository.MemberRepository;
 import com.smartanswer.ocrproject.repository.WrongAnswerRepository;
 import com.smartanswer.ocrproject.service.WrongAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ public class WrongAnswerServiceImpl implements WrongAnswerService {
 
     @Autowired
     private WrongAnswerRepository wrongAnswerRepository;
+
+    @Autowired
+    private MemberRepository memberRepository;
 
     @Override
     public WrongAnswer getWrongAnswer(String owner, String date) {

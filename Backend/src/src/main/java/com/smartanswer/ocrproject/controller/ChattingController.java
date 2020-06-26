@@ -8,7 +8,6 @@ import com.smartanswer.ocrproject.model.Request.RequestCreateChatMessage;
 import com.smartanswer.ocrproject.model.Request.RequestCreateChatRoom;
 import com.smartanswer.ocrproject.service.ChattingService;
 import com.smartanswer.ocrproject.service.MemberService;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

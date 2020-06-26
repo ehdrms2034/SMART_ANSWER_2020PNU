@@ -12,11 +12,8 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Document("Notification")
+@Document("_Notification")
 public class _Notification {
-    @Id
-    private ObjectId _id;
-
     @CreatedDate
     private Date date;
     // TODO: 2020-06-15 count Auto increasing Modify Issue

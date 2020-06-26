@@ -1,8 +1,10 @@
 package com.smartanswer.ocrproject.controller;
 
 import com.smartanswer.ocrproject.model.CustomResponse;
+import com.smartanswer.ocrproject.model.Member;
 import com.smartanswer.ocrproject.model.WrongAnswer;
 import com.smartanswer.ocrproject.model.UserAndDate;
+import com.smartanswer.ocrproject.service.MemberService;
 import com.smartanswer.ocrproject.service.WrongAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,9 @@ public class WrongAnswerController {
     @Autowired
     private WrongAnswerService wrongAnswerService;
 
+    @Autowired
+    private MemberService memberService;
+
     //해당 유저의 누적 틀린 정답을 출력해줌
     @PostMapping("/getbyidanddate")
     CustomResponse wrongAnswer(@RequestBody UserAndDate id){
@@ -27,7 +32,15 @@ public class WrongAnswerController {
     //해당 유저의 그날 성적을 입력함
     @PostMapping("/inputWrongAnswer")
     CustomResponse inputWrongAnswer(@RequestBody WrongAnswer wrongAnswer){
-        wrongAnswerService.inputWrongAnswer(wrongAnswer);
-        return new CustomResponse("success","wrongAnswer 입력 성공",null);
+        try {
+            Member member = memberService.findOneByUsername(wrongAnswer.getOwner());
+            wrongAnswerService.inputWrongAnswer(wrongAnswer);
+            memberService.addPoint(member,wrongAnswer.getAnswer_count());
+            return new CustomResponse("success","wrongAnswer 입력 성공",null);
+        } catch (Exception e) {
+            return new CustomResponse("error","worngAnswer 입력 실패",null);
+        }
+
     }
+
 }

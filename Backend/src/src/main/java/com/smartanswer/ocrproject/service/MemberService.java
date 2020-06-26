@@ -11,7 +11,7 @@ public interface MemberService {
 
     void createMember(Member member);
 
-    Member findOneByUsername(String username);
+    Member findOneByUsername(String username) throws Exception;
 
     Member login(String username, String password) throws Exception;
 
@@ -20,4 +20,8 @@ public interface MemberService {
     List<Member> getFriendsList(Member member) throws Exception;
 
     boolean isInFriendsList(Member member1, Member member2) throws Exception;
+
+    void addPoint(Member member,int point) throws Exception;
+
+    int getLevel (Member member) throws Exception;
 }

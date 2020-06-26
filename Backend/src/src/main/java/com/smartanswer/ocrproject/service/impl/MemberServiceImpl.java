@@ -6,6 +6,7 @@ import com.smartanswer.ocrproject.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +30,10 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member findOneByUsername(String username) {
-        return memberRepository.findOneByUsername(username);
+    public Member findOneByUsername(String username) throws Exception{
+        Member member = memberRepository.findOneByUsername(username);
+        if(member== null) throw new Exception("MemberServiceImpl : 선택한 유저를 찾을 수가 없습니다.");
+        return member;
     }
 
     @Override
@@ -78,5 +81,27 @@ public class MemberServiceImpl implements MemberService {
         return false;
     }
 
+    @Override
+    @Transactional
+    public void addPoint(Member member, int point) throws Exception {
+        if(member == null)
+            throw new Exception("MemberServiceImpl, addPoint : 선택한 유저를 찾을 수 없습니다.");
+        int level = member.getLevel();
+        int parsedPoint = member.getPoint() + point;
+        if(level<5 &&parsedPoint>=100){
+            level++;
+            parsedPoint-=100;
+        }
+        member.setLevel(level);
+        member.setPoint(parsedPoint);
+        memberRepository.save(member);
+    }
+
+    @Override
+    public int getLevel(Member member) throws Exception {
+        if(member == null)
+            throw new Exception("MemberServiceImpl, getLevel : 선택한 유저를 찾을 수 없습니다.");
+        return member.getLevel();
+    }
 
 }
