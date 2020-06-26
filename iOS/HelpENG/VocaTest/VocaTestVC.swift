@@ -13,6 +13,7 @@ class VocaTestVC: UIViewController {
     @IBOutlet weak var testResultUIView: UIView!
     @IBOutlet weak var scoringBtn: UIView!
     @IBOutlet var mainOutsideView: UIView!
+    @IBOutlet weak var scoringLabel: UILabel!
     
     let picker = UIImagePickerController()
 
@@ -82,7 +83,8 @@ extension VocaTestVC: UIImagePickerControllerDelegate, UINavigationControllerDel
     }
     
     func showSelectionAlert() {
-        let alert = UIAlertController(title: "", message: "채점 방식", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "채점 방식", message: "채점 방식을 선택해주세요.", preferredStyle: .actionSheet)
+        alert.view.tintColor = mainColor
         let album = UIAlertAction(title: "앨범", style: .default, handler: { (action) in
             self.showAlbum()
         })

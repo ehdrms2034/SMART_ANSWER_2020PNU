@@ -31,14 +31,16 @@ class TodayVocaTbCell: UITableViewCell {
     
     var engBtnIsHidden: Bool = false {
         willSet(newValue) {
-            engVocaLabel.isHidden = newValue
+            engVocaLabel.backgroundColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            engVocaLabel.textColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : .black
             hideEngBtn.backgroundColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         }
     }
     
     var korBtnIsHidden: Bool = false {
         willSet(newValue) {
-            korVocaLabel.isHidden = newValue
+            korVocaLabel.backgroundColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            korVocaLabel.textColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : .black
             hideKorBtn.backgroundColor = newValue ? #colorLiteral(red: 1, green: 0.3186968267, blue: 0.3049468994, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         }
     }
