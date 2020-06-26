@@ -84,6 +84,15 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/level")
+    CustomResponse getLevel(@RequestParam("username") String username){
+        try{
+            Member member = memberService.findOneByUsername(username);
+            return new CustomResponse("success","성공적으로 사용자의 레벨을 조회했습니다.",member.getLevel());
+        }catch(Exception e){
+            return new CustomResponse("error","사용자의 레벨을 조회하는 데 실패했습니다.",e.getMessage());
+        }
+    }
 
 
 }

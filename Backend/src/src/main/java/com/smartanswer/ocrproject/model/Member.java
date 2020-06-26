@@ -28,6 +28,8 @@ public class Member {
     private String username;
     private String password;
     private String name;
+    private int point;
+    private int level;
     @Id
     @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId _id;
@@ -35,6 +37,8 @@ public class Member {
     private Date createdAt;
     @LastModifiedDate
     private Date modifiedAt;
+
+
 
     @DBRef(lazy = true)
     @JsonIgnore

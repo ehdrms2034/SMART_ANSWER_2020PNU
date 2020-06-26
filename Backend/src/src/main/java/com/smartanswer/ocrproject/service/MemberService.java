@@ -20,4 +20,8 @@ public interface MemberService {
     List<Member> getFriendsList(Member member) throws Exception;
 
     boolean isInFriendsList(Member member1, Member member2) throws Exception;
+
+    void addPoint(Member member,int point) throws Exception;
+
+    int getLevel (Member member) throws Exception;
 }
