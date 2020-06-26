@@ -36,9 +36,6 @@ public class TestWordController {
         } else {
             return new CustomResponse("fail","입력에 실패 했습니다.",null);
         }
-
-
-
     }
 }
 
