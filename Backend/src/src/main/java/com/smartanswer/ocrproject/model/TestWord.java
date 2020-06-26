@@ -23,10 +23,10 @@ public class TestWord {
     List<String> recommendWord;
     List<String> testWord;
 
-    public TestWord(String owner, String date, List<String> wrondWord, List<String> recommendWord, List<String> testWord){
+    public TestWord(String owner, String date, List<String> wrongWord, List<String> recommendWord, List<String> testWord){
         this.owner=owner;
         this.date=date;
-        this.wrongWord=wrondWord;
+        this.wrongWord=wrongWord;
         this.recommendWord=recommendWord;
         this.testWord=testWord;
     }
