@@ -40,7 +40,6 @@ class MyVocaListVC:UIViewController {
     }
     
     @IBAction func touchRecommendVocaBtn(_ sender: Any) {
-        print("touch")
         if vocaCategory == .wrongVoca {
             vocaCategory = .recommendVoca
         }
@@ -102,15 +101,26 @@ extension MyVocaListVC {
     func changeCategoryBtnUI(category: VocaCategory) {
         switch category {
         case .wrongVoca:
-            wrongVocaBtn.backgroundColor = mainColor
-            wrongVocaLabel.textColor = .white
-            recommendVocaBtn.backgroundColor = .white
-            recommendVocaLabel.textColor = mainColor
+            UIView.animate(withDuration: 0.5, animations: {
+                self.wrongVocaBtn.backgroundColor = self.mainColor
+            })
+            self.wrongVocaLabel.textColor = .white
+            self.recommendVocaLabel.textColor = self.mainColor
+            self.recommendVocaBtn.backgroundColor = .white
+
+            
+            
         case .recommendVoca:
-            recommendVocaBtn.backgroundColor = mainColor
-            recommendVocaLabel.textColor = .white
-            wrongVocaBtn.backgroundColor = .white
-            wrongVocaLabel.textColor = mainColor
+            UIView.animate(withDuration: 0.5, animations: {
+                self.recommendVocaBtn.backgroundColor = self.mainColor
+            })
+            self.wrongVocaLabel.textColor = self.mainColor
+            self.wrongVocaBtn.backgroundColor = .white
+            self.recommendVocaLabel.textColor = .white
+
+            
+
+
         }
     }
 }

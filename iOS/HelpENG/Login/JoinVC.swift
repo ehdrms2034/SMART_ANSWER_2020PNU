@@ -13,6 +13,7 @@ class JoinVC: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var joinBtnView: UIView!
     
     let joinAPI = JoinAPI()
     
@@ -24,6 +25,7 @@ class JoinVC: UIViewController {
     
     override func viewDidLoad() {
         initdelegate()
+        initJoinBtnView()
     }
     
     @IBAction func touchJoinBtn(_ sender: Any) {
@@ -70,6 +72,15 @@ class JoinVC: UIViewController {
     func joinSuccess() {
         
     }
+}
+
+extension JoinVC: MyColor {
+    
+    func initJoinBtnView() {
+        joinBtnView.backgroundColor = mainColor
+        joinBtnView.layer.cornerRadius = 10
+    }
+    
 }
 
 extension JoinVC: UITextFieldDelegate {

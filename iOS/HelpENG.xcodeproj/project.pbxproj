@@ -19,6 +19,9 @@
 		2434AC322486A07D00CE6D0A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2434AC312486A07D00CE6D0A /* Login.storyboard */; };
 		2434AC342486A2F300CE6D0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2434AC332486A2F300CE6D0A /* LoginVC.swift */; };
 		2434AC362486A4FF00CE6D0A /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2434AC352486A4FF00CE6D0A /* LoginAPI.swift */; };
+		243FB2C624A61B7A0099BDE4 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2C524A61B7A0099BDE4 /* SettingTableView.swift */; };
+		243FB2C824A61B9D0099BDE4 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2C724A61B9D0099BDE4 /* SettingTableViewCell.swift */; };
+		243FB2CA24A61D730099BDE4 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2C924A61D730099BDE4 /* SettingItem.swift */; };
 		246ED5DE24876C2E00A022FD /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246ED5DD24876C2E00A022FD /* NetworkProtocol.swift */; };
 		2475CF93247E624F0007408B /* TodayVocaTb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475CF92247E624F0007408B /* TodayVocaTb.swift */; };
 		249633C92494CB8300B83307 /* ExpandingTbViewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633C82494CB8300B83307 /* ExpandingTbViewRowCell.swift */; };
@@ -34,6 +37,7 @@
 		249633E224A3655900B83307 /* TbViewVocaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E124A3655900B83307 /* TbViewVocaCell.swift */; };
 		249633E424A390FE00B83307 /* TbViewVocaCellStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E324A390FE00B83307 /* TbViewVocaCellStackView.swift */; };
 		249633E624A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E524A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift */; };
+		249633E924A4EB4000B83307 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633E824A4EB4000B83307 /* SettingVC.swift */; };
 		24963BA1247BEE3A00138002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA0247BEE3A00138002 /* AppDelegate.swift */; };
 		24963BA3247BEE3A00138002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA2247BEE3A00138002 /* SceneDelegate.swift */; };
 		24963BA5247BEE3A00138002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24963BA4247BEE3A00138002 /* ViewController.swift */; };
@@ -83,6 +87,9 @@
 		2434AC312486A07D00CE6D0A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2434AC332486A2F300CE6D0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2434AC352486A4FF00CE6D0A /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		243FB2C524A61B7A0099BDE4 /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
+		243FB2C724A61B9D0099BDE4 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		243FB2C924A61D730099BDE4 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		246ED5DD24876C2E00A022FD /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		2475CF92247E624F0007408B /* TodayVocaTb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayVocaTb.swift; sourceTree = "<group>"; };
 		249633C82494CB8300B83307 /* ExpandingTbViewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTbViewRowCell.swift; sourceTree = "<group>"; };
@@ -98,6 +105,7 @@
 		249633E124A3655900B83307 /* TbViewVocaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbViewVocaCell.swift; sourceTree = "<group>"; };
 		249633E324A390FE00B83307 /* TbViewVocaCellStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbViewVocaCellStackView.swift; sourceTree = "<group>"; };
 		249633E524A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTbViewRowStackView.swift; sourceTree = "<group>"; };
+		249633E824A4EB4000B83307 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		24963B9D247BEE3A00138002 /* HelpENG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpENG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24963BA0247BEE3A00138002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24963BA2247BEE3A00138002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +221,17 @@
 			path = VocaData;
 			sourceTree = "<group>";
 		};
+		249633E724A4EB3400B83307 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				249633E824A4EB4000B83307 /* SettingVC.swift */,
+				243FB2C524A61B7A0099BDE4 /* SettingTableView.swift */,
+				243FB2C724A61B9D0099BDE4 /* SettingTableViewCell.swift */,
+				243FB2C924A61D730099BDE4 /* SettingItem.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		24963B94247BEE3900138002 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +257,7 @@
 		24963B9F247BEE3A00138002 /* HelpENG */ = {
 			isa = PBXGroup;
 			children = (
+				249633E724A4EB3400B83307 /* Setting */,
 				249633DA24A35A5600B83307 /* VocaData */,
 				249633D324A3535B00B83307 /* MyVocaList */,
 				2409FACA2494BD860036EDF0 /* VocaTest */,
@@ -582,17 +602,21 @@
 				24963BA5247BEE3A00138002 /* ViewController.swift in Sources */,
 				249633CD249B433200B83307 /* ExpandingTbViewSectionStackView.swift in Sources */,
 				24963BA1247BEE3A00138002 /* AppDelegate.swift in Sources */,
+				249633E924A4EB4000B83307 /* SettingVC.swift in Sources */,
 				24963BA3247BEE3A00138002 /* SceneDelegate.swift in Sources */,
 				2409FAC52489E5750036EDF0 /* JoinVC.swift in Sources */,
 				24963BAB247BEE3A00138002 /* HelpENG.xcdatamodeld in Sources */,
+				243FB2C624A61B7A0099BDE4 /* SettingTableView.swift in Sources */,
 				2409FAD32494C2F60036EDF0 /* ExpandingTbViewData.swift in Sources */,
 				24963BE9247E0E9D00138002 /* Layer.swift in Sources */,
 				246ED5DE24876C2E00A022FD /* NetworkProtocol.swift in Sources */,
+				243FB2CA24A61D730099BDE4 /* SettingItem.swift in Sources */,
 				24963BE3247DFB4800138002 /* TodayVocaTbData.swift in Sources */,
 				24963BE1247DFB0800138002 /* TodayVocaAPI.swift in Sources */,
 				249633E424A390FE00B83307 /* TbViewVocaCellStackView.swift in Sources */,
 				249633E224A3655900B83307 /* TbViewVocaCell.swift in Sources */,
 				249633E624A3BBAD00B83307 /* ExpandingTbViewRowStackView.swift in Sources */,
+				243FB2C824A61B9D0099BDE4 /* SettingTableViewCell.swift in Sources */,
 				2409FAC92490ACC00036EDF0 /* AlertCustom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
