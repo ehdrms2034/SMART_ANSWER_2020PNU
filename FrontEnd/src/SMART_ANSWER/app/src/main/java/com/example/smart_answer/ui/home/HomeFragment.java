@@ -58,6 +58,7 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        ((MainActivity)getActivity()).setActiobarTitle("홈");
         btnClick((ImageButton)root.findViewById(R.id.photoBtn));
         //btnClick((Button)root.findViewById(R.id.resultBtn));
         //btnClick((Button)root.findViewById(R.id.messageBtn));

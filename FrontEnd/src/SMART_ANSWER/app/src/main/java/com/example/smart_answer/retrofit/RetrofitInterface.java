@@ -4,8 +4,14 @@ package com.example.smart_answer.retrofit;
 import com.example.smart_answer.ui.dashboard.DashboardData;
 import com.example.smart_answer.ui.dashboard.DashboardPostBody;
 import com.example.smart_answer.ui.login.LoginData;
+<<<<<<< HEAD
 import com.example.smart_answer.ui.login.LoginPostBody;
 import com.example.smart_answer.ui.notifications.NotificationsData;
+=======
+import com.example.smart_answer.ui.login.PostData;
+import com.example.smart_answer.ui.notifications.NotificationData;
+import com.google.gson.JsonArray;
+>>>>>>> d51f72621cf15293d536ec17851b1a8eb5188132
 import com.google.gson.JsonObject;
 
 import java.io.File;
@@ -45,10 +51,15 @@ public interface RetrofitInterface {
     Call<JsonObject> postUser(@Body LoginPostBody loginPostBody);
 
 
+<<<<<<< HEAD
     @Multipart
     @POST("api/upload/")
     Call<ResponseBody> postImage(@Query("date") String date,
                                  @Part("imgFile") File uploadFile,
                                  //@Part MultipartBody.Part uploadFile,
                                  @Query("userID") String userID);
+=======
+    @GET("api/notify/getNotification")
+    Call<NotificationData> getNotification();
+>>>>>>> d51f72621cf15293d536ec17851b1a8eb5188132
 }
