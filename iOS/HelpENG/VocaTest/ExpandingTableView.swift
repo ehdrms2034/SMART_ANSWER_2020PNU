@@ -17,6 +17,16 @@ protocol ExpandingTableViewDataSource {
     var myData: ExpandingTbViewData { get }
 }
 
+protocol ExpandingTableViewProtocol: ExpandingTableViewDataSource {
+    
+}
+
+extension ExpandingTableViewProtocol {
+    func getRowTitle(indexPath: IndexPath) -> String {
+        return myData.sectionsData[indexPath.section].rowsTitles[indexPath.row - 1]
+    }
+}
+
 class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewDataSource {
     
     var myData: ExpandingTbViewData = ExpandingTbViewData()
@@ -62,7 +72,8 @@ extension ExpandingTableView {
 
 
 // MARK: - tableView expanding function
-extension ExpandingTableView {
+extension ExpandingTableView: ExpandingTbViewSectionCellProtocol {
+    
     
     /**
      Function to expand the section selected by the user
@@ -76,14 +87,16 @@ extension ExpandingTableView {
         - selected: user selected section
     */
     
-    func expanding(selectedIndexPath indexPath :IndexPath) {
+    func expanding(selectedIndexPath indexPath :IndexPath, completion:(Bool)->()) {
         
         let isOpened = myData.sectionsData[indexPath.section].isOpened
         switch isOpened {
         case true:
             self.deleteRows(selected: indexPath)
+            completion(myData.sectionsData[indexPath.section].isOpened)
         default:
             self.insertRows(selected: indexPath)
+            completion(myData.sectionsData[indexPath.section].isOpened)
         }
     }
     

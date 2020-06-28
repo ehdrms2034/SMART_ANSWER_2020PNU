@@ -13,6 +13,7 @@ class VocaTestVC: UIViewController {
     @IBOutlet weak var testResultUIView: UIView!
     @IBOutlet weak var scoringBtn: UIView!
     @IBOutlet var mainOutsideView: UIView!
+    @IBOutlet weak var scoringLabel: UILabel!
     
     let picker = UIImagePickerController()
 
@@ -45,7 +46,7 @@ extension VocaTestVC: MyColor {
         scoringBtn.layer.cornerRadius = 10
         mainOutsideView.backgroundColor = backgroundColor
         testResultUIView.layer.setBorderColorAndWidth(color: subColor, borderWidth: 1.0)
-        testResultUIView.backgroundColor = subColor
+        testResultUIView.backgroundColor = .white
     }
     
     func initTbView() {
@@ -82,7 +83,8 @@ extension VocaTestVC: UIImagePickerControllerDelegate, UINavigationControllerDel
     }
     
     func showSelectionAlert() {
-        let alert = UIAlertController(title: "", message: "채점 방식", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "채점 방식", message: "채점 방식을 선택해주세요.", preferredStyle: .actionSheet)
+        alert.view.tintColor = mainColor
         let album = UIAlertAction(title: "앨범", style: .default, handler: { (action) in
             self.showAlbum()
         })
@@ -129,9 +131,11 @@ extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = ExpandingTbViewSectionCell()
             let cellData = testResultTbView.getSectionData(indexPath: indexPath)
-            
+            cell.delegate = testResultTbView
+            cell.indexPath = indexPath
             cell.takeTextAndPutItOnLabel(date: cellData.date)
             cell.takeTextAndPutItInStackView(level: cellData.level, correct: cellData.rightScore, wrong: cellData.wrongScore)
+            cell.sectionIsOpened = cellData.isOpened
             
             
             return cell
@@ -145,7 +149,7 @@ extension VocaTestVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-        testResultTbView.expanding(selectedIndexPath: indexPath)
+//        testResultTbView.expanding(selectedIndexPath: indexPath)
     }
     
 }

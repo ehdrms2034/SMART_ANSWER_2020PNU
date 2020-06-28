@@ -19,13 +19,16 @@ class TodayVocaVC: UIViewController {
     
     @IBAction func selectHideAllEngBtn(_ sender: Any) {
         todayVocaTb.controlAllLabel(isHidden: hideAllEngBtn.isSelected, language: .eng)
-        hideAllEngBtn.isSelected == true ? (hideAllEngBtn.isSelected = false) :(hideAllEngBtn.isSelected = true)
+        hideAllEngBtn.isSelected == true ? (hideAllEngBtn.isSelected = false) : (hideAllEngBtn.isSelected = true)
+        changeEngBtnColor(isSelected: hideAllEngBtn.isSelected)
         todayVocaTb.reloadData()
     }
     
     @IBAction func selectHideAllKorBtn(_ sender: Any) {
         todayVocaTb.controlAllLabel(isHidden: hideAllKorBtn.isSelected, language: .kor)
-        hideAllKorBtn.isSelected == true ? (hideAllKorBtn.isSelected = false) :(hideAllKorBtn.isSelected = true)
+        hideAllKorBtn.isSelected == true ? (hideAllKorBtn.isSelected = false) : (hideAllKorBtn.isSelected = true)
+        changeKorBtnColor(isSelected: hideAllKorBtn.isSelected)
+        
         todayVocaTb.reloadData()
 
     }
@@ -46,9 +49,19 @@ extension TodayVocaVC:MyColor {
     func initView() {
         hideAllEngBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
         hideAllKorBtn.layer.setBorderColorAndWidth(color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), borderWidth: 1)
+        hideAllEngBtn.layer.cornerRadius = 4
+        hideAllKorBtn.layer.cornerRadius = 4
         hideAllKorBtn.tintColor = clearColor
         hideAllEngBtn.tintColor = clearColor
-        categoryOutsideView.layer.addBorder([.bottom], color: mainColor, width: 3.0)
+        categoryOutsideView.layer.addBorder([.bottom], color: mainColor, width: 1.0)
+    }
+    
+    func changeKorBtnColor(isSelected: Bool) {
+        isSelected ? (hideAllKorBtn.backgroundColor = mainColor) : (hideAllKorBtn.backgroundColor = clearColor)
+    }
+    
+    func changeEngBtnColor(isSelected: Bool) {
+        isSelected ? (hideAllEngBtn.backgroundColor = mainColor) : (hideAllEngBtn.backgroundColor = clearColor)
     }
 }
 
