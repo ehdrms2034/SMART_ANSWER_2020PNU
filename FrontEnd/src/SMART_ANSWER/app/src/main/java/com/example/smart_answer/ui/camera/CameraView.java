@@ -176,14 +176,14 @@ public class CameraView extends AppCompatActivity {
         */
 
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), photoFile);
-        //MultipartBody.Part body = MultipartBody.Part.createFormData("imgFile", photoFile.getName(), requestFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("imgFile", photoFile.getName(), requestFile);
 
         RetrofitInterface service = retrofit.create(RetrofitInterface.class);
 
         Log.i("test1", "insertPromote: "+ photoFile.getName());
         Log.i("test2", "insertPromote: "+ requestFile.contentType());
         Log.i("test3", "insertPromote: "+ photoFile.length());
-        Call<ResponseBody> responseData = service.postImage("FrontTestImageDate",photoFile,"string");
+        Call<ResponseBody> responseData = service.postImage("FrontTestImageDate",body,"string");
         responseData.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
