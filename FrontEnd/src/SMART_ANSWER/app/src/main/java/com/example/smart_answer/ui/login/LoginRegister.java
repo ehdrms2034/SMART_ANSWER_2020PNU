@@ -1,8 +1,6 @@
 package com.example.smart_answer.ui.login;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,8 +51,8 @@ public class LoginRegister extends AppCompatActivity {
     }
 
     public void buttonRegisterClick(String inputID, String inputPWD) {
-        PostData postData = new PostData(inputID, inputID, inputPWD);
-        Call<JsonObject> responseID = service.postUser(postData);
+        LoginPostBody loginPostBody = new LoginPostBody(inputID, inputID, inputPWD);
+        Call<JsonObject> responseID = service.postUser(loginPostBody);
         responseID.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

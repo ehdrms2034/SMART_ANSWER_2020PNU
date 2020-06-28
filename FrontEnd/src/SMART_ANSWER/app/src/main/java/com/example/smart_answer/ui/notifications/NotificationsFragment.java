@@ -1,10 +1,13 @@
 package com.example.smart_answer.ui.notifications;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,27 +21,31 @@ import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
 import com.example.smart_answer.recycler.ItemRecyclerVertical;
 import com.example.smart_answer.recycler.RecyclerVerticalAdapter;
+import com.example.smart_answer.retrofit.RetrofitInterface;
+import com.example.smart_answer.ui.login.LoginData;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NotificationsFragment extends Fragment {
 
-//    private NotificationsViewModel notificationsViewModel;
-////
-////    public View onCreateView(@NonNull LayoutInflater inflater,
-////            ViewGroup container, Bundle savedInstanceState) {
-////        notificationsViewModel =
-////                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-////        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-////        final TextView textView = root.findViewById(R.id.text_notifications);
-////        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-////            @Override
-////            public void onChanged(@Nullable String s) {
-////                textView.setText(s);
-////            }
-////        });
-////        return root;
-////    }
     private RecyclerView notificationRecycler;
     private RecyclerVerticalAdapter notificationAdapter;
+    private int counter = 0;
+    private ArrayList<String> date = new ArrayList<>();
+    private ArrayList<String> title = new ArrayList<>();
+    private ArrayList<String> context = new ArrayList<>();
+    public String messageDebug = "초기값";
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("http://54.180.175.238:8080/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -52,25 +59,42 @@ public class NotificationsFragment extends Fragment {
         notificationRecycler.setLayoutManager(linearLayoutManager);
 
         notificationAdapter = new RecyclerVerticalAdapter();
-        notificationRecycler.setAdapter(notificationAdapter);
 
-        ItemRecyclerVertical data1 = new ItemRecyclerVertical("공지1","20200428 운영자");
-        ItemRecyclerVertical data2 = new ItemRecyclerVertical("공지2","20200427 운영자");
-        ItemRecyclerVertical data3 = new ItemRecyclerVertical("공지3","20200426 운영자");
-        ItemRecyclerVertical data4 = new ItemRecyclerVertical("공지4","20200425 운영자");
-        ItemRecyclerVertical data5 = new ItemRecyclerVertical("공지5","20200424 운영자");
-        ItemRecyclerVertical data6 = new ItemRecyclerVertical("공지6","20200423 운영자");
-        ItemRecyclerVertical data7 = new ItemRecyclerVertical("공지7","20200423 운영자");
-        ItemRecyclerVertical data8 = new ItemRecyclerVertical("공지8","20200423 운영자");
+        RetrofitInterface service = retrofit.create(RetrofitInterface.class);
+        Call<NotificationsData> responseData = service.getNotifications();
+        responseData.enqueue(new Callback<NotificationsData>() {
+            @Override
+            public void onResponse(Call<NotificationsData> call, Response<NotificationsData> response) {
+                try{
+                    if (response.isSuccessful()) {
+                        messageDebug = "공지사항 받기 성공";
+                        counter = response.body().getData().size();
+                        for(int i=0; i< counter; ++i) {
+                            date.add(response.body().getData().get(i).getDate());
+                            title.add(response.body().getData().get(i).getTitle());
+                            context.add(response.body().getData().get(i).getContext());
+                        }
+                        notificationRecycler.setAdapter(notificationAdapter);
+                    } else {
+                        messageDebug = "공지사항 받기 실패";
+                    }
+                }
+                catch(Exception e) {
+                    Log.d("My Tag", response.body().toString());
+                    messageDebug = "에러 발생, 연결 양호";
+                }
 
-        notificationAdapter.addItem(data1);
-        notificationAdapter.addItem(data2);
-        notificationAdapter.addItem(data3);
-        notificationAdapter.addItem(data4);
-        notificationAdapter.addItem(data5);
-        notificationAdapter.addItem(data6);
-        notificationAdapter.addItem(data7);
-        notificationAdapter.addItem(data8);
+                for(int i=0;i < counter;i++) {
+                    ItemRecyclerVertical data = new ItemRecyclerVertical(title.get(i), date.get(i));
+                    notificationAdapter.addItem(data);
+                }
+            }
+            @Override
+            public void onFailure(Call<NotificationsData> call, Throwable t) {
+                messageDebug = "연결 실패";
+            }
+
+        });
         return root;
     }
 }

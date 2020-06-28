@@ -1,23 +1,18 @@
 
         package com.example.smart_answer.ui.login;
 
-        import android.content.Context;
         import android.content.Intent;
         import android.os.Bundle;
         import android.util.Log;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.TextView;
         import android.widget.Toast;
 
         import androidx.appcompat.app.AppCompatActivity;
 
         import com.example.smart_answer.R;
         import com.example.smart_answer.retrofit.RetrofitInterface;
-        import com.google.gson.JsonObject;
-
-        import java.io.IOException;
 
         import retrofit2.Call;
         import retrofit2.Callback;
@@ -25,7 +20,7 @@
         import retrofit2.Retrofit;
         import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginSignIn extends AppCompatActivity implements Runnable {
+public class LoginSignIn extends AppCompatActivity {
     // Retrofit Connection
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://54.180.175.238:8080/")
@@ -105,10 +100,5 @@ public class LoginSignIn extends AppCompatActivity implements Runnable {
     public void loginFailed() {
         Toast.makeText(getApplicationContext(), messageDebug,
                 Toast.LENGTH_SHORT).show();
-    }
-
-    public void run() {
-
-
     }
 }

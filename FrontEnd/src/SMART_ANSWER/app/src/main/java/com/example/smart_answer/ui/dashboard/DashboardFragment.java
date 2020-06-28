@@ -21,6 +21,7 @@ public class DashboardFragment extends Fragment {
     private RecyclerDashboardAdapter adapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
+    private String messageDebug = "";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
