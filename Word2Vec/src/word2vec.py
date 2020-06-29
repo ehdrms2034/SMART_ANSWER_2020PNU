@@ -1,29 +1,41 @@
 from gensim.models import KeyedVectors
+import random
+import requests
+import json
+
 model = KeyedVectors.load_word2vec_format("word2vec.txt")
 
-import random
+name = "tjr99382"
+date = "2020-06-23"
+data = {
+    "id": name,
+    "date": date
+}
+r = requests.post('http://54.180.175.238:8080/api/wrong/getbyidanddate', json=data)
+print(r.text)
+json_data = json.loads(r.text)
 
-f = open("틀린단어.txt", 'r')
-g = open("추천단어.txt", 'w')
 
-word_list = f.readline().split()  # 틀린 단어 list
-recommend_list = []  # 틀린 단어로 만든 추천 단어 list
+# 틀린 단어
+wrongWord = json_data['data']['my_word']
 
-# 틀린단어로 만든 추천단어
-for i in (word_list):
-    recommend_list.append(i.lower())
+test_list = []  # 틀린 단어로 만든 추천 단어 list
+
+# 틀린 단어로 만든 추천 단어
+for i in (json_data['data']['my_word']):
     model_result = model.most_similar(i.lower(), topn=40)
     for j, k in model_result:
-        if len(recommend_list) > 4:
-            recommend_list.append(j)
+        if len(j) > 4:
+            test_list.append(j)
 
-recommend_set = set(recommend_list)
-recommend_list = list(recommend_set)
+test_set = set(test_list)
+test_list = list(test_set)
 
-if len(recommend_list) > 40:
-    recommend_list = random.sample(recommend_list, 40)
+if len(test_list) > 40:
+    test_list = random.sample(test_list, 40)
 
-level = 4
+# static 단어
+level = 1
 
 if level == 1:
     h = open("level1.txt", 'r')
@@ -41,15 +53,23 @@ elif level == 5:
     h = open("level5.txt", 'r')
     level_list = h.readline().split()
 
-recommend_list = recommend_list + random.sample(level_list, 40) + word_list
+random_list = random.sample(level_list, 40)
+test_list = test_list + wrongWord + random_list
 
-recommend_set = set(recommend_list)
-recommend_list = list(recommend_set)
+test_set = set(test_list)
+test_list = list(test_set)
 
-for i in (recommend_list):
-    g.write(i)
-    g.write(' ')
+#print(test_list)
+#print(wrongWord)
 
-f.close()
-g.close()
+data = {
+    "date": date,
+    "owner": name,
+    "testWord": test_list
+}
+#print(len(data["testWord"]))
+
+r = requests.post('http://54.180.175.238:8080/api/test/inputTestWord', json=data)
+print(r.text)
+
 h.close()
