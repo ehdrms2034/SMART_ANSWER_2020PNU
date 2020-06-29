@@ -5,7 +5,6 @@ import com.example.smart_answer.ui.dashboard.DashboardData;
 import com.example.smart_answer.ui.dashboard.DashboardPostBody;
 import com.example.smart_answer.ui.login.LoginData;
 import com.example.smart_answer.ui.login.LoginPostBody;
-import com.example.smart_answer.ui.notifications.NotificationsData;
 import com.example.smart_answer.ui.notifications.NotificationData;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -32,9 +31,6 @@ public interface RetrofitInterface {
 
     @POST("api/wrong/getbyidanddate")
     Call<DashboardData> getDashboardData(@Body DashboardPostBody dashboardPostBody);
-
-    @GET("api/notify/getNotification")
-    Call<NotificationsData> getNotifications();
 
     @GET("api/upload/getImageOfUser")
     Call<JsonObject> getImageOfUser(@Query("date") String date,
