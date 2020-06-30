@@ -110,7 +110,7 @@ public class CameraView extends AppCompatActivity {
 
     private File createImageFile() throws IOException{
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
-        imageFileName = "TEST_" + timeStamp + "_";
+        imageFileName = "front_" + timeStamp.substring(0,10) + ".jpg";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,
@@ -153,7 +153,6 @@ public class CameraView extends AppCompatActivity {
             }
         }
 
-
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
                 .baseUrl("http://54.180.175.238:8080/")
                 .addConverterFactory(GsonConverterFactory.create());
@@ -168,21 +167,21 @@ public class CameraView extends AppCompatActivity {
         retrofitBuilder.client(client);
 
         Retrofit retrofit = retrofitBuilder.build();
+
         /*
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://54.180.175.238:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        */
+
+
+         */
 
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), photoFile);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("imgFile", photoFile.getName(), requestFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("imgFile", imageFileName, requestFile);
 
         RetrofitInterface service = retrofit.create(RetrofitInterface.class);
 
-        Log.i("test1", "insertPromote: "+ photoFile.getName());
-        Log.i("test2", "insertPromote: "+ requestFile.contentType());
-        Log.i("test3", "insertPromote: "+ photoFile.length());
         Call<ResponseBody> responseData = service.postImage("FrontTestImageDate",body,"string");
         responseData.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -205,6 +204,7 @@ public class CameraView extends AppCompatActivity {
             }
         });
         Toast.makeText(getApplicationContext(), messageDebug, Toast.LENGTH_SHORT).show();
+
     }
 
     //이미지 자동 회전

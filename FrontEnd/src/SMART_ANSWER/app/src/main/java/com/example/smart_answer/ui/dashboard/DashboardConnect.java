@@ -26,7 +26,7 @@ public class DashboardConnect {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        DashboardPostBody dashboardPostBody = new DashboardPostBody("test", "test");
+        DashboardPostBody dashboardPostBody = new DashboardPostBody( "front");
         RetrofitInterface service = retrofit.create(RetrofitInterface.class);
         Call<DashboardData> responseData = service.getDashboardData(dashboardPostBody);
 

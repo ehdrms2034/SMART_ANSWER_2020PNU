@@ -3,6 +3,7 @@ package com.example.smart_answer.retrofit;
 
 import com.example.smart_answer.ui.dashboard.DashboardData;
 import com.example.smart_answer.ui.dashboard.DashboardPostBody;
+import com.example.smart_answer.ui.dashboard.ImageData;
 import com.example.smart_answer.ui.login.LoginData;
 import com.example.smart_answer.ui.login.LoginPostBody;
 import com.example.smart_answer.ui.notifications.NotificationData;
@@ -29,12 +30,14 @@ public interface RetrofitInterface {
     @GET("api/member/") // LoginData로 RestApi 받기 -> 최종 목표
     Call<LoginData> getLoginData(@Query("username") String userName);
 
+    @POST("api/wrong/getAllInfo")
+    Call<DashboardData> getAllInfO(@Body DashboardPostBody dashboardPostBody);
+
     @POST("api/wrong/getbyidanddate")
     Call<DashboardData> getDashboardData(@Body DashboardPostBody dashboardPostBody);
 
-    @GET("api/upload/getImageOfUser")
-    Call<JsonObject> getImageOfUser(@Query("date") String date,
-                                    @Query("id") String id);
+    @GET("api/upload/files")
+    Call<ImageData> getFiles();
 
     //POSTS
     @POST("api/member/createMember")

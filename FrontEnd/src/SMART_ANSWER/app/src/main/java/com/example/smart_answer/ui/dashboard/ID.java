@@ -1,6 +1,7 @@
 package com.example.smart_answer.ui.dashboard;
 
 public class ID {
+    /*
     private String timestamp;
     private String counter;
     private String time;
@@ -12,4 +13,6 @@ public class ID {
     public String getCounter() {
         return counter;
     }
+
+     */
 }

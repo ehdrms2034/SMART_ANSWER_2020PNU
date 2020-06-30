@@ -51,7 +51,7 @@ public class ResultView extends AppCompatActivity {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    DashboardPostBody dashboardPostBody = new DashboardPostBody(date, id);
+    DashboardPostBody dashboardPostBody = new DashboardPostBody(id);
     RetrofitInterface service = retrofit.create(RetrofitInterface.class);
     Call<DashboardData> responseData = service.getDashboardData(dashboardPostBody);
 
@@ -82,10 +82,13 @@ public class ResultView extends AppCompatActivity {
                 try {
                     if (response.isSuccessful()) {
                         messageDebug = "채점 결과 가져오기 성공!!";
+                        /*
                         correct_words.addAll(response.body().getData().getCorrect_word());
                         mean_words.addAll(response.body().getData().getMean_word());
                         my_words.addAll(response.body().getData().getMy_word());
                         wrongCount = Integer.parseInt(response.body().getData().getWrong_count());
+                         */
+
                     } else {
                         messageDebug = response.errorBody().toString();
                     }
