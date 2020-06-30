@@ -38,7 +38,7 @@ public class WrongAnswerController {
             memberService.addPoint(member,wrongAnswer.getAnswer_count());
             return new CustomResponse("success","wrongAnswer 입력 성공",null);
         } catch (Exception e) {
-            return new CustomResponse("error","worngAnswer 입력 실패",null);
+            return new CustomResponse("error","wrongAnswer 입력 실패",e.getMessage());
         }
 
     }
