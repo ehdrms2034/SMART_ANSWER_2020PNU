@@ -1,7 +1,10 @@
 package com.smartanswer.ocrproject.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -13,8 +16,10 @@ import java.util.List;
 @Getter
 @Setter
 @Document("WrongAnswer")
+@NoArgsConstructor
 public class WrongAnswer {
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId _id;
 
     private String owner;
@@ -27,15 +32,4 @@ public class WrongAnswer {
     private List<String> mean_word;
     private List<String> my_word;
 
-    public WrongAnswer(ObjectId _id, String owner, String date, int wrong_count, int answer_count, int level, List<String> correct_word, List<String> mean_word, List<String> my_word) {
-        this._id = _id;
-        this.owner = owner;
-        this.date = date;
-        this.wrong_count = wrong_count;
-        this.answer_count = answer_count;
-        this.level = level;
-        this.correct_word = correct_word;
-        this.mean_word = mean_word;
-        this.my_word = my_word;
-    }
 }

@@ -29,20 +29,20 @@ public class MemberUnitTest {
         memberService.createMember(new Member(username,password,name));
     }
 
-    @Test
-    public void addFriends(){
-        Member member1 = memberService.findOneByUsername("test");
-        Member member2 = memberService.findOneByUsername("test2");
-        try {
-            memberService.addFriend(member1,member2);
-        } catch (Exception e) {
+//    @Test
+//    public void addFriends(){
+//        Member member1 = memberService.findOneByUsername("test");
+//        Member member2 = memberService.findOneByUsername("test2");
+//        try {
+//            memberService.addFriend(member1,member2);
+//        } catch (Exception e) {
+//
+//            e.printStackTrace();
+//        }
+//    }
 
-            e.printStackTrace();
-        }
-    }
-
     @Test
-    public void getFriendsList(){
+    public void getFriendsList() throws Exception {
         Member member = memberService.findOneByUsername("test");
         for(Member friend : member.getFriends())
             System.out.println("친구목록 : " +friend.getUsername());
