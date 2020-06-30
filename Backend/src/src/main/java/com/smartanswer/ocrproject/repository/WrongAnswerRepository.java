@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface WrongAnswerRepository extends MongoRepository<WrongAnswer,Long> {
     WrongAnswer findByOwnerAndDate(String owner, String date);
-
+    List<WrongAnswer> findAllByOwner(String owner);
 }

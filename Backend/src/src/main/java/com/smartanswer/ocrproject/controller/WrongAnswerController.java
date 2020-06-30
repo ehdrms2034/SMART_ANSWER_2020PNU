@@ -1,9 +1,6 @@
 package com.smartanswer.ocrproject.controller;
 
-import com.smartanswer.ocrproject.model.CustomResponse;
-import com.smartanswer.ocrproject.model.Member;
-import com.smartanswer.ocrproject.model.WrongAnswer;
-import com.smartanswer.ocrproject.model.UserAndDate;
+import com.smartanswer.ocrproject.model.*;
 import com.smartanswer.ocrproject.service.MemberService;
 import com.smartanswer.ocrproject.service.WrongAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RequestMapping("/api/wrong")
 @RestController
@@ -41,6 +40,12 @@ public class WrongAnswerController {
             return new CustomResponse("error","worngAnswer 입력 실패",null);
         }
 
+    }
+
+    @PostMapping("/getAllInfo")
+    CustomResponse allWrongAnswer(@RequestBody UserID userID){
+        List<WrongAnswer> wrong = wrongAnswerService.getAllWrongAnswer(userID.getID());
+        return new CustomResponse("success","조회 결과(모든 정보)를 불러옵니다.",wrong);
     }
 
 }

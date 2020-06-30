@@ -25,6 +25,11 @@ public class WrongAnswerServiceImpl implements WrongAnswerService {
     }
 
     @Override
+    public List<WrongAnswer> getAllWrongAnswer(String owner) {
+        return wrongAnswerRepository.findAllByOwner(owner);
+    }
+
+    @Override
     public boolean inputWrongAnswer(WrongAnswer wrongAnswer) {
         try {
             wrongAnswerRepository.save(wrongAnswer);
