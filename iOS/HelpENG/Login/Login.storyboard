@@ -16,28 +16,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbz-4e-kR1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HelpEng" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-TP-Gxj">
-                                        <rect key="frame" x="132" y="54.5" width="111" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="똑똑한 단어 시험" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QCU-jh-mZT">
+                                        <rect key="frame" x="90" y="50" width="195" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="S6J-TP-Gxj" secondAttribute="height" multiplier="37:12" id="BWM-JX-DSs"/>
+                                            <constraint firstAttribute="width" secondItem="QCU-jh-mZT" secondAttribute="height" multiplier="65:12" id="IEN-5P-bSO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <color key="textColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="highlightedColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 손안의" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NLi-KA-uPj">
+                                        <rect key="frame" x="100" y="24.5" width="74" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="NLi-KA-uPj" secondAttribute="height" multiplier="37:12" id="7uz-2w-Za3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                         <color key="textColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="S6J-TP-Gxj" firstAttribute="centerY" secondItem="Dbz-4e-kR1" secondAttribute="centerY" id="1uc-FX-AZm"/>
-                                    <constraint firstItem="S6J-TP-Gxj" firstAttribute="leading" secondItem="Dbz-4e-kR1" secondAttribute="leading" constant="132" id="I7b-PH-lUZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="S6J-TP-Gxj" secondAttribute="trailing" constant="132" id="goW-Lk-GFe"/>
-                                    <constraint firstAttribute="width" secondItem="Dbz-4e-kR1" secondAttribute="height" multiplier="75:29" id="zbS-RM-eEt"/>
+                                    <constraint firstItem="QCU-jh-mZT" firstAttribute="leading" secondItem="Dbz-4e-kR1" secondAttribute="leading" constant="90" id="2i5-8H-Q1h"/>
+                                    <constraint firstAttribute="trailing" secondItem="QCU-jh-mZT" secondAttribute="trailing" constant="90" id="Hdm-p5-JeK"/>
+                                    <constraint firstAttribute="width" secondItem="Dbz-4e-kR1" secondAttribute="height" multiplier="125:41" id="NmV-vY-9Jq"/>
+                                    <constraint firstItem="NLi-KA-uPj" firstAttribute="leading" secondItem="QCU-jh-mZT" secondAttribute="leading" constant="10" id="O9j-eg-xoU"/>
+                                    <constraint firstItem="NLi-KA-uPj" firstAttribute="width" secondItem="QCU-jh-mZT" secondAttribute="width" multiplier="0.379487" id="p2h-5U-5Ix"/>
+                                    <constraint firstItem="QCU-jh-mZT" firstAttribute="top" secondItem="NLi-KA-uPj" secondAttribute="bottom" constant="1.5" id="xJQ-r8-UhV"/>
+                                    <constraint firstItem="QCU-jh-mZT" firstAttribute="top" secondItem="Dbz-4e-kR1" secondAttribute="top" constant="50" id="yws-FZ-fPf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3FU-qX-xGt">
-                                <rect key="frame" x="0.0" y="145" width="375" height="366"/>
+                                <rect key="frame" x="0.0" y="123" width="375" height="366"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-1H-PsL">
                                         <rect key="frame" x="35" y="40" width="288" height="34"/>
@@ -184,7 +196,6 @@
                         <viewLayoutGuide key="safeArea" id="Ki6-I5-eVd"/>
                     </view>
                     <connections>
-                        <outlet property="appTitleLabel" destination="S6J-TP-Gxj" id="sSD-N0-PRY"/>
                         <outlet property="idTextField" destination="fpR-1H-PsL" id="X5U-Jv-Gdg"/>
                         <outlet property="joinBtn" destination="a8y-Jy-7Ra" id="i4q-Ds-37Z"/>
                         <outlet property="loginBtn" destination="gD4-PD-zzS" id="ivK-ur-vCv"/>

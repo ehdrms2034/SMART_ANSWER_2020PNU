@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExpandingTbViewRowStatckViewProtocol {
+    func showObjectionAlert()
+}
+
 class ExpandingTbViewRowStackView: UIView {
     
     
@@ -20,8 +24,27 @@ class ExpandingTbViewRowStackView: UIView {
     
     let levelStepLabel = UILabel()
     
+    var delegate: ExpandingTbViewRowStatckViewProtocol?
+    
+    var testResult: Bool = true {
+        willSet(newValue) {
+            if newValue {
+                testResultLabel.text = "단어시험 결과 : PASS"
+            } else {
+                testResultLabel.text = "단어시험 결과 : FAIL"
+
+            }
+            changeReTestBtnColor(testResult: newValue)
+        }
+    }
 }
 
+extension ExpandingTbViewRowStackView {
+    @objc func touchObjectBtn(sender:UIGestureRecognizer) {
+        print("touch")
+        delegate?.showObjectionAlert()
+    }
+}
 extension ExpandingTbViewRowStackView: MyColor {
     
     func initSubView() {
@@ -68,6 +91,17 @@ extension ExpandingTbViewRowStackView: MyColor {
         reTestBtn.bottomAnchor.constraint(equalTo: testResultView.bottomAnchor).isActive = true
     }
     
+    func changeReTestBtnColor(testResult: Bool) {
+        switch testResult {
+        case true:
+            reTestBtn.setTitleColor(#colorLiteral(red: 0.5647058824, green: 0.5647058824, blue: 0.5725490196, alpha: 1), for: .normal)
+            reTestBtn.layer.borderColor = #colorLiteral(red: 0.5647058824, green: 0.5647058824, blue: 0.5725490196, alpha: 1)
+        default:
+            reTestBtn.setTitleColor(mainColor, for: .normal)
+            reTestBtn.layer.borderColor = mainColor.cgColor
+        }
+    }
+    
     func initObjectBtn() {
         self.addSubview(objectionBtn)
         objectionBtn.backgroundColor = mainColor
@@ -77,6 +111,9 @@ extension ExpandingTbViewRowStackView: MyColor {
         objectionBtn.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1.0/4.0).isActive = true
         objectionBtn.topAnchor.constraint(equalTo: testResultView.bottomAnchor, constant: 3).isActive = true
         objectionBtn.layer.cornerRadius = 10
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(touchObjectBtn))
+        objectionBtn.addGestureRecognizer(gesture)
+        objectionBtn.isUserInteractionEnabled = true
         initObjectLabel()
     }
     

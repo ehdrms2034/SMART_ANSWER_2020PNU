@@ -17,10 +17,13 @@ class SettingTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        initContainerView()
-        initTitleImageView()
-        initNextImageView()
-        initTitleLabel()
+        DispatchQueue.main.async {
+            self.initContainerView()
+            self.initTitleImageView()
+            self.initNextImageView()
+            self.initTitleLabel()
+        }
+       
         
 //        initStackView()
        
