@@ -35,16 +35,16 @@ public class FriendFragment extends Fragment {
         adapter = new RecyclerFriendAdapter();
 
 
-        RecyclerFriend data1 = new RecyclerFriend(R.drawable.lion1, "Kim", "Beautiful Day");
-        RecyclerFriend data2 = new RecyclerFriend(R.drawable.lion1, "Lee", "Bad Day");
-        RecyclerFriend data3 = new RecyclerFriend(R.drawable.lion1, "Park", "Nice Day");
-        RecyclerFriend data4 = new RecyclerFriend(R.drawable.lion1, "Choi", "Sad Day");
+        RecyclerFriend data1 = new RecyclerFriend(R.drawable.lion1, "tjr", "Beautiful Day");
+        //RecyclerFriend data2 = new RecyclerFriend(R.drawable.lion1, "Lee", "Bad Day");
+        //RecyclerFriend data3 = new RecyclerFriend(R.drawable.lion1, "Park", "Nice Day");
+        //RecyclerFriend data4 = new RecyclerFriend(R.drawable.lion1, "Choi", "Sad Day");
 
 
         adapter.addItem(data1);
-        adapter.addItem(data2);
-        adapter.addItem(data3);
-        adapter.addItem(data4);
+        //adapter.addItem(data2);
+        //adapter.addItem(data3);
+        //adapter.addItem(data4);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);

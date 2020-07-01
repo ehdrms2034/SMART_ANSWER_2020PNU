@@ -4,6 +4,7 @@ package com.example.smart_answer.retrofit;
 import com.example.smart_answer.ui.dashboard.DashboardData;
 import com.example.smart_answer.ui.dashboard.DashboardPostBody;
 import com.example.smart_answer.ui.dashboard.ImageData;
+import com.example.smart_answer.ui.home.HomePostBody;
 import com.example.smart_answer.ui.login.LoginData;
 import com.example.smart_answer.ui.login.LoginPostBody;
 import com.example.smart_answer.ui.notifications.NotificationData;
@@ -27,7 +28,7 @@ public interface RetrofitInterface {
 
     // smart answer server
     //데이터 받기
-    @GET("api/member/") // LoginData로 RestApi 받기 -> 최종 목표
+    @GET("api/member/")
     Call<LoginData> getLoginData(@Query("username") String userName);
 
     @POST("api/wrong/getAllInfo")
@@ -38,6 +39,9 @@ public interface RetrofitInterface {
 
     @GET("api/upload/files")
     Call<ImageData> getFiles();
+
+    @POST("api/test/getTestWord")
+    Call<JsonObject> getTestWord(@Body HomePostBody body);
 
     //POSTS
     @POST("api/member/createMember")

@@ -1,5 +1,6 @@
 package com.example.smart_answer.ui.result;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.example.smart_answer.retrofit.RetrofitInterface;
 import com.example.smart_answer.ui.dashboard.DashboardConnect;
 import com.example.smart_answer.ui.dashboard.DashboardData;
 import com.example.smart_answer.ui.dashboard.DashboardPostBody;
+import com.example.smart_answer.ui.dashboard.Data;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -42,10 +44,7 @@ public class ResultView extends AppCompatActivity {
     private RecyclerView recommandRecycler;
     private RecyclerRecommandAdapter recommandRecyclerAdapter;
 
-
-    private String date = "string";
-    private String id = "string";
-    String messageDebug = "";
+    /*
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://54.180.175.238:8080/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -55,6 +54,8 @@ public class ResultView extends AppCompatActivity {
     RetrofitInterface service = retrofit.create(RetrofitInterface.class);
     Call<DashboardData> responseData = service.getDashboardData(dashboardPostBody);
 
+
+     */
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,18 +77,35 @@ public class ResultView extends AppCompatActivity {
 
         recommandRecyclerAdapter = new RecyclerRecommandAdapter();
 
+        Intent intent = getIntent();
+
+        if(correct_words.isEmpty()) {
+            correct_words.addAll(intent.getExtras().getStringArrayList("correct"));
+            mean_words.addAll(intent.getExtras().getStringArrayList("mean"));
+            my_words.addAll(intent.getExtras().getStringArrayList("my"));
+        }
+        for(int i=0; i< correct_words.size(); i++) {
+            RecyclerResult data = new RecyclerResult(correct_words.get(i)+"\t", my_words.get(i));
+            resultRecyclerAdapter.addItem(data);
+
+            RecyclerRecommand recommandData = new RecyclerRecommand(mean_words.get(i));
+            recommandRecyclerAdapter.addItem(recommandData);
+        }
+        resultRecycler.setAdapter(resultRecyclerAdapter);
+        recommandRecycler.setAdapter(recommandRecyclerAdapter);
+        /*
         responseData.enqueue(new Callback<DashboardData>() {
             @Override
             public void onResponse(Call<DashboardData> call, Response<DashboardData> response) {
                 try {
                     if (response.isSuccessful()) {
                         messageDebug = "채점 결과 가져오기 성공!!";
-                        /*
+
                         correct_words.addAll(response.body().getData().getCorrect_word());
                         mean_words.addAll(response.body().getData().getMean_word());
                         my_words.addAll(response.body().getData().getMy_word());
                         wrongCount = Integer.parseInt(response.body().getData().getWrong_count());
-                         */
+
 
                     } else {
                         messageDebug = response.errorBody().toString();
@@ -117,5 +135,7 @@ public class ResultView extends AppCompatActivity {
             }
         });
         //retrofit connection end;
+
+         */
     }
 }

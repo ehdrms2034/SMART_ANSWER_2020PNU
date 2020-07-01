@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smart_answer.MainActivity;
 import com.example.smart_answer.R;
+import com.example.smart_answer.ui.dashboard.DashboardFragment;
+import com.example.smart_answer.ui.dashboard.Data;
 import com.example.smart_answer.ui.result.ResultView;
 
 import java.util.ArrayList;
@@ -21,7 +23,9 @@ public class RecyclerDashboardAdapter extends RecyclerView.Adapter<RecyclerDashb
     public MainActivity activity;
     RecyclerDashboard recyclerDashboard = new RecyclerDashboard();
     private ArrayList<RecyclerDashboard> arrayList = new ArrayList<>();
-
+    private ArrayList<String> correct_words = new ArrayList<>();
+    private ArrayList<String> mean_words = new ArrayList<>();
+    private ArrayList<String> my_words = new ArrayList<>();
     public RecyclerDashboardAdapter(){
 
     }
@@ -47,11 +51,19 @@ public class RecyclerDashboardAdapter extends RecyclerView.Adapter<RecyclerDashb
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
+                    DashboardFragment dashboardFragment =  new DashboardFragment();
+                    if(correct_words.isEmpty()) {
+                        correct_words.addAll(dashboardFragment.results.get(pos).getCorrect_word());
+                        mean_words.addAll(dashboardFragment.results.get(pos).getMean_word());
+                        my_words.addAll(dashboardFragment.results.get(pos).getMy_word());
+                    }
                     Intent intent = new Intent(v.getContext(), ResultView.class);
-                    if(pos != RecyclerView.NO_POSITION) {
+                    intent.putExtra("correct", correct_words);
+                    intent.putExtra("mean", mean_words);
+                    intent.putExtra("my", my_words);
+                    if (pos != RecyclerView.NO_POSITION) {
                         v.getContext().startActivity(intent);
                     }
-
                 }
             });
         }

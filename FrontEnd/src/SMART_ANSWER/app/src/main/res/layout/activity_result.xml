@@ -23,7 +23,7 @@
         android:layout_marginLeft="39dp"
         android:layout_marginTop="21dp"
         android:layout_marginBottom="5dp"
-        android:text="결과"
+        android:text="틀린 단어"
         android:textSize="21sp"
         tools:ignore="MissingConstraints" />
     <androidx.recyclerview.widget.RecyclerView
@@ -44,7 +44,7 @@
         android:layout_marginLeft="39dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
-        android:text="추천 단어"
+        android:text="의미"
         android:textSize="21sp"
         tools:ignore="MissingConstraints"/>
     <androidx.recyclerview.widget.RecyclerView

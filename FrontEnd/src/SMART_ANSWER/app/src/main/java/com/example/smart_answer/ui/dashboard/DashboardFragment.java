@@ -41,9 +41,8 @@ public class DashboardFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private String id = "front";
     private String messageDebug = "";
-
     private ArrayList<String> images = new ArrayList<>();
-    private ArrayList<Data> results = new ArrayList<>();
+    public static ArrayList<Data> results = new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -75,7 +74,8 @@ public class DashboardFragment extends Fragment {
                 try {
                     if (response.isSuccessful()) {
                         messageDebug = "채점 결과를 기다려 주세요";
-                        results.addAll(response.body().getData());
+                        if(response.body().getData().size() != results.size())
+                            results.addAll(response.body().getData());
                     } else {
                         messageDebug = "채점 실패, 다시 시도 해 주세요";
                     }
@@ -104,7 +104,6 @@ public class DashboardFragment extends Fragment {
 
 
         return root;
-
     }
 
 }

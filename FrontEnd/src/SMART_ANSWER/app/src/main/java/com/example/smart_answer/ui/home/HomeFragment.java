@@ -3,6 +3,7 @@ package com.example.smart_answer.ui.home;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +27,23 @@ import com.example.smart_answer.recycler.RecyclerRecentWrong;
 import com.example.smart_answer.recycler.RecyclerRecentWrongAdapter;
 import com.example.smart_answer.recycler.RecyclerTodayVoca;
 import com.example.smart_answer.recycler.RecyclerTodayVocaAdapter;
+import com.example.smart_answer.retrofit.RetrofitInterface;
 import com.example.smart_answer.ui.camera.CameraView;
 import com.example.smart_answer.ui.friends.FriendFragment;
 import com.example.smart_answer.ui.dashboard.DashboardFragment;
+import com.example.smart_answer.ui.login.LoginData;
 import com.example.smart_answer.ui.notifications.NotificationsFragment;
+import com.google.gson.JsonObject;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
@@ -52,6 +64,10 @@ public class HomeFragment extends Fragment {
     private RecyclerRecentWrongAdapter recentWrongAdapter;
     private RecyclerView todayVocaRecycler;
     private RecyclerTodayVocaAdapter todayVocaAdapter;
+
+    private ArrayList<String> recent = new ArrayList<>();
+    private ArrayList<String> today = new ArrayList<>();
+
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -60,6 +76,73 @@ public class HomeFragment extends Fragment {
 
         ((MainActivity)getActivity()).setActiobarTitle("홈");
         btnClick((ImageButton)root.findViewById(R.id.photoBtn));
+
+//유저정보
+        userName = (TextView)root.findViewById(R.id.usernameInHome);
+        userName.setText("John Doe");
+        userInfo = (TextView)root.findViewById(R.id.userinfo);
+        userInfo.setText("San Francisco");
+
+
+        //TodayVoca   todayVocaAdapter;todayVocaRecycler
+        todayVocaRecycler = (RecyclerView)root.findViewById(R.id.recycler_today_voca);
+        todayVocaRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
+        todayVocaRecycler.setLayoutManager(linearLayoutManager2);
+
+        todayVocaAdapter = new RecyclerTodayVocaAdapter();
+
+
+        //최근틀린단어
+        recentWrongRecycler = (RecyclerView)root.findViewById(R.id.recentWrong);
+        recentWrongRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recentWrongRecycler.setLayoutManager(linearLayoutManager);
+        recentWrongAdapter = new RecyclerRecentWrongAdapter();
+
+        HomePostBody homePostBody = new HomePostBody("2020-07-01", "front");
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://54.180.175.238:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RetrofitInterface service = retrofit.create(RetrofitInterface.class);
+        Call<JsonObject> responseData = service.getTestWord(homePostBody);
+        responseData.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                try{
+                    if (response.isSuccessful()) {
+                        for(int i=0;i<response.body().get("data").getAsJsonObject().get("testWord")
+                                .getAsJsonArray().size(); ++i) {
+                            today.add(response.body().get("data").getAsJsonObject()
+                                    .get("testWord").getAsJsonArray().get(i).toString().replace('"', ' '));
+
+                            RecyclerTodayVoca data = new RecyclerTodayVoca(today.get(i));
+                            todayVocaAdapter.addItem(data);
+                        }
+                        for(int i=0;i<response.body().get("data").getAsJsonObject().get("wrongWord")
+                                .getAsJsonArray().size(); ++i) {
+                            recent.add(response.body().get("data").getAsJsonObject()
+                                    .get("wrongWord").getAsJsonArray().get(i).toString().replace('"', ' '));
+
+                            RecyclerRecentWrong data = new RecyclerRecentWrong(recent.get(i));
+                            recentWrongAdapter.addItem(data);
+                        }
+                    } else {
+                    }
+                    recentWrongRecycler.setAdapter(recentWrongAdapter);
+                    todayVocaRecycler.setAdapter(todayVocaAdapter);
+
+                }
+                catch(Exception e) {
+                    Log.d("My Tag", response.body().toString());
+                }
+            }
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+            }
+        });
         //btnClick((Button)root.findViewById(R.id.resultBtn));
         //btnClick((Button)root.findViewById(R.id.messageBtn));
         //btnClick((Button)root.findViewById(R.id.notificationBtn));
@@ -114,39 +197,7 @@ public class HomeFragment extends Fragment {
                 replaceFragment(friendFragment);
             }recentWrongRecycler; recentWrongAdapter;
         });*/
-        //유저정보
-        userName = (TextView)root.findViewById(R.id.usernameInHome);
-        userName.setText("John Doe");
-        userInfo = (TextView)root.findViewById(R.id.userinfo);
-        userInfo.setText("San Francisco");
 
-        //최근틀린단어
-        recentWrongRecycler = (RecyclerView)root.findViewById(R.id.recentWrong);
-        recentWrongRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recentWrongRecycler.setLayoutManager(linearLayoutManager);
-
-        recentWrongAdapter = new RecyclerRecentWrongAdapter();
-        recentWrongRecycler.setAdapter(recentWrongAdapter);
-
-        for(int i=0; i<8; i++) {
-            RecyclerRecentWrong data = new RecyclerRecentWrong("최근틀린단어"+i);
-            recentWrongAdapter.addItem(data);
-        }
-
-        //TodayVoca   todayVocaAdapter;todayVocaRecycler
-        todayVocaRecycler = (RecyclerView)root.findViewById(R.id.recycler_today_voca);
-        todayVocaRecycler.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
-        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
-        todayVocaRecycler.setLayoutManager(linearLayoutManager2);
-
-        todayVocaAdapter = new RecyclerTodayVocaAdapter();
-        todayVocaRecycler.setAdapter(todayVocaAdapter);
-
-        for(int i=0; i<8; i++) {
-            RecyclerTodayVoca data = new RecyclerTodayVoca("시험예상단어"+i);
-            todayVocaAdapter.addItem(data);
-        }
         return root;
     }
 
