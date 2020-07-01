@@ -13,15 +13,15 @@ import SwiftyJSON
 struct LoginAPI {
     
     
-    func login(userId id: String, userPassword password: String, completion : @escaping (LoginMessage)->(Void)){
+    func login(userId id: String, userPassword password: String, completion : @escaping (LoginMessage, Parameters)->(Void)){
         let param:Parameters = ["username": id, "password": password]
-        tryLogin(param: param, url: self.ipAddress + self.ipData, completion: { message in
-            completion(message)
+        tryLogin(param: param, url: self.ipAddress + self.ipData, completion: { message, param in
+            completion(message, param)
         })
         
     }
     
-    private func tryLogin(param: Parameters, url: String, completion: @escaping (LoginMessage)->(Void)) {
+    private func tryLogin(param: Parameters, url: String, completion: @escaping (LoginMessage, Parameters)->(Void)) {
         var loginResult: LoginMessage = .commuicationError
         print("start tryLogin func")
         Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON() { response in
@@ -46,7 +46,7 @@ struct LoginAPI {
                 print("failure")
             }
             
-            completion(loginResult)
+            completion(loginResult, param)
         }
         
         

@@ -22,6 +22,19 @@
 		243FB2C624A61B7A0099BDE4 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2C524A61B7A0099BDE4 /* SettingTableView.swift */; };
 		243FB2C824A61B9D0099BDE4 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2C724A61B9D0099BDE4 /* SettingTableViewCell.swift */; };
 		243FB2CA24A61D730099BDE4 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2C924A61D730099BDE4 /* SettingItem.swift */; };
+		243FB2CC24AB80450099BDE4 /* VocaTestDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2CB24AB80450099BDE4 /* VocaTestDataAPI.swift */; };
+		243FB2CF24AC2F580099BDE4 /* MemberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2CE24AC2F580099BDE4 /* MemberAPI.swift */; };
+		243FB2D124AC3FFE0099BDE4 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2D024AC3FFE0099BDE4 /* TestResultVC.swift */; };
+		243FB2D324AC43AB0099BDE4 /* TestResultTBSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2D224AC43AB0099BDE4 /* TestResultTBSectionCell.swift */; };
+		243FB2D524AC44D90099BDE4 /* TestResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2D424AC44D90099BDE4 /* TestResultTableView.swift */; };
+		243FB2D824AC451A0099BDE4 /* TestResultTbViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2D724AC451A0099BDE4 /* TestResultTbViewData.swift */; };
+		243FB2DA24AC45250099BDE4 /* TestResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB2D924AC45250099BDE4 /* TestResultData.swift */; };
+		2464C3D524AC6B3F00EE3E42 /* 2020-06-28.png in Resources */ = {isa = PBXBuildFile; fileRef = 2464C3CF24AC6B3E00EE3E42 /* 2020-06-28.png */; };
+		2464C3D624AC6B3F00EE3E42 /* 2020-06-26.png in Resources */ = {isa = PBXBuildFile; fileRef = 2464C3D024AC6B3E00EE3E42 /* 2020-06-26.png */; };
+		2464C3D724AC6B3F00EE3E42 /* 2020-06-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 2464C3D124AC6B3E00EE3E42 /* 2020-06-29.png */; };
+		2464C3D824AC6B3F00EE3E42 /* 2020-06-27.png in Resources */ = {isa = PBXBuildFile; fileRef = 2464C3D224AC6B3E00EE3E42 /* 2020-06-27.png */; };
+		2464C3D924AC6B3F00EE3E42 /* 2020-06-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 2464C3D324AC6B3F00EE3E42 /* 2020-06-30.png */; };
+		2464C3DA24AC6B3F00EE3E42 /* 2020-07-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2464C3D424AC6B3F00EE3E42 /* 2020-07-01.png */; };
 		246ED5DE24876C2E00A022FD /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246ED5DD24876C2E00A022FD /* NetworkProtocol.swift */; };
 		2475CF93247E624F0007408B /* TodayVocaTb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475CF92247E624F0007408B /* TodayVocaTb.swift */; };
 		249633C92494CB8300B83307 /* ExpandingTbViewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249633C82494CB8300B83307 /* ExpandingTbViewRowCell.swift */; };
@@ -90,6 +103,19 @@
 		243FB2C524A61B7A0099BDE4 /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		243FB2C724A61B9D0099BDE4 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		243FB2C924A61D730099BDE4 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		243FB2CB24AB80450099BDE4 /* VocaTestDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaTestDataAPI.swift; sourceTree = "<group>"; };
+		243FB2CE24AC2F580099BDE4 /* MemberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAPI.swift; sourceTree = "<group>"; };
+		243FB2D024AC3FFE0099BDE4 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
+		243FB2D224AC43AB0099BDE4 /* TestResultTBSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTBSectionCell.swift; sourceTree = "<group>"; };
+		243FB2D424AC44D90099BDE4 /* TestResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTableView.swift; sourceTree = "<group>"; };
+		243FB2D724AC451A0099BDE4 /* TestResultTbViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTbViewData.swift; sourceTree = "<group>"; };
+		243FB2D924AC45250099BDE4 /* TestResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultData.swift; sourceTree = "<group>"; };
+		2464C3CF24AC6B3E00EE3E42 /* 2020-06-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2020-06-28.png"; sourceTree = "<group>"; };
+		2464C3D024AC6B3E00EE3E42 /* 2020-06-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2020-06-26.png"; sourceTree = "<group>"; };
+		2464C3D124AC6B3E00EE3E42 /* 2020-06-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2020-06-29.png"; sourceTree = "<group>"; };
+		2464C3D224AC6B3E00EE3E42 /* 2020-06-27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2020-06-27.png"; sourceTree = "<group>"; };
+		2464C3D324AC6B3F00EE3E42 /* 2020-06-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2020-06-30.png"; sourceTree = "<group>"; };
+		2464C3D424AC6B3F00EE3E42 /* 2020-07-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2020-07-01.png"; sourceTree = "<group>"; };
 		246ED5DD24876C2E00A022FD /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		2475CF92247E624F0007408B /* TodayVocaTb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayVocaTb.swift; sourceTree = "<group>"; };
 		249633C82494CB8300B83307 /* ExpandingTbViewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTbViewRowCell.swift; sourceTree = "<group>"; };
@@ -166,6 +192,7 @@
 		2409FACA2494BD860036EDF0 /* VocaTest */ = {
 			isa = PBXGroup;
 			children = (
+				243FB2D624AC44EC0099BDE4 /* TestResult */,
 				2409FAD02494C2F60036EDF0 /* ExpandingTableView.swift */,
 				2409FACF2494C2F60036EDF0 /* ExpandingTbViewData.swift */,
 				2409FACD2494C2F60036EDF0 /* ExpandingTbViewSectionCell.swift */,
@@ -175,6 +202,7 @@
 				2409FACE2494C2F60036EDF0 /* MyData.swift */,
 				2409FACB2494BD980036EDF0 /* VocaTestVC.swift */,
 				249633CA2498B6BD00B83307 /* VocaTestImageAPI.swift */,
+				243FB2CB24AB80450099BDE4 /* VocaTestDataAPI.swift */,
 			);
 			path = VocaTest;
 			sourceTree = "<group>";
@@ -191,10 +219,36 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		243FB2D624AC44EC0099BDE4 /* TestResult */ = {
+			isa = PBXGroup;
+			children = (
+				243FB2D024AC3FFE0099BDE4 /* TestResultVC.swift */,
+				243FB2D224AC43AB0099BDE4 /* TestResultTBSectionCell.swift */,
+				243FB2D424AC44D90099BDE4 /* TestResultTableView.swift */,
+				243FB2D724AC451A0099BDE4 /* TestResultTbViewData.swift */,
+				243FB2D924AC45250099BDE4 /* TestResultData.swift */,
+			);
+			path = TestResult;
+			sourceTree = "<group>";
+		};
+		2464C3CE24AC6B2C00EE3E42 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2464C3D024AC6B3E00EE3E42 /* 2020-06-26.png */,
+				2464C3D224AC6B3E00EE3E42 /* 2020-06-27.png */,
+				2464C3CF24AC6B3E00EE3E42 /* 2020-06-28.png */,
+				2464C3D124AC6B3E00EE3E42 /* 2020-06-29.png */,
+				2464C3D324AC6B3F00EE3E42 /* 2020-06-30.png */,
+				2464C3D424AC6B3F00EE3E42 /* 2020-07-01.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		246ED5DC24876C1600A022FD /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				246ED5DD24876C2E00A022FD /* NetworkProtocol.swift */,
+				243FB2CE24AC2F580099BDE4 /* MemberAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -257,6 +311,7 @@
 		24963B9F247BEE3A00138002 /* HelpENG */ = {
 			isa = PBXGroup;
 			children = (
+				2464C3CE24AC6B2C00EE3E42 /* Resource */,
 				249633E724A4EB3400B83307 /* Setting */,
 				249633DA24A35A5600B83307 /* VocaData */,
 				249633D324A3535B00B83307 /* MyVocaList */,
@@ -449,9 +504,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2464C3D724AC6B3F00EE3E42 /* 2020-06-29.png in Resources */,
 				24963BB0247BEE3B00138002 /* LaunchScreen.storyboard in Resources */,
+				2464C3D524AC6B3F00EE3E42 /* 2020-06-28.png in Resources */,
 				24963BAD247BEE3B00138002 /* Assets.xcassets in Resources */,
+				2464C3D924AC6B3F00EE3E42 /* 2020-06-30.png in Resources */,
+				2464C3DA24AC6B3F00EE3E42 /* 2020-07-01.png in Resources */,
+				2464C3D624AC6B3F00EE3E42 /* 2020-06-26.png in Resources */,
 				24963BA8247BEE3A00138002 /* Main.storyboard in Resources */,
+				2464C3D824AC6B3F00EE3E42 /* 2020-06-27.png in Resources */,
 				2434AC322486A07D00CE6D0A /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,9 +648,12 @@
 				249633D524A3566900B83307 /* MyVocaListTableView.swift in Sources */,
 				2409FAD12494C2F60036EDF0 /* ExpandingTbViewSectionCell.swift in Sources */,
 				2409FAD22494C2F60036EDF0 /* MyData.swift in Sources */,
+				243FB2D824AC451A0099BDE4 /* TestResultTbViewData.swift in Sources */,
 				249633E024A3644000B83307 /* MyVocaListTbViewSectionCell.swift in Sources */,
 				249633CF249B592100B83307 /* MyColor.swift in Sources */,
+				243FB2D524AC44D90099BDE4 /* TestResultTableView.swift in Sources */,
 				2475CF93247E624F0007408B /* TodayVocaTb.swift in Sources */,
+				243FB2DA24AC45250099BDE4 /* TestResultData.swift in Sources */,
 				2409FAC72489E6C40036EDF0 /* JoinAPI.swift in Sources */,
 				2409FAD42494C2F60036EDF0 /* ExpandingTableView.swift in Sources */,
 				24963BE5247DFF8000138002 /* TodayVocaTbCell.swift in Sources */,
@@ -597,8 +661,10 @@
 				249633D724A357C000B83307 /* MyVocaListData.swift in Sources */,
 				24963BDF247DF43500138002 /* TodayVocaVC.swift in Sources */,
 				2434AC362486A4FF00CE6D0A /* LoginAPI.swift in Sources */,
+				243FB2CC24AB80450099BDE4 /* VocaTestDataAPI.swift in Sources */,
 				249633CB2498B6BD00B83307 /* VocaTestImageAPI.swift in Sources */,
 				249633D924A359DE00B83307 /* MyVocaListTbViewData.swift in Sources */,
+				243FB2CF24AC2F580099BDE4 /* MemberAPI.swift in Sources */,
 				24963BA5247BEE3A00138002 /* ViewController.swift in Sources */,
 				249633CD249B433200B83307 /* ExpandingTbViewSectionStackView.swift in Sources */,
 				24963BA1247BEE3A00138002 /* AppDelegate.swift in Sources */,
@@ -608,8 +674,10 @@
 				24963BAB247BEE3A00138002 /* HelpENG.xcdatamodeld in Sources */,
 				243FB2C624A61B7A0099BDE4 /* SettingTableView.swift in Sources */,
 				2409FAD32494C2F60036EDF0 /* ExpandingTbViewData.swift in Sources */,
+				243FB2D324AC43AB0099BDE4 /* TestResultTBSectionCell.swift in Sources */,
 				24963BE9247E0E9D00138002 /* Layer.swift in Sources */,
 				246ED5DE24876C2E00A022FD /* NetworkProtocol.swift in Sources */,
+				243FB2D124AC3FFE0099BDE4 /* TestResultVC.swift in Sources */,
 				243FB2CA24A61D730099BDE4 /* SettingItem.swift in Sources */,
 				24963BE3247DFB4800138002 /* TodayVocaTbData.swift in Sources */,
 				24963BE1247DFB0800138002 /* TodayVocaAPI.swift in Sources */,

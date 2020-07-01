@@ -20,7 +20,7 @@ struct TodayVocaTbData {
     var vocasData: [(eng: String, kor: String)]
     
     init() {
-        vocasData = [("choi","최"),("you","유"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완"),("wan","완")]
+        vocasData = [("transparency","투명도"), ("governance","통치"), ("hospital","병원"), ("agriculture","농업"), ("production","생산"), ("ecosystem","생태계"), ("camp","야영지"), ("airport","공항"), ("incontinence","실금"), ("church","교회"), ("communicate","의사소통하다"), ("predict","예측하다"), ("capital","수도"), ("develop","개발하다"), ("currency","통화"), ("prison","교도소"), ("deliver","배달하다"), ("treat","대하다"), ("scarce","부족한"), ("resource","자원")]
         
         self.engVocasHidden = Array(repeating: false, count: vocasData.count)
         self.korVocasHidden = Array(repeating: false, count: vocasData.count)

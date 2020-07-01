@@ -74,6 +74,49 @@
             </objects>
             <point key="canvasLocation" x="460" y="385.45727136431788"/>
         </scene>
+        <!--Test ResultVC-->
+        <scene sceneID="iCz-tw-kXa">
+            <objects>
+                <viewController storyboardIdentifier="TestResultVC" id="eDv-a9-3gr" customClass="TestResultVC" customModule="HelpENG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VuP-R9-Cc4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험 결과(틀린 단어)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-dA-uSI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fcg-dA-uSI" secondAttribute="height" multiplier="75:7" id="P3X-Zt-cUc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Al9-QD-kiO">
+                                <rect key="frame" x="0.0" y="35" width="375" height="632"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Al9-QD-kiO" firstAttribute="trailing" secondItem="V3T-G4-qlu" secondAttribute="trailing" id="4r3-kK-aMj"/>
+                            <constraint firstItem="Fcg-dA-uSI" firstAttribute="top" secondItem="V3T-G4-qlu" secondAttribute="top" id="JHK-ST-Isn"/>
+                            <constraint firstItem="Fcg-dA-uSI" firstAttribute="trailing" secondItem="V3T-G4-qlu" secondAttribute="trailing" id="NkF-FE-ATE"/>
+                            <constraint firstItem="Al9-QD-kiO" firstAttribute="leading" secondItem="V3T-G4-qlu" secondAttribute="leading" id="kVn-oc-4sv"/>
+                            <constraint firstItem="Fcg-dA-uSI" firstAttribute="leading" secondItem="V3T-G4-qlu" secondAttribute="leading" id="maL-FA-eDo"/>
+                            <constraint firstItem="Al9-QD-kiO" firstAttribute="top" secondItem="Fcg-dA-uSI" secondAttribute="bottom" id="pNt-kL-pgE"/>
+                            <constraint firstItem="V3T-G4-qlu" firstAttribute="bottom" secondItem="Al9-QD-kiO" secondAttribute="bottom" id="sIk-tR-Rks"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V3T-G4-qlu"/>
+                    </view>
+                    <connections>
+                        <outlet property="tbOutsideView" destination="Al9-QD-kiO" id="mjw-0f-PmL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTm-4C-B0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234.4000000000001" y="386.35682158920542"/>
+        </scene>
         <!--오늘의단어-->
         <scene sceneID="9Ev-Dx-UZd">
             <objects>
@@ -372,9 +415,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81z-xf-mmf">
-                                <rect key="frame" x="185" y="192" width="21" height="22"/>
+                                <rect key="frame" x="186" y="192" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="gift" catalog="system"/>
+                                <state key="normal" image="info.circle.fill" catalog="system"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GNh-eG-Raf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -418,6 +461,10 @@
                                     <constraint firstAttribute="width" secondItem="Joc-Dv-2i8" secondAttribute="height" multiplier="375:128" id="klC-Mk-0nP"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BlW-88-PdQ">
+                                <rect key="frame" x="76" y="311" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -672,7 +719,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsG-Ir-xEd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 5" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fsG-Ir-xEd">
                                         <rect key="frame" x="289" y="19" width="61" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fsG-Ir-xEd" secondAttribute="height" multiplier="61:22" id="vST-xr-HIq"/>
@@ -681,13 +728,10 @@
                                         <color key="textColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 한마디...." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zc7-2C-fLi">
-                                        <rect key="frame" x="123" y="79" width="244" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Zc7-2C-fLi" secondAttribute="height" multiplier="244:21" id="akK-gd-7K1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음 레벨까지 26번 PASS" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zc7-2C-fLi">
+                                        <rect key="frame" x="123" y="79" width="244" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" red="1" green="0.31869682669999999" blue="0.30494689940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -768,7 +812,7 @@
     <resources>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="gift" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.icloud" catalog="system" width="128" height="88"/>
         <image name="shuffle" catalog="system" width="128" height="93"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>

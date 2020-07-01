@@ -22,9 +22,7 @@ protocol ExpandingTableViewProtocol: ExpandingTableViewDataSource {
 }
 
 extension ExpandingTableViewProtocol {
-    func getRowTitle(indexPath: IndexPath) -> String {
-        return myData.sectionsData[indexPath.section].rowsTitles[indexPath.row - 1]
-    }
+    
 }
 
 class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewDataSource {
@@ -34,12 +32,21 @@ class ExpandingTableView: UITableView, ExpandingTableViewUI, ExpandingTableViewD
     
     func initUI() {
 //        self.backgroundColor = myBackgroundColor
+        myData.delegate = self
+        myData.getData()
         self.separatorStyle = .none
         self.tableFooterView = UIView()
         self.estimatedRowHeight = 50
         self.rowHeight = UITableView.automaticDimension
+        self.delaysContentTouches = false
         
 //        self.isEditing = true
+    }
+}
+
+extension ExpandingTableView: ExpandingTbViewDataProtocol {
+    func reloadTableView() {
+        self.reloadData()
     }
 }
 
@@ -61,9 +68,6 @@ extension ExpandingTableView {
 //MARK: - get TitleText From myData
 extension ExpandingTableView {
     
-    func getRowTitle(indexPath: IndexPath) -> String {
-        return myData.sectionsData[indexPath.section].rowsTitles[indexPath.row - 1]
-    }
     
     func getSectionData(indexPath: IndexPath) -> MyData {
         return myData.sectionsData[indexPath.section]

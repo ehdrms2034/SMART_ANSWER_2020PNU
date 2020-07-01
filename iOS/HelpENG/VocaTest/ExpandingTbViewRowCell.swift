@@ -19,7 +19,6 @@ import UIKit
 class ExpandingTbViewRowCell: UITableViewCell {
     
     let containerView = UIView()
-    let titleLabelView = UILabel()
     let testPaperImageView = UIImageView()
     let stackView = ExpandingTbViewRowStackView()
     
@@ -71,6 +70,7 @@ extension ExpandingTbViewRowCell: MyColor {
         testPaperImageView.backgroundColor = clearColor
         testPaperImageView.layer.borderWidth = 1
         testPaperImageView.layer.borderColor = mainColor.cgColor
+        testPaperImageView.contentMode = .scaleToFill
         testPaperImageView.layer.cornerRadius = 10
     }
     
@@ -89,8 +89,6 @@ extension ExpandingTbViewRowCell: MyColor {
 
 extension ExpandingTbViewRowCell {
     
-    func takeTextAndPutItOnLabel(text: String) {
-        titleLabelView.text = text
-    }
+    
 }
 

@@ -57,7 +57,7 @@ extension MyVocaListTableView {
         for item in list where item.level == level{
             newList.append(item)
         }
-        newList.sort { $0.date < $1.date }
+        newList.sort { $0.date > $1.date }
         return newList
     }
 }

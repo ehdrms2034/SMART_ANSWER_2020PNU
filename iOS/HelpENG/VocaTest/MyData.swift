@@ -14,10 +14,19 @@ protocol MyDataProtocol {
     var wrongScore: Int { get }
     var rightScore : Int { get }
     var level: Int { get }
-    var rowsTitles: [String] { get }
-    var rowsNumber: Int { get }
+    var meanWords: [String] { get }
+    var correctWords: [String] { get }
+    var myCorrectWordS: [String] { get }
     var isOpened:Bool { get set }
+    var testResult:Bool { get }
+    var point:Int { get }
     
+    
+}
+extension MyDataProtocol {
+    var rowsNumber: Int {
+        return 1
+    }
 }
 
 struct MyData: MyDataProtocol {
@@ -34,10 +43,21 @@ struct MyData: MyDataProtocol {
     var isOpened: Bool = false
     
     // Row Data
-    var rowsTitles: [String]
+    var meanWords: [String]
+    var correctWords: [String]
+    var myCorrectWordS: [String]
     
-    var rowsNumber: Int {
-        return rowsTitles.count
+    var testResult: Bool {
+        
+        if self.wrongScore >= 5 {
+            return false
+        } else {
+            return true
+        }
     }
     
+    var imageData: String
+    var point: Int = 1
+
 }
+

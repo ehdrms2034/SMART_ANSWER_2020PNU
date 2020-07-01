@@ -151,12 +151,10 @@ extension MyVocaListVC: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            print("cellcellcell")
             let cell = MyVocaListTbViewSectionCell()
             cell.setDateLabelText(text: data[indexPath.section].date)
             return cell
         default:
-            print("cellcellcell")
             let cell = TbViewVocaCell()
             let (voca, meaning) = (data[indexPath.section].vocaData[indexPath.row-1].voca, data[indexPath.section].vocaData[indexPath.row-1].meaning)
             cell.setVocaAndMeaningText(voca: voca, meaning: meaning)

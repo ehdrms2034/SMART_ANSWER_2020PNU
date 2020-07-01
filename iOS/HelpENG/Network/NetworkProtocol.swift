@@ -11,6 +11,7 @@ import Foundation
 protocol NetWorkProtocol {
     
     var ipData: String { get }
+
 }
 
 extension NetWorkProtocol {
@@ -18,5 +19,9 @@ extension NetWorkProtocol {
     var ipAddress: String {
         return "http://54.180.175.238:8080"
         
+    }
+    
+    var secIpData: String {
+        return ""
     }
 }
