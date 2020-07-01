@@ -79,7 +79,12 @@ public class ResultView extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        if(correct_words.isEmpty()) {
+        if(correct_words.size() != intent.getExtras().getStringArrayList("correct").size()) {
+            correct_words.clear();
+            mean_words.clear();
+            my_words.clear();
+
+
             correct_words.addAll(intent.getExtras().getStringArrayList("correct"));
             mean_words.addAll(intent.getExtras().getStringArrayList("mean"));
             my_words.addAll(intent.getExtras().getStringArrayList("my"));
@@ -93,6 +98,7 @@ public class ResultView extends AppCompatActivity {
         }
         resultRecycler.setAdapter(resultRecyclerAdapter);
         recommandRecycler.setAdapter(recommandRecyclerAdapter);
+
         /*
         responseData.enqueue(new Callback<DashboardData>() {
             @Override

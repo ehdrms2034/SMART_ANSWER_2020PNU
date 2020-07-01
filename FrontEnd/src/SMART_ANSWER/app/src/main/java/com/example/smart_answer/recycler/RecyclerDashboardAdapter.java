@@ -52,11 +52,9 @@ public class RecyclerDashboardAdapter extends RecyclerView.Adapter<RecyclerDashb
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
                     DashboardFragment dashboardFragment =  new DashboardFragment();
-                    if(correct_words.isEmpty()) {
-                        correct_words.addAll(dashboardFragment.results.get(pos).getCorrect_word());
-                        mean_words.addAll(dashboardFragment.results.get(pos).getMean_word());
-                        my_words.addAll(dashboardFragment.results.get(pos).getMy_word());
-                    }
+                    correct_words.addAll(dashboardFragment.results.get(pos).getCorrect_word());
+                    mean_words.addAll(dashboardFragment.results.get(pos).getMean_word());
+                    my_words.addAll(dashboardFragment.results.get(pos).getMy_word());
                     Intent intent = new Intent(v.getContext(), ResultView.class);
                     intent.putExtra("correct", correct_words);
                     intent.putExtra("mean", mean_words);
